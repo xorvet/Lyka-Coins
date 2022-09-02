@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Register from "./Register";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
+
   const [showRegister, setShowRegister] = useState(false);
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    axios
+      .post("/api/Login", {
+        identifier,
+        password,
+      })
+      .then((acc) => {
+        console.log(acc.data);
+        router.reload();
+        localStorage.setItem("user", JSON.stringify(acc.data._id));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -42,12 +62,15 @@ const Login = () => {
               <p className="" style={{ color: "#888888" }}>
                 Don't have and account Signup now!
               </p>
-              <form onSubmit={handleSubmit}>
+              <form>
                 <div className="form-group">
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="User Id"
+                    placeholder="Email or Password"
+                    onChange={(e) => {
+                      setIdentifier(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="form-group">
@@ -55,6 +78,9 @@ const Login = () => {
                     type="password"
                     className="form-control"
                     placeholder="Password"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                   />
                 </div>
 
@@ -67,7 +93,11 @@ const Login = () => {
                     >
                       Create An Account
                     </button>
-                    <button type="submit" className="btn btn-secondary">
+                    <button
+                      onClick={handleSubmit}
+                      type="submit"
+                      className="btn btn-secondary"
+                    >
                       Login
                     </button>
                   </div>
