@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
         </div>
       </Head>
 
-      {1 === 1 ? (
+      {1 === 2 ? (
         <Login />
       ) : (
         <form
