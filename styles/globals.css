@@ -1,0 +1,104 @@
+.searchtable th,
+.searchtable td {
+  padding: 10px;
+}
+
+.searchtable {
+  background-color: #4e73df;
+}
+
+.loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #000000d9;
+  z-index: 100;
+  text-align: center;
+  display: none;
+}
+
+.loader img {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+}
+
+.loader p {
+  color: #abaaaa;
+  position: absolute;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.analytics {
+  min-height: 70vh;
+}
+
+/*@media (max-width: 991px) {
+      .sidebar {
+          width: auto;
+          height: 100vh;
+          overflow-y: auto;
+          overflow-x: hidden;
+      }
+      #wrapper #content-wrapper {
+          overflow-y: auto;
+          height: 100vh;
+      }
+  }*/
+
+.copyBox {
+  position: relative;
+  border: 1px solid #00dce6;
+  margin-bottom: 10px;
+}
+
+.copyBox a {
+  position: absolute;
+  background: #00dce6;
+  width: 39px;
+  height: 47px;
+  text-align: center;
+  line-height: 47px;
+  color: #f9f9f9;
+  border-radius: 2px 0 0 2px;
+}
+
+.copyBox input[type="text"] {
+  padding: 14px 10px;
+  width: 100%;
+  background: #2e2e42;
+  border: 0;
+  padding-left: 45px;
+  outline: none;
+  color: #e7e7e7;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+@keyframes ablink {
+  0% {
+    transform: scale(0.2);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.2);
+  }
+}
+
+.blink {
+  animation: ablink linear 1.5s infinite;
+}
