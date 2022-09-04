@@ -11,7 +11,7 @@ const index = () => {
               className="text-center text-danger mb-2"
             />
             <h3 className="page-title">
-              Hello <small>Prem Kumar (277015)</small>
+              Hello <small>{typeof window !== "undefined" ? window.localStorage.getItem("username") : "User"}</small>
               <small className="d-block fs-larger text-danger">Inactive</small>
             </h3>
             <h5

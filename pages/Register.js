@@ -34,6 +34,7 @@ const Register = () => {
         console.log(acc.data);
         router.reload();
         localStorage.setItem("user", JSON.stringify(acc.data._id));
+        localStorage.setItem("username", String(acc.data.Name));
       })
       .catch((err) => {
         console.log(err);

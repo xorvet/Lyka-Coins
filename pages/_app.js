@@ -6,7 +6,8 @@ import SideBar from "../Components/SideBar";
 import HeaderRight from "../Components/HeaderRight";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
@@ -46,12 +47,7 @@ function MyApp({ Component, pageProps }) {
           {!window.localStorage.getItem("user") ? (
             <Login />
           ) : (
-            <form
-              name="aspnetForm"
-              method="post"
-              action="./Dashboard"
-              id="aspnetForm"
-            >
+            <>
               <div>
                 <input
                   type="hidden"
@@ -298,12 +294,13 @@ function MyApp({ Component, pageProps }) {
               </nav>
               <HeaderRight />
               <SideBar />
+              <ToastContainer />
               <Component {...pageProps} />
 
               <div className="loader-wrap hiding hide">
                 <i className="fa fa-circle-o-notch fa-spin-fast" />
               </div>
-            </form>
+            </>
           )}
         </>
       ) : (
