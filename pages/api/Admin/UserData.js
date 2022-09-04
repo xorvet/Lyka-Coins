@@ -21,18 +21,40 @@ export default async (req, res) => {
 const getUserDatas = async (req, res) => {
   const { id } = req.body;
 
-  const getUserData = await User.findById({ _id: id }).select(
-    "UserName  Name Email Country Mobile_Number WalleteAddress"
-  ); // Here we are filtering the api data
+  const getUserData = await User.findById({ _id: id }); // Here we are filtering the api data
 
   res.status(200).json(getUserData);
 };
 
 const updateUserDatas = async (req, res) => {
-  const { id, UserName, Name, Email, Country, Mobile_Number, WalleteAddress } =
-    req.body;
+  const {
+    id,
+    UserName,
+    Name,
+    Email,
+    Country,
+    Mobile_Number,
+    WalleteAddress,
+    password,
+    Status,
+    wallete,
+    Package,
+    packageId,
+  } = req.body;
 
-  if (!Name || !Country || !WalleteAddress) {
+  if (
+    !Name ||
+    !Country ||
+    !WalleteAddress ||
+    !password ||
+    !Status ||
+    !wallete ||
+    !Package ||
+    !packageId ||
+    !UserName||
+    !Email||
+    !Mobile_Number
+  ) {
     return res.status(404).json({ error: "Please Fill All The Colums" });
   }
 
@@ -53,10 +75,9 @@ const getAllUserDatas = async (req, res) => {
 };
 
 const deleteUserDatas = async (req, res) => {
-  const {id} = req.body;
-  console.log("the is is =====> "+id)
+  const { id } = req.body;
+  console.log("the is is =====> " + id);
 
-  await User.findByIdAndDelete({_id:id})
-  res.json({success:"done"})
-
+  await User.findByIdAndDelete({ _id: id });
+  res.json({ success: "done" });
 };

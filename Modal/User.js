@@ -30,9 +30,25 @@ const User = mongoose.Schema(
       type: "String",
       default: "null",
     },
+    Status: {
+      type: "String",
+      default: "Inactive",
+    },
+    Wallete: {
+      type: "Number",
+      default: 0,
+    },
+    PackageId: {
+      type: "String",
+      default: "null",
+    },
+    PackageName: {
+      type: "String",
+      default: "null",
+    },
   },
   {
     timestamps: true,
   }
 );
-export default mongoose.models.User || mongoose.model("User", User);
+export default mongoose.models.Us || mongoose.model("Us", User);

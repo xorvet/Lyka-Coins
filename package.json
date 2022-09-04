@@ -9,11 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "6",
+    "@fortawesome/free-solid-svg-icons": "6",
+    "@fortawesome/react-fontawesome": "0",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
+    "bootstrap": "5",
+    "cdbreact": "^1.5.3",
     "mongoose": "^6.5.4",
     "next": "12.2.5",
     "react": "18.2.0",
+    "react-bootstrap": "2",
+    "react-bs-datatable": "3",
     "react-dom": "18.2.0",
     "react-toastify": "^9.0.8",
     "unique-username-generator": "^1.1.1"

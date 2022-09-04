@@ -91,6 +91,15 @@ const HeaderRight = () => {
                   </a>
                 </Link>
                 </li>
+
+                <li>
+                <Link href="/AdminUser">
+
+                  <a className="dropdown-item" >
+                  Admin
+                  </a>
+                </Link>
+                </li>
                 <li className="dropdown-divider" />
                 <li>
                   <a onClick={handleLogout} className="dropdown-item">

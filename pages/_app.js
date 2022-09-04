@@ -6,8 +6,8 @@ import SideBar from "../Components/SideBar";
 import HeaderRight from "../Components/HeaderRight";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
@@ -285,11 +285,7 @@ function MyApp({ Component, pageProps }) {
                       </a>
                     </li>
                   </ul>
-                  {/* <h5 class="sidebar-nav-title">Template</h5> */}
-                  {/*<h5 class="sidebar-nav-title">Labels</h5>
-      <ul class="sidebar-labels">
-          <li><a href="#"><i class="fa fa-circle text-danger mr-xs"></i><span class="label-name">My Recent</span></a></li>
-      </ul>*/}
+               
                 </div>
               </nav>
               <HeaderRight />
@@ -346,6 +342,7 @@ function MyApp({ Component, pageProps }) {
       <Script src="js/moment.min.js" />
       <Script src="js/moment-timezone.min.js" />
       <Script src="js/moment-timezone-with-data.min.js" />
+      <Script src="js/mine.js" />
     </>
   );
 }
