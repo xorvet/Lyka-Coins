@@ -1,11 +1,11 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-const DepositLyka = ({ id, inputValue, setGoForDeposit ,getData}) => {
+const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, packagePeriod, packageReward, packageMin, packageMax, amountDeposit}) => {
   const [userId, setUserId] = useState("");
   useEffect(() => {
     if (typeof window !== "undefined") {
       const userId = window.localStorage.getItem("user");
-      const parsedUserId = userId.replaceAll('"', '');
+      const parsedUserId = userId.replaceAll('"', "");
       setUserId(parsedUserId);
     }
   }, []);
@@ -13,33 +13,26 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit ,getData}) => {
   const openMetaMask = () => {
     if (window.ethereum) {
       window.ethereum.request({ method: "eth_requestAccounts" }).then((res) => {
-
-
         try {
-            axios.post("/api/Package/ActivatePackage",{
-                PackageId:id,
-                userID:userId
-
+          axios
+            .post("/api/Package/ActivatePackage", {
+              userID: userId,
+              PackageName: packageName,
+              PackagePeriod: packagePeriod,
+              PackageReward: packageReward,
+              PackageMin: packageMin+"$",
+              PackageMax: packageMax+"$",
+              AmountDeposit: amountDeposit+"$",
+              LykaTokens: Number(inputValue) * 2,
             })
-            .then((acc)=>{
-                getData()
-                setGoForDeposit(false)
-
+            .then((acc) => {
+              getData();
+              setGoForDeposit(false);
             })
-            .catch((err)=>{
-                console.log(err)
-            })
-            
-        } catch (error) {
-            
-        }
-        
-
-
-
-
-
-
+            .catch((err) => {
+              console.log(err);
+            });
+        } catch (error) {}
       });
     } else {
       alert("install metamask extension!!");

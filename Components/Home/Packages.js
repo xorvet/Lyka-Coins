@@ -8,6 +8,15 @@ const Packages = ({getDatas}) => {
   const [goForDeposit, setGoForDeposit] = useState(false);
   const [id, setId] = useState("");
 
+
+
+  const [packageName, setPackageName] = useState("");
+  const [packagePeriod, setPackagePeriod] = useState("");
+  const [packageReward, setPackageReward] = useState("");
+  const [packageMin, setPackageMin] = useState("");
+  const [packageMax, setPackageMax] = useState("");
+  const [amountDeposit, setAmountDeposit] = useState("");
+
   useEffect(() => {
     getData();
   }, []);
@@ -28,14 +37,20 @@ const Packages = ({getDatas}) => {
     }
   };
 
-  const handleButttonClicked = (id) => {
+  const handleButttonClicked = (id,name,packagePeriod,packageReward,packageMin,packageMax,amountDeposit) => {
     setId(id)
     setGoForDeposit(true)
+    setPackageName(name)
+    setPackagePeriod(packagePeriod)
+    setPackageReward(packageReward)
+    setPackageMin(packageMin)
+    setPackageMax(packageMax)
+    setAmountDeposit(amountDeposit)
   };
 
   return (
     <>
-      {goForDeposit && <DepositLyka getData={getDatas}  id={id} inputValue={inputValue} setGoForDeposit={setGoForDeposit} />}
+      {goForDeposit && <DepositLyka packageName={packageName} packagePeriod={packagePeriod} packageReward={packageReward} packageMin={packageMin}  packageMax={packageMax} amountDeposit={amountDeposit} getData={getDatas}  id={id} inputValue={inputValue} setGoForDeposit={setGoForDeposit} />}
       {!goForDeposit && (
         <div className="mt-5 mb-5">
           <h3 className="mb-4">Available Plans</h3>
@@ -78,7 +93,7 @@ const Packages = ({getDatas}) => {
                             defaultValue={inputValue}
                           />
                           {inputValue < Number(hit.PackageMin) ||
-                          inputValue > Number(hit.PackageMin) ? (
+                          inputValue > Number(hit.PackageMax) ? (
                             <button
                               className="btn btn-outline-secondary disabled"
                               type="button"
@@ -88,7 +103,7 @@ const Packages = ({getDatas}) => {
                             </button>
                           ) : (
                             <button
-                              onClick={() => handleButttonClicked(hit._id)}
+                              onClick={() => handleButttonClicked(hit._id,hit.PackageName,hit.PackagePeriod,hit.PackageReward,hit.PackageMin,hit.PackageMax,inputValue)}
                               className="btn btn-outline-secondary"
                               type="button"
                               id="button-addon2"
