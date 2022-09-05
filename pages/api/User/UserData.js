@@ -22,7 +22,7 @@ const getUserDatas = async (req, res) => {
   const { id } = req.body;
 
   const getUserData = await User.findById({ _id: id }).select(
-    "UserName  Name Email Country Mobile_Number WalleteAddress"
+    "UserName  Name Email Country Mobile_Number WalleteAddress Status Wallete PackageId PackageName"
   ); // Here we are filtering the api data
 
   res.status(200).json(getUserData);

@@ -46,6 +46,10 @@ const User = mongoose.Schema(
       type: "String",
       default: "null",
     },
+    PackageEndOn: {
+      type: "String",
+      default: "null",
+    },
   },
   {
     timestamps: true,

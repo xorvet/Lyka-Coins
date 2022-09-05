@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import UsersList from "../Components/Admin/Users/UsersList";
-
+import PackageList from "../Components/Admin/Packages/PackageList";
 const AdminUser = () => {
   const [Users, setUsers] = useState(false);
+  const [Packages, setPackages] = useState(false);
 
   return (
     <>
       {Users && <UsersList setUsers={setUsers} />}
-      {!Users && (
+      {Packages && <PackageList setPackages={setPackages} />}
+      {!Users && !Packages && (
         <div className="content-wrap">
           <main id="content" className="content" role="main">
             <div className="analytics">
@@ -33,7 +35,7 @@ const AdminUser = () => {
                             className="d-flex align-items-center pb-1"
                             style={{ fontSize: 16 }}
                           >
-                            Total User's
+                           User's
                           </h4>
                         </header>
                         <div className="widget-body p-0">
@@ -50,6 +52,7 @@ const AdminUser = () => {
                   </div>
 
                   <div
+                    onClick={() => setPackages(true)}
                     style={{ cursor: "pointer" }}
                     className="col-sm-12 col-lg-3 mb-lg order-0 order-md-2"
                   >
@@ -60,7 +63,7 @@ const AdminUser = () => {
                             className="d-flex align-items-center pb-1"
                             style={{ fontSize: 16 }}
                           >
-                            Something
+                            Packages
                           </h4>
                         </header>
                         <div className="widget-body p-0">
