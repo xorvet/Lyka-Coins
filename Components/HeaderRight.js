@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import axios from "axios"
-const HeaderRight = () => {
+import axios from "axios";
+import { useRouter } from "next/router";
 
+const HeaderRight = () => {
+  const router = useRouter();
 
   const handleLogout = () => {
     if (typeof window !== "undefined") {
@@ -10,9 +12,6 @@ const HeaderRight = () => {
       router.reload();
     }
   };
-
-  
- 
 
   return (
     <nav className="page-controls navbar navbar-dashboard">
@@ -55,7 +54,11 @@ const HeaderRight = () => {
               <span className="thumb-sm avatar d-none">
                 <img className="rounded-circle" src alt="..." />
               </span>
-              <span>{typeof window !== "undefined" ? window.localStorage.getItem("username") : ""}</span>
+              <span>
+                {typeof window !== "undefined"
+                  ? window.localStorage.getItem("username")
+                  : ""}
+              </span>
             </li>
             <li className="dropdown nav-item">
               <a
@@ -76,29 +79,20 @@ const HeaderRight = () => {
                 </li>
                 <li className="dropdown-divider" />
                 <li>
-                <Link href="/DipositHistory">
-
-                  <a className="dropdown-item" >
-                    Deposit History
-                  </a>
-                </Link>
+                  <Link href="/DipositHistory">
+                    <a className="dropdown-item">Deposit History</a>
+                  </Link>
                 </li>
                 <li>
-                <Link href="/WithdrawalHistory">
-
-                  <a className="dropdown-item" >
-                    Withdrawal History
-                  </a>
-                </Link>
+                  <Link href="/WithdrawalHistory">
+                    <a className="dropdown-item">Withdrawal History</a>
+                  </Link>
                 </li>
 
                 <li>
-                <Link href="/AdminUser">
-
-                  <a className="dropdown-item" >
-                  Admin
-                  </a>
-                </Link>
+                  <Link href="/AdminUser">
+                    <a className="dropdown-item">Admin</a>
+                  </Link>
                 </li>
                 <li className="dropdown-divider" />
                 <li>

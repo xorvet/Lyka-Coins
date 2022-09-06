@@ -11,28 +11,23 @@ export default async (req, res) => {
 };
 
 const ActivatePackage = async (req, res) => {
-  const {
-    userID,
-    PackageName,
-    PackagePeriod,
-    PackageReward,
-    PackageMin,
-    PackageMax,
-    AmountDeposit,
-    LykaTokens,
-    ExpiryDate
-  } = req.body;
-  console.log(
-    userID,
-    PackageName,
-    PackagePeriod,
-    PackageReward,
-    PackageMin,
-    PackageMax,
-    AmountDeposit,
-    LykaTokens,
-    ExpiryDate
-  );
+
+
+  const { userID, PackageName, PackagePeriod, PackageReward, PackageMin, PackageMax, AmountDeposit, LykaTokens, ExpiryDate } = req.body;
+  console.log( userID, PackageName, PackagePeriod, PackageReward, PackageMin, PackageMax, AmountDeposit, LykaTokens, ExpiryDate );
+
+
+
+  var today = new Date();
+  var date = today.getDate() + "/"+ parseInt(today.getMonth()+1) +"/"+ parseInt(today.getFullYear()+Number(PackagePeriod));
+
+  var todayTime = new Date();
+  var time = parseInt(todayTime.getHours()+1) + ":" + todayTime.getMinutes()
+
+
+
+
+
 
   const CreateNewPurchaseOrder = await new PurchasedPackages({
     PackageQwner: userID,
@@ -43,8 +38,8 @@ const ActivatePackage = async (req, res) => {
     PackageMax,
     AmountDeposit,
     LykaTokens,
-    ExpiryDate:"05/09/2023",
-    NextDailyRewardOn:"12:30 PM"
+    ExpiryDate:date,
+    NextDailyRewardOn:time
   }).save();
 
 
@@ -62,8 +57,8 @@ const ActivatePackage = async (req, res) => {
     PackageMax,
     AmountDeposit,
     LykaTokens,
-    ExpiryDate:"05/09/2023",
-    NextDailyRewardOn:"12:30 PM"
+    ExpiryDate:date,
+    NextDailyRewardOn:time
   }).save()
 
 

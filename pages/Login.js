@@ -3,7 +3,8 @@ import Link from "next/link";
 import Register from "./Register";
 import axios from "axios";
 import { useRouter } from "next/router";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const router = useRouter();
 
@@ -23,14 +24,25 @@ const Login = () => {
         router.reload();
         localStorage.setItem("user", JSON.stringify(acc.data._id));
         localStorage.setItem("username", String(acc.data.Name));
+        
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data.error);
+        toast.error(err.response.data.error, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
 
   return (
     <>
+    <ToastContainer/>
       {showRegister ? (
         <Register />
       ) : (

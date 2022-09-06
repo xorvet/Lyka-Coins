@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Login from "./Login";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const router = useRouter();
@@ -35,13 +37,25 @@ const Register = () => {
         router.reload();
         localStorage.setItem("user", JSON.stringify(acc.data._id));
         localStorage.setItem("username", String(acc.data.Name));
+        setMessage("")
       })
       .catch((err) => {
-        console.log(err);
+        setMessage("")
+        console.log(err.response.data.error);
+        toast.error(err.response.data.error, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
   return (
     <>
+    <ToastContainer/>
       {showRegister ? (
         <Login />
       ) : (
@@ -130,6 +144,7 @@ const Register = () => {
                     }}
                   />
                 </div>
+                <p className="text-center text-danger">{message}</p>
 
                 <div className="text-center mt-3">
                   <button
