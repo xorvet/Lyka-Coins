@@ -1,6 +1,31 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 const DipositHistory = () => {
+  const [datas, setDatas] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const ids = window.localStorage.getItem("user");
+      const parsedId = ids.replaceAll('"', "");
+      console.log(parsedId);
+
+      try {
+        axios
+          .post("/api/History/PackageDepositHistory", {
+            id: parsedId,
+          })
+          .then((acc) => {
+            setDatas(acc.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, []);
+
   return (
     <div className="content-wrap">
       <main id="content" className="content" role="main">
@@ -23,7 +48,8 @@ const DipositHistory = () => {
             <thead>
               <tr>
                 <th scope="col">S.No</th>
-                <th scope="col">Staking Amount (USD)</th>
+                <th scope="col">Package Name</th>
+                <th scope="col">Amount Deposit</th>
                 <th scope="col">Lyka Price</th>
                 <th scope="col">Invested Date</th>
                 <th scope="col">Percentage</th>
@@ -31,142 +57,23 @@ const DipositHistory = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>100</td>
-                <td>200</td>
-                <td>21-09-2022</td>
-                <td>48% APY</td>
-                <td>21-09-2023</td>
-              </tr>
+              {datas ? (
+                datas.map((hit,index) => {
+                  return (
+                    <tr key={hit._id}>
+                      <td>{index+1}</td>
+                      <td>{hit.PackageName}</td>
+                      <td>{hit.AmountDeposit}</td>
+                      <td>{hit.LykaTokens} Tokens</td>
+                      <td>{hit.createdAt}</td>
+                      <td>{hit.PackageReward} APY</td>
+                      <td>{hit.ExpiryDate}</td>
+                    </tr>
+                  );
+                })
+              ) : (
+                <></>
+              )}
             </tbody>
           </table>
         </div>

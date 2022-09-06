@@ -2,7 +2,7 @@ import initDB from "../../../helper/initDB";
 import User from "../../../Modal/User";
 import Packages from "../../../Modal/Packages";
 import PurchasedPackages from "../../../Modal/PurchasedPackages";
-
+import PackageHistory from "../../../Modal/History/PackageHistory"
 initDB();
 export default async (req, res) => {
   if (req.method == "POST") {
@@ -51,6 +51,37 @@ const ActivatePackage = async (req, res) => {
 
 
   await User.findByIdAndUpdate({_id:userID},{Status:"Active"})
+
+
+  await new PackageHistory({
+    PackageQwner: userID,
+    PackageName,
+    PackagePeriod,
+    PackageReward,
+    PackageMin,
+    PackageMax,
+    AmountDeposit,
+    LykaTokens,
+    ExpiryDate:"05/09/2023",
+    NextDailyRewardOn:"12:30 PM"
+  }).save()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   res.json(CreateNewPurchaseOrder);
 };
