@@ -29,7 +29,7 @@ const Plans = () => {
     <>
       {datas ? (
         <div className="mb-4">
-          <h5>My Active Staked Plan</h5>
+          <h5>My Active Staked Plans</h5>
           <div className="table-responsive">
             <div>
               <table

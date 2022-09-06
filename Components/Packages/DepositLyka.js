@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useRouter } from 'next/router'
+
 const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, packagePeriod, packageReward, packageMin, packageMax, amountDeposit}) => {
   const [userId, setUserId] = useState("");
+  const router = useRouter()
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const userId = window.localStorage.getItem("user");
@@ -26,6 +30,7 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
               LykaTokens: Number(inputValue) * 2,
             })
             .then((acc) => {
+              router.push("/")
               getData();
               setGoForDeposit(false);
             })
