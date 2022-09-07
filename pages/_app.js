@@ -214,10 +214,15 @@ function MyApp({ Component, pageProps }) {
                       </a>
                       <ul id="five" className="collapse">
                         <li>
-                          <a href="AccountSummary">Withdrawal</a>
+                        <Link href="/Withdrawal/Withdrawal">
+                          <a >Withdrawal</a>
+                        </Link>
                         </li>
                         <li>
-                          <a href="WithdrawlHistory">Withdrawal History</a>
+                        <Link href="/Withdrawal/WithdrawalHistory">
+                          <a >Withdrawal History</a>
+                        </Link>
+
                         </li>
                       </ul>
                     </li>

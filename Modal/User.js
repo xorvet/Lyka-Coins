@@ -50,9 +50,13 @@ const User = mongoose.Schema(
       type: "String",
       default: "null",
     },
+    UserType: {
+      type: "String",
+      default: "User",
+    },
   },
   {
     timestamps: true,
   }
 );
-export default mongoose.models.Us || mongoose.model("Us", User);
+export default mongoose.models.Userr || mongoose.model("Userr", User);

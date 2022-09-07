@@ -84,7 +84,7 @@ const HeaderRight = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/WithdrawalHistory">
+                  <Link href="/Withdrawal/WithdrawalHistory">
                     <a className="dropdown-item">Withdrawal History</a>
                   </Link>
                 </li>
