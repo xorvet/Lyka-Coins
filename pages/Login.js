@@ -73,7 +73,7 @@ const Login = () => {
                 Use your userid as username to sign in.
               </p>
               <p className="" style={{ color: "#888888" }}>
-                Don't have and account Signup now!
+                Dont have and account Signup now!
               </p>
               <form>
                 <div className="form-group">

@@ -5,7 +5,7 @@ import Packages from "../Components/Home/Packages";
 import Plans from "../Components/Home/Plans";
 import ProfileData from "../Components/Home/ProfileData";
 import axios from "axios";
-const index = () => {
+const Index = () => {
   const [status, setStatus] = useState("");
   useEffect(() => {
     getData();
@@ -54,4 +54,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

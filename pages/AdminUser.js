@@ -21,7 +21,7 @@ const AdminUser = () => {
                 <h3 className="page-title">
                   Hey, <small>Admin</small>
                 </h3>
-                <small>Today's Analylics</small>
+                <small>Todays Analylics</small>
                 <div className="row" style={{ marginTop: 20 }}>
                   <div
                     onClick={() => setUsers(true)}
@@ -35,7 +35,7 @@ const AdminUser = () => {
                             className="d-flex align-items-center pb-1"
                             style={{ fontSize: 16 }}
                           >
-                           User's
+                           Users
                           </h4>
                         </header>
                         <div className="widget-body p-0">
