@@ -41,8 +41,7 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <div>
-    <p>this is empty</p>
-      {/* <Head>
+      <Head>
         <div>
           <title>Lyka Coin</title>
           <meta
@@ -62,7 +61,8 @@ const MyApp = ({ Component, pageProps }) => {
           <link href="css/mystyles.css" rel="stylesheet" />
           
         </div>
-      </Head> */}
+      </Head>
+      <p>this is now</p>
   
 
       {/* {showWindow ? (
