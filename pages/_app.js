@@ -57,12 +57,10 @@ function MyApp({ Component, pageProps }) {
           {/* <link href rel="stylesheet" /> */}
         </div>
       </Head>
-      <div>
+      {/* <div>
 
       {showWindow ? (
         <>
-
-        {/* <>
           {!window.localStorage.getItem("user") ? (
             <Login />
           ) : (
@@ -352,16 +350,13 @@ function MyApp({ Component, pageProps }) {
               </div>
             </>
           )}
-        </> */}
-
-
-        <p>this is working</p>
         </>
-        
       ) : (
         <div></div>
       )}
-      </div>
+      </div> */}
+
+      <p>this is working here</p>
 
 
       <Script src="js/jquery.min.js" />
