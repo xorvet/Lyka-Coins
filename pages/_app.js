@@ -41,7 +41,7 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <div>
-      <Head>
+      {/* <Head>
         <div>
           <title>Lyka Coin</title>
           <meta
@@ -61,11 +61,11 @@ const MyApp = ({ Component, pageProps }) => {
           <link href="css/mystyles.css" rel="stylesheet" />
           
         </div>
-      </Head>
-      <p>this is now</p>
+      </Head> */}
+    
   
 
-      {/* {showWindow ? (
+      {showWindow ? (
         <>
           {!window.localStorage.getItem("user") ? (
             <Login />
@@ -359,10 +359,10 @@ const MyApp = ({ Component, pageProps }) => {
         </>
       ) : (
         <div></div>
-      )} */}
+      )}
      
 
-{/* 
+
       <Script src="js/jquery.min.js" />
 
       <Script src="js/popper.js" />
@@ -402,7 +402,7 @@ const MyApp = ({ Component, pageProps }) => {
       <Script src="js/moment.min.js" />
       <Script src="js/moment-timezone.min.js" />
       <Script src="js/moment-timezone-with-data.min.js" />
-      <Script src="js/mine.js" /> */}
+      <Script src="js/mine.js" />
     </div>
   );
 }
