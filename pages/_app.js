@@ -7,7 +7,7 @@ import SideBar from "../Components/SideBar";
 import HeaderRight from "../Components/HeaderRight";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
@@ -41,7 +41,8 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <div>
-      <Head>
+    <p>this is empty</p>
+      {/* <Head>
         <div>
           <title>Lyka Coin</title>
           <meta
@@ -59,18 +60,18 @@ const MyApp = ({ Component, pageProps }) => {
           />
           <link href="css/application.css" rel="stylesheet" />
           <link href="css/mystyles.css" rel="stylesheet" />
-          {/* <link href rel="stylesheet" /> */}
+          
         </div>
-      </Head>
+      </Head> */}
   
 
-      {showWindow ? (
+      {/* {showWindow ? (
         <>
           {!window.localStorage.getItem("user") ? (
             <Login />
           ) : (
             <>
-              {/* <div>
+              <div>
                 <input
                   type="hidden"
                   name="__VIEWSTATE"
@@ -347,22 +348,22 @@ const MyApp = ({ Component, pageProps }) => {
               </nav>
               <HeaderRight />
               <SideBar />
-              <ToastContainer /> */}
+              <ToastContainer />
               <Component {...pageProps} />
-{/* 
+
               <div className="loader-wrap hiding hide">
                 <i className="fa fa-circle-o-notch fa-spin-fast" />
-              </div> */}
+              </div>
             </>
           )}
         </>
       ) : (
         <div></div>
-      )}
+      )} */}
      
 
-
-      {/* <Script src="js/jquery.min.js" />
+{/* 
+      <Script src="js/jquery.min.js" />
 
       <Script src="js/popper.js" />
       <Script src="js/bootstrap.js" />
