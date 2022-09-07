@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
           />
           <link href="css/application.css" rel="stylesheet" />
           <link href="css/mystyles.css" rel="stylesheet" />
-          <link href rel="stylesheet" />
+          {/* <link href rel="stylesheet" /> */}
         </div>
       </Head>
 
@@ -338,7 +338,7 @@ function MyApp({ Component, pageProps }) {
         <></>
       )}
 
-      {/* <Script src="js/jquery.min.js" />
+      <Script src="js/jquery.min.js" />
 
       <Script src="js/popper.js" />
       <Script src="js/bootstrap.js" />
@@ -377,7 +377,7 @@ function MyApp({ Component, pageProps }) {
       <Script src="js/moment.min.js" />
       <Script src="js/moment-timezone.min.js" />
       <Script src="js/moment-timezone-with-data.min.js" />
-      <Script src="js/mine.js" /> */}
+      <Script src="js/mine.js" />
     </>
   );
 }
