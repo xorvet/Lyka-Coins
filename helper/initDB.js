@@ -6,7 +6,7 @@ function initDB(){
         return
     }
 
-    mongoose.connect("mongodb://localhost:27017/LykaCoin",{
+    mongoose.connect("mongodb+srv://surajlyka:LrHR9X0iuTTTXmeN@cluster0.zr0lak0.mongodb.net/?retryWrites=true&w=majority",{
         useNewUrlParser : true,
         useUnifiedTopology:true
 
