@@ -7,9 +7,14 @@ import SideBar from "../Components/SideBar";
 import HeaderRight from "../Components/HeaderRight";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-function MyApp({ Component, pageProps }) {
+
+
+// const MyApp = () =>
+
+
+const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const [showWindow, setShowWindow] = useState(false);
 
@@ -57,15 +62,15 @@ function MyApp({ Component, pageProps }) {
           {/* <link href rel="stylesheet" /> */}
         </div>
       </Head>
-      <div>
+  
 
       {showWindow ? (
         <>
           {!window.localStorage.getItem("user") ? (
-            <div><p>this is here</p></div>
+            <Login />
           ) : (
             <>
-              <div>
+              {/* <div>
                 <input
                   type="hidden"
                   name="__VIEWSTATE"
@@ -342,22 +347,22 @@ function MyApp({ Component, pageProps }) {
               </nav>
               <HeaderRight />
               <SideBar />
-              <ToastContainer />
+              <ToastContainer /> */}
               <Component {...pageProps} />
-
+{/* 
               <div className="loader-wrap hiding hide">
                 <i className="fa fa-circle-o-notch fa-spin-fast" />
-              </div>
+              </div> */}
             </>
           )}
         </>
       ) : (
         <div></div>
       )}
-      </div>
+     
 
 
-      <Script src="js/jquery.min.js" />
+      {/* <Script src="js/jquery.min.js" />
 
       <Script src="js/popper.js" />
       <Script src="js/bootstrap.js" />
@@ -396,7 +401,7 @@ function MyApp({ Component, pageProps }) {
       <Script src="js/moment.min.js" />
       <Script src="js/moment-timezone.min.js" />
       <Script src="js/moment-timezone-with-data.min.js" />
-      <Script src="js/mine.js" />
+      <Script src="js/mine.js" /> */}
     </div>
   );
 }
