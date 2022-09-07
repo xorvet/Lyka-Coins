@@ -356,7 +356,7 @@ function MyApp({ Component, pageProps }) {
       )}
       </div>
 
-
+{/* 
       <Script src="js/jquery.min.js" />
 
       <Script src="js/popper.js" />
@@ -396,7 +396,7 @@ function MyApp({ Component, pageProps }) {
       <Script src="js/moment.min.js" />
       <Script src="js/moment-timezone.min.js" />
       <Script src="js/moment-timezone-with-data.min.js" />
-      <Script src="js/mine.js" />
+      <Script src="js/mine.js" /> */}
     </>
   );
 }
