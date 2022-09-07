@@ -62,7 +62,7 @@ function MyApp({ Component, pageProps }) {
       {showWindow ? (
         <>
           {!window.localStorage.getItem("user") ? (
-            <Login />
+            <div><p>this is here</p></div>
           ) : (
             <>
               <div>
