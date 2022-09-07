@@ -1,3 +1,4 @@
+import {useEffect,useState} from "react";
 import "../styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
@@ -10,6 +11,21 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [showWindow, setShowWindow] = useState(false);
+
+
+
+  useEffect(() => {
+    
+    setShowWindow(true)
+
+
+
+
+  }, []);
+
+
+
 
   const handleLogout = () => {
     if (typeof window !== "undefined") {
@@ -41,8 +57,9 @@ function MyApp({ Component, pageProps }) {
           {/* <link href rel="stylesheet" /> */}
         </div>
       </Head>
+      <div>
 
-      {typeof window !== "undefined" ? (
+      {showWindow ? (
         <>
           {!window.localStorage.getItem("user") ? (
             <Login />
@@ -337,6 +354,8 @@ function MyApp({ Component, pageProps }) {
       ) : (
         <></>
       )}
+      </div>
+
 
       <Script src="js/jquery.min.js" />
 
