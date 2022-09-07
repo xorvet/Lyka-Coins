@@ -41,8 +41,8 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <div>
-      {/* <Head>
-        <div>
+      <Head>
+      
           <title>Lyka Coin</title>
           <meta
             name="viewport"
@@ -57,11 +57,11 @@ const MyApp = ({ Component, pageProps }) => {
             rel="shortcut icon"
             href="https://lykacoin.io/images/favicon.png"
           />
-          <link href="css/application.css" rel="stylesheet" />
-          <link href="css/mystyles.css" rel="stylesheet" />
+          <link href="/css/application.css" rel="stylesheet" />
+          <link href="/css/mystyles.css" rel="stylesheet" />
           
-        </div>
-      </Head> */}
+       
+      </Head>
     
   
 
