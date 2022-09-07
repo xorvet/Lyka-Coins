@@ -61,6 +61,8 @@ function MyApp({ Component, pageProps }) {
 
       {showWindow ? (
         <>
+
+        {/* <>
           {!window.localStorage.getItem("user") ? (
             <Login />
           ) : (
@@ -350,7 +352,12 @@ function MyApp({ Component, pageProps }) {
               </div>
             </>
           )}
+        </> */}
+
+
+        <p>this is working</p>
         </>
+        
       ) : (
         <div></div>
       )}
