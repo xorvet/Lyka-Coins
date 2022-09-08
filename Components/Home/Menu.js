@@ -1,6 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Plans from "../../Components/Home/Plans";
 const Menu = () => {
+  const [datas, setDatas] = useState("");
+  const [datass, setDatass] = useState("");
+let val = 0
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const ids = window.localStorage.getItem("user");
+      const parsedId = ids.replaceAll('"', "");
+      console.log(parsedId);
+
+      try {
+        axios
+          .post("/api/History/PackageDepositHistory", {
+            id: parsedId,
+          })
+          .then((acc) => {
+            setDatas(acc.data);
+
+
+
+
+
+
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+
+
+
+      try {
+        axios
+          .post("/api/User/UserData", {
+            id: parsedId,
+          })
+          .then((acc) => {
+            setDatass(acc.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+
+
+
+
+
+
+    }
+  }, []);
+
   return (
     <div className="row" style={{ marginTop: 20 }}>
       <div className="col-sm-12 col-lg-3 mb-lg order-0 order-md-2">
@@ -18,7 +75,22 @@ const Menu = () => {
               <div className="d-flex">
                 <div className="w-100">
                   <h4 className="fw-semi-bold ml-lg mb-lg">
-                    <span className="text-success"> 7800$ </span>
+                  {
+                    datas ? 
+                    datas.map((hit)=>{
+                      var min = hit.AmountDeposit.replace('$','')
+              
+                      val = val +Number(min)
+                    })
+
+
+                    :
+
+
+                    <></>
+                  }
+                  <span className="text-success"> {val}$ </span>
+                    
                   </h4>
                   <p style={{ textAlign: "center" }}>
                     450 LYKA at present Value
@@ -45,9 +117,26 @@ const Menu = () => {
                 <div className="w-100">
                   <h4 className="fw-semi-bold ml-lg mb-lg">
                     <span>
+
+
+                    {
+                      datass ? 
+                      
                       <span id="lblBinaryQualified" className="text-success">
-                        580$
+                      {datass.Wallete}$
                       </span>
+
+
+                      :
+
+
+                      <></>
+                    }
+
+
+
+
+
                     </span>
                   </h4>
                   <p style={{ textAlign: "center" }}>
