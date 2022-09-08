@@ -4,8 +4,9 @@ import Plans from "../../Components/Home/Plans";
 const Menu = () => {
   const [datas, setDatas] = useState("");
   const [datass, setDatass] = useState("");
+  const [datasss, setDatasss] = useState("");
 let val = 0
-
+let num = 0
   useEffect(() => {
     if (typeof window !== "undefined") {
       const ids = window.localStorage.getItem("user");
@@ -42,6 +43,24 @@ let val = 0
           })
           .then((acc) => {
             setDatass(acc.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+
+
+
+
+      try {
+        axios
+          .post("/api/RewardHistory", {
+            id: parsedId,
+          })
+          .then((acc) => {
+            setDatasss(acc.data);
           })
           .catch((err) => {
             console.log(err);
@@ -189,7 +208,19 @@ let val = 0
                 <div className="w-100">
                   <h4 className="fw-semi-bold ml-lg mb-lg">
                     <span>
-                      <span id="lblDirectBusinessRight">4500 LYKA</span>
+                    {
+                      datasss ? 
+
+                      datasss.map((hit)=>{
+                      num = num + Number(hit.RewardCoin)
+                      })
+
+                      :
+
+
+                      <></>
+                    }
+                      <span id="lblDirectBusinessRight">{num} LYKA</span>
                     </span>
                   </h4>
                 </div>

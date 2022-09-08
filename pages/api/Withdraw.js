@@ -1,5 +1,6 @@
 import initDB from "../../helper/initDB";
 import User from "../../Modal/User";
+import WithdrawalHistory from "../../Modal/History/WithdrawalHistory";
 
 initDB();
 export default async (req, res) => {
@@ -30,6 +31,15 @@ export default async (req, res) => {
   const userTotalCoins = Number(removedValue) - Number(AdminUserCoins);
 
   await User.findByIdAndUpdate({ _id: userId }, { Wallete: userTotalCoins });
+
+  // create history
+
+  const WithdrawHistory = await new WithdrawalHistory({
+    UserId:userId,
+    DeductedCoins:coins,
+    Wallete:userWallateAddress,
+    DeductedValue:AdminUserCoins,
+  }).save();
 
   res.status(200).json({ success: "wallate updated" });
 };

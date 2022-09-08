@@ -1,10 +1,7 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-const WithdrawalHistory = () => {
+const RewardHistory = () => {
   const [datas, setDatas] = useState("");
-
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       const id = window.localStorage.getItem("user");
@@ -14,12 +11,11 @@ const WithdrawalHistory = () => {
 
       try {
         axios
-          .post("/api/WithdrawalHistory", {
+          .post("/api/RewardHistory", {
             id: JSON.parse(id),
           })
           .then((acc) => {
             setDatas(acc.data);
-            console.log(acc.data)
           })
           .catch((err) => {
             console.log(err);
@@ -30,23 +26,14 @@ const WithdrawalHistory = () => {
     }
   }, []);
 
-
-
-
-
-
-
-
-
-
   return (
     <div className="content-wrap">
       <main id="content" className="content" role="main">
-        <h4 className="mb-3">Withdrawal History</h4>
+        <h4 className="mb-3 ">Your Reward History</h4>
 
         <p>
           <span style={{ color: "#E7D478", cursor: "pointer" }}>Dashboard</span>{" "}
-          {" > "} <span style={{ color: "#E7D478" }}>Withdrawal History</span>{" "}
+          {" > "} <span style={{ color: "#E7D478" }}>Reward History</span>{" "}
         </p>
 
         <div className="mt-5">
@@ -61,36 +48,34 @@ const WithdrawalHistory = () => {
             <thead>
               <tr>
                 <th scope="col">S.No</th>
-                <th scope="col">Coins</th>
-                <th scope="col">Wallete</th>
-                <th scope="col">Deducted Value</th>
-                <th scope="col">Date</th>
-              
+                <th scope="col">Reward Package Name</th>
+                <th scope="col">Deposited Amount</th>
+                <th scope="col">Reward Coin</th>
+                <th scope="col">Reward Percentage</th>
+                <th scope="col">RewardTime</th>
               </tr>
             </thead>
             <tbody>
-
-            {
-              datas ?
+             {
+              datas ? 
               datas.map((hit,index)=>{
                 return  <tr key={hit._id}>
                 <td>{index+1}</td>
-                <td>{hit.DeductedCoins}</td>
-                <td>{hit.Wallete}</td>
-                <td>{hit.DeductedValue}</td>
+                <td>{hit.PackageName}</td>
+                <td>{hit.DepositedAmount}</td>
+                <td>{hit.RewardCoin}</td>
+                <td>{hit.RewardPercentage}% APY</td>
                 <td>{hit.createdAt}</td>
               </tr>
-              }) 
-
+              })
              
-
 
               :
 
 
+
               <></>
-            }
-            
+             }
             </tbody>
           </table>
         </div>
@@ -99,4 +84,4 @@ const WithdrawalHistory = () => {
   );
 };
 
-export default WithdrawalHistory;
+export default RewardHistory;
