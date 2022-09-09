@@ -22,7 +22,7 @@ const ActivatePackage = async (req, res) => {
   var date = today.getDate() + "/"+ parseInt(today.getMonth()+1) +"/"+ parseInt(today.getFullYear()+Number(PackagePeriod));
 
   var todayTime = new Date();
-  var time = parseInt(todayTime.getHours()+5) + ":" + parseInt(todayTime.getMinutes()+34)
+  var time = parseInt(todayTime.getHours()+5) + ":" + parseInt(todayTime.getMinutes()+32)
 
 
 
