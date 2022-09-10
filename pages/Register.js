@@ -160,7 +160,7 @@ const Register = () => {
                 <option value="Comoros">Comoros</option>
                 <option value="Congo">Congo</option>
                 <option value="Costa Rica">Costa Rica</option>
-                <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                <option value="Côte dIvoire">Côte dIvoire</option>
                 <option value="Croatia">Croatia</option>
                 <option value="Cuba">Cuba</option>
                 <option value="Cyprus">Cyprus</option>
