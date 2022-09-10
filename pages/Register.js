@@ -69,7 +69,7 @@ const Register = () => {
                 borderWidth: 2,
                 borderStyle: "solid",
                 borderRadius: 5,
-                width: "45%",
+                
                 padding: 40,
               }}
               //   className="p-5"

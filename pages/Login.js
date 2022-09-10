@@ -55,7 +55,7 @@ const Login = () => {
                 borderWidth: 2,
                 borderStyle: "solid",
                 borderRadius: 5,
-                width: "40%",
+               
                 padding: 40,
               }}
               //   className="p-5"
