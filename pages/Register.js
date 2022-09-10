@@ -116,8 +116,10 @@ const Register = () => {
                   /> */}
 
 
-               <select className="form-control form-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-                <option selected disabled value>Country</option>
+               <select onChange={(e) => {
+                      setCountry(e.target.value);
+                    }} className="form-control form-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                <option disabled value="Null">Country</option>
                
               <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
