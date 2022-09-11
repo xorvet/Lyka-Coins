@@ -17,6 +17,7 @@ const Register = () => {
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [referalCode, setReferalCode] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,6 +33,7 @@ const Register = () => {
         Country,
         Mobile_Number,
         Password,
+        referalCode
       })
       .then((acc) => {
         console.log(acc.data);
@@ -357,6 +359,21 @@ const Register = () => {
                     placeholder="Confirm Password"
                     onChange={(e) => {
                       setConfirmPassword(e.target.value);
+                    }}
+                  />
+                </div>
+
+
+
+
+
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Referal Code (Optional)"
+                    onChange={(e) => {
+                      setReferalCode(e.target.value);
                     }}
                   />
                 </div>

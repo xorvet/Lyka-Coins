@@ -1,11 +1,12 @@
 import initDB from "../../helper/initDB";
 import User from "../../Modal/User";
 import bcrypt from "bcrypt";
-import { generateFromEmail} from "unique-username-generator";
+import { generateFromEmail } from "unique-username-generator";
 
 initDB();
 export default async (req, res) => {
-  const { Name, Email, Country, Mobile_Number, Password } = req.body;
+  const { Name, Email, Country, Mobile_Number, Password ,referalCode} = req.body;
+  console.log(referalCode)
 
   if (!Name || !Email || !Country || !Mobile_Number || !Password) {
     return res
@@ -26,18 +27,85 @@ export default async (req, res) => {
       .json({ error: "This Number Already Exist Please Choose Another One" });
   }
 
+
+  if (referalCode) {
+    var checkReferalUser = await User.findOne({UserName:referalCode})
+    
+    if (checkReferalUser.length == 0) {
+      return res.status(404).json({ error: "Referal Id Is Wrong. Please Check It Again." });
+      
+    }else{
+   
+      console.log(checkReferalUser._id)
+    }
+    
+  }
+  
+
   const hashedPassowd = await bcrypt.hash(Password, 12);
 
-  const generatedUserName = generateFromEmail(Email, 3);
+  var randValue = Math.floor(Math.random() * 90000);
 
-  const CreateUser = await User({
+  var checkRandValue = await User.findOne({ UserName: randValue });
+
+  while (checkRandValue !== null) {
+    randValue = Math.floor(Math.random() * 90000);
+
+    checkRandValue = await User.findOne({ UserName: randValue });
+  }
+
+  const generatedUserName = randValue;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (referalCode) {
+  
+  var CreateUser = await User({
     UserName: generatedUserName,
     Name,
     Email,
     Country,
     Mobile_Number,
     Password: hashedPassowd,
+    ReferedFrom:checkReferalUser._id
   }).save();
+}
+else{
+
+
+  var CreateUser = await User({
+    UserName: generatedUserName,
+    Name,
+    Email,
+    Country,
+    Mobile_Number,
+    Password: hashedPassowd
+  }).save();
+  
+}
+
+
+
 
   res.status(200).json(CreateUser);
 };

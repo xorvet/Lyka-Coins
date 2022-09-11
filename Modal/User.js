@@ -54,6 +54,10 @@ const User = mongoose.Schema(
       type: "String",
       default: "User",
     },
+    ReferedFrom: {
+      type: "String",
+      default: "null",
+    },
   },
   {
     timestamps: true,
