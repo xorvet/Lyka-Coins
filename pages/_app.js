@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
@@ -10,27 +10,15 @@ import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 // const MyApp = () =>
-
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const [showWindow, setShowWindow] = useState(false);
 
-
-
   useEffect(() => {
-    
-    setShowWindow(true)
-
-
-
-
+    setShowWindow(true);
   }, []);
-
-
-
 
   const handleLogout = () => {
     if (typeof window !== "undefined") {
@@ -42,28 +30,23 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <div>
       <Head>
-      
-          <title>Lyka Coin</title>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-          />
-          <meta name="description" />
-          <meta name="keywords" />
-          <meta name="author" />
-          <meta charSet="utf-8" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-          <link
-            rel="shortcut icon"
-            href="https://lykacoin.io/images/favicon.png"
-          />
-          <link href="/css/application.css" rel="stylesheet" />
-          <link href="/css/mystyles.css" rel="stylesheet" />
-          
-       
+        <title>Lyka Coin</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta name="description" />
+        <meta name="keywords" />
+        <meta name="author" />
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link
+          rel="shortcut icon"
+          href="https://lykacoin.io/images/favicon.png"
+        />
+        <link href="/css/application.css" rel="stylesheet" />
+        <link href="/css/mystyles.css" rel="stylesheet" />
       </Head>
-    
-  
 
       {showWindow ? (
         <>
@@ -120,7 +103,7 @@ const MyApp = ({ Component, pageProps }) => {
                         Dashboard
                       </a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         className="collapsed"
                         href="#one"
@@ -143,8 +126,8 @@ const MyApp = ({ Component, pageProps }) => {
                           <a href="Genealogy">Genealogy/Tree</a>
                         </li>
                       </ul>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                       <a
                         className="collapsed"
                         href="#three"
@@ -222,7 +205,7 @@ const MyApp = ({ Component, pageProps }) => {
                           <a href="BusinessCarry">LMB Carry Forward</a>
                         </li>
                       </ul>
-                    </li>
+                    </li> */}
                     <li>
                       <a
                         className="collapsed"
@@ -237,18 +220,18 @@ const MyApp = ({ Component, pageProps }) => {
                       </a>
                       <ul id="five" className="collapse">
                         <li>
-                        <Link href="/Withdrawal/Withdrawal">
-                          <a >Withdrawal</a>
-                        </Link>
+                          <Link href="/Withdrawal/Withdrawal">
+                            <a>Withdrawal</a>
+                          </Link>
                         </li>
                         <li>
-                        <Link href="/Withdrawal/WithdrawalHistory">
-                          <a >Withdrawal History</a>
-                        </Link>
-
+                          <Link href="/Withdrawal/WithdrawalHistory">
+                            <a>Withdrawal History</a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
+
                     <li>
                       <a
                         className="collapsed"
@@ -300,6 +283,37 @@ const MyApp = ({ Component, pageProps }) => {
                         <li>
                           <Link href="/Packages">
                             <a className="collapse-item">All Packages</a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a
+                        className="collapsed"
+                        href="#rgergr"
+                        data-toggle="collapse"
+                      >
+                        <span className="icon">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={16}
+                            height={16}
+                            fill="currentColor"
+                            className="bi bi-link-45deg"
+                            viewBox="0 0 16 16"
+                          >
+                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
+                          </svg>
+                        </span>
+                        Referal
+                        <i className="toggle fa fa-angle-down" />
+                      </a>
+                      <ul id="rgergr" className="collapse">
+                        <li>
+                          <Link href="/ReferalSystem">
+                            <a>Referal System</a>
                           </Link>
                         </li>
                       </ul>
@@ -360,8 +374,6 @@ const MyApp = ({ Component, pageProps }) => {
       ) : (
         <div></div>
       )}
-     
-
 
       <Script src="js/jquery.min.js" />
       <Script src="js/jquery.slimscroll.js" />
@@ -405,13 +417,9 @@ const MyApp = ({ Component, pageProps }) => {
       <Script src="js/bootstrap.js" />
     </div>
   );
-}
+};
 
 export default MyApp;
-
-
-
-
 
 // import React from 'react'
 
