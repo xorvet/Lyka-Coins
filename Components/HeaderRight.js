@@ -95,6 +95,11 @@ const HeaderRight = () => {
                 </li>
 
                 <li>
+                  <Link href="/TransactionHistory">
+                    <a className="dropdown-item">Transaction History</a>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/AdminUser">
                     <a className="dropdown-item">Admin</a>
                   </Link>

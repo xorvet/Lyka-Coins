@@ -17,7 +17,7 @@ const UsersList = ({ setUsers }) => {
       axios
         .get("/api/Admin/UserData")
         .then((acc) => {
-          console.log(acc.data);
+          // console.log(acc.data);
           setDatas(acc.data);
         })
         .catch((err) => {

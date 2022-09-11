@@ -364,45 +364,45 @@ const MyApp = ({ Component, pageProps }) => {
 
 
       <Script src="js/jquery.min.js" />
+      <Script src="js/jquery.slimscroll.js" />
+      <Script src="js/jquery.hammer.js" />
+      <Script src="js/jquery.flot.animator.min.js" />
+      <Script src="js/jquery.flot.selection.js" />
+      <Script src="js/jquery.countdown.min.js" />
+      <Script src="js/jquery.flot.js" />
+      <Script src="./node_module/js/jquery.flot.orderBars.js" />
+      <Script src="js/jquery.flot.time.js" />
 
       <Script src="js/popper.js" />
-      <Script src="js/bootstrap.js" />
       <Script src="js/util.js" />
-      <Script src="js/jquery.slimscroll.js" />
       <Script src="js/widgster.js" />
       <Script
         src="js/pace.js"
         data-pace-options='{ "target": ".page-controls", "ghostTime": 1000 }'
       />
       <Script src="js/hammer.js" />
-      <Script src="js/jquery.hammer.js" />
 
       <Script src="js/settings.js" />
       <Script src="js/app.js" />
 
-      <Script src="js/jquery.flot.animator.min.js" />
-      <Script src="js/jquery.flot.js" />
-      <Script src="./node_module/js/jquery.flot.orderBars.js" />
-      <Script src="js/jquery.flot.selection.js" />
-      <Script src="js/jquery.flot.time.js" />
       <Script src="js/jquery.flot.pie.js" />
       <Script src="js/jquery.flot.stack.js" />
       <Script src="js/jquery.flot.crosshair.js" />
       <Script src="js/jquery.flot.symbol.js" />
       <Script src="js/jquery.flot.dashes.js" />
       <Script src="js/jquery.sparkline.js" />
-      <Script src="js/bootstrap_calendar.min.js" />
-      <Script src="js/bootstrap-select.min.js" />
       <Script src="js/bignumber.js" />
 
       <Script src="js/index.js" />
       <Script src="js/cute-alert.js" />
 
-      <Script src="js/jquery.countdown.min.js" />
       <Script src="js/moment.min.js" />
       <Script src="js/moment-timezone.min.js" />
       <Script src="js/moment-timezone-with-data.min.js" />
       <Script src="js/mine.js" />
+      <Script src="js/bootstrap_calendar.min.js" />
+      <Script src="js/bootstrap-select.min.js" />
+      <Script src="js/bootstrap.js" />
     </div>
   );
 }

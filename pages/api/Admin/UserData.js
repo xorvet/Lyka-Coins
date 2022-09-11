@@ -68,7 +68,7 @@ const updateUserDatas = async (req, res) => {
 
 const getAllUserDatas = async (req, res) => {
   const getUserData = await User.find().select(
-    "UserName  Name Email Country Mobile_Number WalleteAddress"
+    "UserName  Name Email Country Mobile_Number WalleteAddress Wallete Status"
   ); // Here we are filtering the api data
 
   res.status(200).json(getUserData);

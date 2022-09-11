@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import UsersList from "../Components/Admin/Users/UsersList";
 import PackageList from "../Components/Admin/Packages/PackageList";
+import AllFundAccounts from "../Components/Admin/FundManager/AllFundAccounts";
 const AdminUser = () => {
   const [Users, setUsers] = useState(false);
   const [Packages, setPackages] = useState(false);
+  const [fundManager, setFundManager] = useState(false);
 
   return (
     <>
       {Users && <UsersList setUsers={setUsers} />}
       {Packages && <PackageList setPackages={setPackages} />}
-      {!Users && !Packages && (
+      {fundManager && <AllFundAccounts  setFundManager={setFundManager}  />}
+      {!Users && !Packages  && !fundManager && (
         <div className="content-wrap">
           <main id="content" className="content" role="main">
             <div className="analytics">
@@ -87,6 +90,7 @@ const AdminUser = () => {
                   </div>
 
                   <div
+                  onClick={()=>setFundManager(true)}
                     style={{ cursor: "pointer" }}
                     className="col-sm-12 col-lg-3 mb-lg order-0 order-md-2"
                   >
@@ -97,7 +101,7 @@ const AdminUser = () => {
                             className="d-flex align-items-center pb-1"
                             style={{ fontSize: 16 }}
                           >
-                            Something
+                            Fund Manager
                           </h4>
                         </header>
                         <div className="widget-body p-0">
