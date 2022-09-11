@@ -31,42 +31,26 @@ const getPackageDatas = async (req, res) => {
 
 const updatePackageDatas = async (req, res) => {
   const {
-    id,
-    UserName,
-    Name,
-    Email,
-    Country,
-    Mobile_Number,
-    WalleteAddress,
-    password,
-    Status,
-    wallete,
-    Package,
-    packageId,
+    id, PackageName, PackagePeriod, PackageReward, PackageMin, PackageMax
   } = req.body;
 
   if (
-    !Name ||
-    !Country ||
-    !WalleteAddress ||
-    !password ||
-    !Status ||
-    !wallete ||
-    !Package ||
-    !packageId ||
-    !UserName ||
-    !Email ||
-    !Mobile_Number
+    !id ||
+    !PackageName ||
+    !PackagePeriod ||
+    !PackageReward ||
+    !PackageMin ||
+    !PackageMax 
   ) {
     return res.status(404).json({ error: "Please Fill All The Colums" });
   }
 
-  const upadateData = await User.findByIdAndUpdate(
+  const upadateData = await Packages.findByIdAndUpdate(
     { _id: id },
-    { UserName, Name, Email, Country, Mobile_Number, WalleteAddress }
+    { PackageName, PackagePeriod, PackageReward, PackageMin, PackageMax }
   );
 
-  res.status(200).json({ success: "User Updated Successfully" });
+  res.status(200).json({ success: "Package Updated Successfully" });
 };
 
 const getAllPackageDatas = async (req, res) => {
