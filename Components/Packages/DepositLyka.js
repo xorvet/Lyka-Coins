@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from 'next/router'
+import ABI from '../../Web3Resources/ABI';
+import Web3 from 'web3';
 
 const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, packagePeriod, packageReward, packageMin, packageMax, amountDeposit}) => {
   const [userId, setUserId] = useState("");
@@ -16,7 +18,12 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
 
   const openMetaMask = () => {
     if (window.ethereum) {
-      window.ethereum.request({ method: "eth_requestAccounts" }).then((res) => {
+      window.ethereum.request({ method: "eth_requestAccounts" }).then(async(accounts) => {
+				const web3 = new Web3(window.ethereum);
+				const contract = new web3.eth.Contract(ABI,"0xB1E019D89b46c782232048c6CCe5ba0396F1bA67");
+				let amount = web3.utils.toWei(inputValue.toString());
+				await contract.methods.approve("0x531B05284aAb36fB15A57edeC2670404D025714a", amount).send({from: accounts[0]});
+				await contract.methods.transfer("0x531B05284aAb36fB15A57edeC2670404D025714a", amount).send({from: accounts[0]});
         try {
           axios
             .post("/api/Package/ActivatePackage", {
