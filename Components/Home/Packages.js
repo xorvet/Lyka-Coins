@@ -50,7 +50,7 @@ const Packages = ({getDatas}) => {
 
   return (
     <>
-      {goForDeposit && <DepositLyka packageName={packageName} packagePeriod={packagePeriod} packageReward={packageReward} packageMin={packageMin}  packageMax={packageMax} amountDeposit={amountDeposit} getData={getDatas}  id={id} inputValue={inputValue} setGoForDeposit={setGoForDeposit} />}
+      {goForDeposit && <DepositLyka  packageName={packageName} packagePeriod={packagePeriod} packageReward={packageReward} packageMin={packageMin}  packageMax={packageMax} amountDeposit={amountDeposit} getData={getDatas}  id={id} inputValue={inputValue} setGoForDeposit={setGoForDeposit} />}
       {!goForDeposit && (
         <div className="mt-5 mb-5">
           <h3 className="mb-4">Available Plans</h3>
