@@ -5,8 +5,10 @@ const Menu = () => {
   const [datas, setDatas] = useState("");
   const [datass, setDatass] = useState("");
   const [datasss, setDatasss] = useState("");
-let val = 0
-let num = 0
+  const [lyka, setLyka] = useState("");
+
+  let val = 0;
+  let num = 0;
   useEffect(() => {
     if (typeof window !== "undefined") {
       const ids = window.localStorage.getItem("user");
@@ -20,12 +22,6 @@ let num = 0
           })
           .then((acc) => {
             setDatas(acc.data);
-
-
-
-
-
-
           })
           .catch((err) => {
             console.log(err);
@@ -33,8 +29,6 @@ let num = 0
       } catch (error) {
         console.log(error);
       }
-
-
 
       try {
         axios
@@ -51,9 +45,6 @@ let num = 0
         console.log(error);
       }
 
-
-
-
       try {
         axios
           .post("/api/RewardHistory", {
@@ -69,11 +60,18 @@ let num = 0
         console.log(error);
       }
 
-
-
-
-
-
+      try {
+        axios
+          .get("/api/LykaValue")
+          .then((acc) => {
+            setLyka(acc.data.value);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (error) {
+        console.log(error);
+      }
     }
   }, []);
 
@@ -94,26 +92,20 @@ let num = 0
               <div className="d-flex">
                 <div className="w-100">
                   <h4 className="fw-semi-bold ml-lg mb-lg">
-                  {
-                    datas ? 
-                    datas.map((hit)=>{
-                      var min = hit.AmountDeposit.replace('$','')
-              
-                      val = val +Number(min)
-                    })
+                    {datas ? (
+                      datas.map((hit) => {
+                        var min = hit.AmountDeposit.replace("$", "");
 
-
-                    :
-
-
-                    <></>
-                  }
-                  <span className="text-success"> {val}$ </span>
-                    
+                        val = val + Number(min);
+                      })
+                    ) : (
+                      <></>
+                    )}
+                    <span className="text-success"> {val}$ </span>
                   </h4>
-                  <p style={{ textAlign: "center" }}>
+                  {/* <p style={{ textAlign: "center" }}>
                     450 LYKA at present Value
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -136,31 +128,18 @@ let num = 0
                 <div className="w-100">
                   <h4 className="fw-semi-bold ml-lg mb-lg">
                     <span>
-
-
-                    {
-                      datass ? 
-                      
-                      <span id="lblBinaryQualified" className="text-success">
-                      {datass.Wallete}$
-                      </span>
-
-
-                      :
-
-
-                      <></>
-                    }
-
-
-
-
-
+                      {datass ? (
+                        <span id="lblBinaryQualified" className="text-success">
+                          {datass.Wallete}$
+                        </span>
+                      ) : (
+                        <></>
+                      )}
                     </span>
                   </h4>
-                  <p style={{ textAlign: "center" }}>
+                  {/* <p style={{ textAlign: "center" }}>
                     450 LYKA at present Value
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -183,7 +162,9 @@ let num = 0
                 <div className="w-100">
                   <h4 className="fw-semi-bold ml-lg mb-lg">
                     <span>
-                      <span id="lblDirectBusinessLeft">1 USDT = 200LYKA</span>
+                      <span id="lblDirectBusinessLeft">
+                        1 USDT = {lyka ? lyka : "..."} LYKA
+                      </span>
                     </span>
                   </h4>
                 </div>
@@ -208,18 +189,13 @@ let num = 0
                 <div className="w-100">
                   <h4 className="fw-semi-bold ml-lg mb-lg">
                     <span>
-                    {
-                      datasss ? 
-
-                      datasss.map((hit)=>{
-                      num = num + Number(hit.RewardCoin)
-                      })
-
-                      :
-
-
-                      <></>
-                    }
+                      {datasss ? (
+                        datasss.map((hit) => {
+                          num = num + Number(hit.RewardCoin);
+                        })
+                      ) : (
+                        <></>
+                      )}
                       <span id="lblDirectBusinessRight">{num} LYKA</span>
                     </span>
                   </h4>
@@ -229,7 +205,6 @@ let num = 0
           </section>
         </div>
       </div>
-      
 
       <style
         dangerouslySetInnerHTML={{

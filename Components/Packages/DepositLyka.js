@@ -9,6 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, packagePeriod, packageReward, packageMin, packageMax, amountDeposit}) => {
   const [userId, setUserId] = useState("");
   const [isLoading, setIsLoading] = useState("");
+  const [referal, setReferal] = useState("");
+  console.log(inputValue)
+
   const router = useRouter()
 
   useEffect(() => {
@@ -17,6 +20,33 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
       const parsedUserId = userId.replaceAll('"', "");
       setUserId(parsedUserId);
     }
+
+
+
+
+    try {
+      axios
+        .get("/api/ReferalValue")
+        .then((acc) => {
+          setReferal(acc.data.value);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+
+
+
+
+
+
+
+
+
+
+
   }, []);
 
   const openMetaMask = () => {
@@ -24,7 +54,7 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
       window.ethereum.request({ method: "eth_requestAccounts" }).then(async(accounts) => {
         const web3 = new Web3(window.ethereum);
 				const contract = new web3.eth.Contract(ABI,"0xB1E019D89b46c782232048c6CCe5ba0396F1bA67");
-				let amount = web3.utils.toWei(inputValue.toString());
+				let amount = web3.utils.toWei((inputValue*Number(referal)).toString());
         setIsLoading(true)
 			await contract.methods.approve("0x531B05284aAb36fB15A57edeC2670404D025714a", amount).send({from: accounts[0]});
 			const two =	await contract.methods.transfer("0x531B05284aAb36fB15A57edeC2670404D025714a", amount).send({from: accounts[0]});
@@ -40,7 +70,7 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
               PackageMin: packageMin+"$",
               PackageMax: packageMax+"$",
               AmountDeposit: amountDeposit+"$",
-              LykaTokens: Number(inputValue) * 2,
+              LykaTokens: Number(inputValue) * Number(referal),
               Hash:two.blockHash
             })
             .then((acc) => {
@@ -104,13 +134,21 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
           borderRadius: 10,
         }}
       >
+      {
+        referal ? 
         <h4>
           You Need To Deposit{" "}
           <span style={{ fontWeight: "bold" }}>
-            {Number(inputValue) * 2} Lyka Tokens{" "}
+            {Number(inputValue) * Number(referal)} Lyka Tokens{" "}
           </span>{" "}
           To Activate This Plan
         </h4>
+
+        :
+
+
+      <></>
+      }
 
         <h6 style={{ color: "#21AE8C", fontWeight: "bold" }}>
           0x531B05284aAb36fB15A57edeC2670404D025714a

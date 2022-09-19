@@ -3,6 +3,7 @@ import User from "../../../Modal/User";
 import Packages from "../../../Modal/Packages";
 import PurchasedPackages from "../../../Modal/PurchasedPackages";
 import PackageHistory from "../../../Modal/History/PackageHistory";
+import ReferalPercantage from "../../../Modal/DynamicValue/ReferalPercantage";
 initDB();
 export default async (req, res) => {
   if (req.method == "POST") {
@@ -72,8 +73,9 @@ const ActivatePackage = async (req, res) => {
     const findreferedUser = await User.findById(checkReferal.ReferedFrom);
     console.log(findreferedUser);
     const referalUserWallete = findreferedUser.Wallete;
+    const value = await ReferalPercantage.findOne();
 
-    var NowReward = (AmountDeposit.replace("$", "") * 10) / 100;
+    var NowReward = (AmountDeposit.replace("$", "") * Number(value.value)) / 100;
 
     if (NowReward > 100) {
       NowReward = 100;

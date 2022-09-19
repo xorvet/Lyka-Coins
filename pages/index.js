@@ -43,7 +43,7 @@ const Index = () => {
             <Intro />
             <Menu />
             {status == "Active" ? <Plans /> : <Packages getDatas={getData}  />}
-            <ProfileData />
+            {/* <ProfileData /> */}
           </div>
         </div>
         <footer className="page-footer text-center d-none">
