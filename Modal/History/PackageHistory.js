@@ -42,10 +42,14 @@ const PackageHistory = mongoose.Schema(
       type: "String",
       default: "null",
     },
+    Hash: {
+      type: "String",
+      default: "null",
+    },
   },
   {
     timestamps: true,
   }
 );
-export default mongoose.models.PackageHistory ||
-  mongoose.model("PackageHistory", PackageHistory);
+export default mongoose.models.PackageHist ||
+  mongoose.model("PackageHist", PackageHistory);

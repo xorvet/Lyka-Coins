@@ -4,7 +4,8 @@ import WithdrawalHistory from "../../Modal/History/WithdrawalHistory";
 
 initDB();
 export default async (req, res) => {
-  const { coins, userId } = req.body;
+  const { coins, userId ,Hash} = req.body;
+  console.log(Hash)
 
   const findUserData = await User.findById(userId); // user details
   const userWallate = findUserData.Wallete; // user wallate
@@ -21,6 +22,7 @@ export default async (req, res) => {
   const AdminUserCoins = (Number(removedValue) * 10) / 100;
 
   const findAdminUser = await User.findOne({ UserType: "AdminUser" });
+
   const adminUserWallete = findAdminUser.Wallete;
 
   await User.findByIdAndUpdate(
@@ -39,6 +41,7 @@ export default async (req, res) => {
     DeductedCoins:coins,
     Wallete:userWallateAddress,
     DeductedValue:AdminUserCoins,
+    Hash:Hash
   }).save();
 
   res.status(200).json({ success: "wallate updated" });

@@ -42,6 +42,10 @@ const PurchasedPackages = mongoose.Schema(
       type: "String",
      default:'null'
     },
+    Hash:{
+      type: "String",
+     default:'null'
+    }
     
   },
   {
@@ -49,4 +53,4 @@ const PurchasedPackages = mongoose.Schema(
   }
 );
 
-export default mongoose.models.PurchasedPackag || mongoose.model("PurchasedPackag", PurchasedPackages);
+export default mongoose.models.PurchasedPack || mongoose.model("PurchasedPack", PurchasedPackages);

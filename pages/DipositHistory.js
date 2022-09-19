@@ -54,6 +54,7 @@ const DipositHistory = () => {
                 <th scope="col">Invested Date</th>
                 <th scope="col">Percentage</th>
                 <th scope="col">Valid upto</th>
+                <th scope="col">Hash</th>
               </tr>
             </thead>
             <tbody>
@@ -68,6 +69,7 @@ const DipositHistory = () => {
                       <td>{hit.createdAt}</td>
                       <td>{hit.PackageReward} APY</td>
                       <td>{hit.ExpiryDate}</td>
+                      <td>{hit.Hash}</td>
                     </tr>
                   );
                 })

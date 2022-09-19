@@ -18,6 +18,10 @@ const WithdrawalHistory = mongoose.Schema(
       required: true,
       type: "String",
     },
+    Hash: {
+      type: "String",
+      default: "null",
+    },
   },
   {
     timestamps: true,
@@ -26,4 +30,4 @@ const WithdrawalHistory = mongoose.Schema(
 
 
 
-export default mongoose.models.WithdrawalHis || mongoose.model("WithdrawalHis", WithdrawalHistory);
+export default mongoose.models.WithdrawalH || mongoose.model("WithdrawalH", WithdrawalHistory);

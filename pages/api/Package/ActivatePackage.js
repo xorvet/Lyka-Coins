@@ -21,6 +21,7 @@ const ActivatePackage = async (req, res) => {
     AmountDeposit,
     LykaTokens,
     ExpiryDate,
+    Hash
   } = req.body;
   console.log(
     userID,
@@ -31,7 +32,8 @@ const ActivatePackage = async (req, res) => {
     PackageMax,
     AmountDeposit,
     LykaTokens,
-    ExpiryDate
+    ExpiryDate,
+    Hash
   );
 
   var today = new Date();
@@ -57,6 +59,7 @@ const ActivatePackage = async (req, res) => {
     LykaTokens,
     ExpiryDate: date,
     NextDailyRewardOn: time,
+    Hash:Hash
   }).save();
 
   await User.findByIdAndUpdate({ _id: userID }, { Status: "Active" });
@@ -93,6 +96,7 @@ const ActivatePackage = async (req, res) => {
     LykaTokens,
     ExpiryDate: date,
     NextDailyRewardOn: time,
+    Hash:Hash
   }).save();
 
   res.json(CreateNewPurchaseOrder);

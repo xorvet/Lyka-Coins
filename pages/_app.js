@@ -312,7 +312,7 @@ const MyApp = ({ Component, pageProps }) => {
                       </a>
                       <ul id="rgergr" className="collapse">
                         <li>
-                          <Link href="/ReferalSystem">
+                          <Link href="/Reward/RewardHistory">
                             <a>Referal System</a>
                           </Link>
                         </li>
@@ -377,11 +377,12 @@ const MyApp = ({ Component, pageProps }) => {
 
       <Script src="js/jquery.min.js" />
       <Script src="js/jquery.slimscroll.js" />
-      <Script src="js/jquery.hammer.js" />
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js" integrity="sha512-37SbZHAnGzLuZV850k61DfQdZ5cnahfloYHizjpEwDgZGw49+D6oswdI8EX3ogzKelDLjckhvlK0QZsY/7oxYg==" crossOrigin="anonymous" referrerPolicy="no-referrer"/>
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js" />
       <Script src="js/jquery.flot.animator.min.js" />
       <Script src="js/jquery.flot.selection.js" />
       <Script src="js/jquery.countdown.min.js" />
-      <Script src="js/jquery.flot.js" />
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.3/jquery.flot.js" />
       <Script src="./node_module/js/jquery.flot.orderBars.js" />
       <Script src="js/jquery.flot.time.js" />
 

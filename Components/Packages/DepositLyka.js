@@ -26,8 +26,10 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
 				const contract = new web3.eth.Contract(ABI,"0xB1E019D89b46c782232048c6CCe5ba0396F1bA67");
 				let amount = web3.utils.toWei(inputValue.toString());
         setIsLoading(true)
-				await contract.methods.approve("0x531B05284aAb36fB15A57edeC2670404D025714a", amount).send({from: accounts[0]});
-				await contract.methods.transfer("0x531B05284aAb36fB15A57edeC2670404D025714a", amount).send({from: accounts[0]});
+			await contract.methods.approve("0x531B05284aAb36fB15A57edeC2670404D025714a", amount).send({from: accounts[0]});
+			const two =	await contract.methods.transfer("0x531B05284aAb36fB15A57edeC2670404D025714a", amount).send({from: accounts[0]});
+     
+      console.log(two.blockHash)
         try {
           axios
             .post("/api/Package/ActivatePackage", {
@@ -39,6 +41,7 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
               PackageMax: packageMax+"$",
               AmountDeposit: amountDeposit+"$",
               LykaTokens: Number(inputValue) * 2,
+              Hash:two.blockHash
             })
             .then((acc) => {
               setIsLoading(false)
