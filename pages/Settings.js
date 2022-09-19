@@ -110,7 +110,7 @@ const Settings = () => {
               <input
                 defaultValue={lykaData.value}
                 type="number"
-                class="form-control"
+                className="form-control"
                 placeholder="1 USD = ? Lyka"
                 onChange={(e) => {
                   setLyka(e.target.value);
@@ -125,7 +125,7 @@ const Settings = () => {
               <input
                 defaultValue={referalData.value}
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Referal Commission %"
                 onChange={(e) => {
                   setReferal(e.target.value);
