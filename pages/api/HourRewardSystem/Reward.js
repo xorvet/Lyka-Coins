@@ -56,6 +56,6 @@ for (let i = 0; i < list.length; i++) {
     RewardPercentage: "half an hour",
   }).save();
 }
-console.log("done");
+res.json("done")
 
 }
