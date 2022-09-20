@@ -67,6 +67,8 @@ const Register = ({ReferCode}) => {
         router.reload();
         localStorage.setItem("user", JSON.stringify(acc.data._id));
         localStorage.setItem("username", String(acc.data.Name));
+        localStorage.setItem("userType", String(acc.data.UserType));
+
         setMessage("")
       })
       .catch((err) => {

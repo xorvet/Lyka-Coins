@@ -38,6 +38,7 @@ const Login = () => {
         router.reload();
         localStorage.setItem("user", JSON.stringify(acc.data._id));
         localStorage.setItem("username", String(acc.data.Name));
+        localStorage.setItem("userType", String(acc.data.UserType));
       })
       .catch((err) => {
         console.log(err.response.data.error);

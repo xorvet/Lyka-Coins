@@ -110,20 +110,54 @@ const HeaderRight = () => {
                     <a className="dropdown-item">Transaction History</a>
                   </Link>
                 </li>
+
+                {
+                  typeof window !== "undefined" ? 
+                  window.localStorage.userType == "AdminUser" ? 
+
                 <li>
                   <Link href="/AdminUser">
                     <a className="dropdown-item">Admin</a>
                   </Link>
                 </li>
 
+                  :
 
 
+                  <></>
 
-                <li>
+
+                  :
+
+
+                  <></>
+                }
+                {
+                  typeof window !== "undefined" ? 
+                  window.localStorage.userType == "AdminUser" ? 
+
+                  <li>
                   <Link href="/Settings">
                     <a className="dropdown-item">Settings</a>
                   </Link>
                 </li>
+
+                  :
+
+
+                  <></>
+
+
+                  :
+
+
+                  <></>
+                }
+
+
+
+
+               
                 
                 <li className="dropdown-divider" />
                 <li>
