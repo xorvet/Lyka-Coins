@@ -11,6 +11,20 @@ const Login = () => {
   const [showRegister, setShowRegister] = useState(false);
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
+  const [spoId, setSpoId] = useState("");
+
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    var num = router.query;
+    console.log(Object.keys(num).length);
+
+    if (Object.keys(num).length !== 0) {
+      setSpoId(num);
+      setShowRegister(true);
+    }
+  }, [router.isReady]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -24,7 +38,6 @@ const Login = () => {
         router.reload();
         localStorage.setItem("user", JSON.stringify(acc.data._id));
         localStorage.setItem("username", String(acc.data.Name));
-        
       })
       .catch((err) => {
         console.log(err.response.data.error);
@@ -42,9 +55,9 @@ const Login = () => {
 
   return (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       {showRegister ? (
-        <Register />
+        <Register ReferCode={spoId} />
       ) : (
         <div className="container h-100">
           <div className="d-flex justify-content-md-center align-items-center vh-100">
@@ -55,7 +68,7 @@ const Login = () => {
                 borderWidth: 2,
                 borderStyle: "solid",
                 borderRadius: 5,
-               
+
                 padding: 40,
               }}
               //   className="p-5"

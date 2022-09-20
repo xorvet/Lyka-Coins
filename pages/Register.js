@@ -5,8 +5,10 @@ import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Register = () => {
+const Register = ({ReferCode}) => {
   const router = useRouter();
+
+
 
 
   const [showRegister, setShowRegister] = useState(false);
@@ -18,6 +20,31 @@ const Register = () => {
   const [ConfirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
   const [referalCode, setReferalCode] = useState("");
+
+
+  useEffect(() => {
+   console.log(ReferCode)
+   setReferalCode(ReferCode.spoID)
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -369,6 +396,7 @@ const Register = () => {
 
                 <div className="form-group">
                   <input
+                  defaultValue={referalCode}
                     type="text"
                     className="form-control"
                     placeholder="Referal Code (Optional)"

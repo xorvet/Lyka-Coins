@@ -84,7 +84,7 @@ const MyApp = ({ Component, pageProps }) => {
                     </Link>
                   </header>
                   <div className="sidebar-status d-md-none d-flex align-items-center justify-content-around">
-                    <span>Prem Kumar</span>
+                    <span>Hey User</span>
                     <span className="thumb-sm avatar float-right d-none">
                       <img
                         src="https://lykacoin.net/node_module/demo/img/people/a5.jpg"
@@ -94,7 +94,7 @@ const MyApp = ({ Component, pageProps }) => {
                       />
                     </span>
                   </div>
-                  <h5 className="sidebar-nav-title">User : 277015</h5>
+                  {/* <h5 className="sidebar-nav-title">User : 277015</h5> */}
                   <ul className="sidebar-nav">
                     <li className="active">
                       <a href="Default">
@@ -386,6 +386,7 @@ const MyApp = ({ Component, pageProps }) => {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.3/jquery.flot.js" />
       <Script src="./node_module/js/jquery.flot.orderBars.js" />
       <Script src="js/jquery.flot.time.js" />
+      <Script src="js/app.js" />
 
       <Script src="js/popper.js" />
       <Script src="js/util.js" />
@@ -397,7 +398,6 @@ const MyApp = ({ Component, pageProps }) => {
       <Script src="js/hammer.js" />
 
       <Script src="js/settings.js" />
-      <Script src="js/app.js" />
 
       <Script src="js/jquery.flot.pie.js" />
       <Script src="js/jquery.flot.stack.js" />
@@ -422,13 +422,3 @@ const MyApp = ({ Component, pageProps }) => {
 };
 
 export default MyApp;
-
-// import React from 'react'
-
-// const MyApp = () => {
-//   return (
-//     <div>_app</div>
-//   )
-// }
-
-// export default MyApp

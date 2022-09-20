@@ -6,6 +6,17 @@ import { useRouter } from "next/router";
 const HeaderRight = () => {
   const router = useRouter();
 
+  useEffect(() => {
+   
+
+    
+  }, []);
+
+
+
+
+
+
   const handleLogout = () => {
     if (typeof window !== "undefined") {
       window.localStorage.removeItem("user");

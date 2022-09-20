@@ -204,6 +204,17 @@ const Profile = () => {
               </section>
             </div>
           </div>
+
+
+
+          <div className="container">
+            <a target="__blank" href={`https://lyka-coins.vercel.app?spoID=${data.UserName}`}><p className="text-center mt-4" style={{color:"#0CDCE5"}}>https://lyka-coins.vercel.app?spoID={data.UserName}</p></a>
+          </div>
+
+
+
+
+
           <div className="text-center mt-5">
             <button onClick={UpdateData} className="btn btn-primary">
               Update Profile

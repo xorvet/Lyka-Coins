@@ -1,3 +1,6 @@
+
+
+
 /**
  * Whether to use pjax page swithing
  * @type {boolean}
@@ -17,9 +20,11 @@ window.DEBUG = false;
  * Setting Widgster's body selector to theme specific
  * @type {string}
  */
-$.fn.widgster.Constructor.DEFAULTS.bodySelector = '.widget-body';
 
 $(function(){
+
+
+    console.log("drawer will work now")
 
     /**
      * Main app class that handles page switching, async script loading, resize & pageLoad callbacks.

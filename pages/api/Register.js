@@ -30,6 +30,9 @@ export default async (req, res) => {
 
   if (referalCode) {
     var checkReferalUser = await User.findOne({UserName:referalCode})
+    if (!checkReferalUser) {
+      return res.status(404).json({ error: "Referal Id Is Wrong. Please Check It Again." });
+    }
     
     if (checkReferalUser.length == 0) {
       return res.status(404).json({ error: "Referal Id Is Wrong. Please Check It Again." });
