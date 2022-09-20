@@ -26,8 +26,9 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
 
     try {
       axios
-        .get("/api/ReferalValue")
+        .get("/api/LykaValue")
         .then((acc) => {
+          console.log( "the value is => "+ acc.data.value)
           setReferal(acc.data.value);
         })
         .catch((err) => {
