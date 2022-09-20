@@ -97,12 +97,14 @@ const MyApp = ({ Component, pageProps }) => {
                   {/* <h5 className="sidebar-nav-title">User : 277015</h5> */}
                   <ul className="sidebar-nav">
                     <li className="active">
-                      <a href="Default">
+                    <Link href="/">
+                      <a >
                         <span className="icon">
                           <i className="fi flaticon-home" />
                         </span>
                         Dashboard
                       </a>
+                      </Link>
                     </li>
                     {/* <li>
                       <a
