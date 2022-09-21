@@ -27,8 +27,8 @@ const RewardHistory = () => {
   }, []);
 
   return (
-    <div className="content-wrap">
-      <main id="content" className="content" role="main">
+    <div style={{marginTop:100,marginLeft:40}}>
+      <main >
         <h4 className="mb-3 ">Your Reward History</h4>
 
         <p>

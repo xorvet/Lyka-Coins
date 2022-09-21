@@ -4,21 +4,21 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
 import Login from "./Login";
-import SideBar from "../Components/SideBar";
+import sidebar from "../Components/sidebar";
 import HeaderRight from "../Components/HeaderRight";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+// import app from "../public/js/app"
 // const MyApp = () =>
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
-  const [showWindow, setShowWindow] = useState(false);
+  const [shoWindow, setshoWindow] = useState(false);
 
   useEffect(() => {
-    setShowWindow(true);
+    setshoWindow(true);
   }, []);
 
   const handleLogout = () => {
@@ -49,13 +49,13 @@ const MyApp = ({ Component, pageProps }) => {
         <link href="/css/mystyles.css" rel="stylesheet" />
       </Head>
 
-      {showWindow ? (
+      {shoWindow ? (
         <>
           {!window.localStorage.getItem("user") ? (
             <Login />
           ) : (
             <>
-              <div>
+              {/* <div>
                 <input
                   type="hidden"
                   name="__VIEWSTATE"
@@ -71,8 +71,8 @@ const MyApp = ({ Component, pageProps }) => {
                   defaultValue="1559EFB7"
                 />
               </div>
-              <nav id="sidebar" className="sidebar" role="navigation">
-                <div className="js-sidebar-content">
+              <nav id="sideba" className="sideba" role="navigation">
+                <div className="js-sideba-content">
                   <header className="logo d-none d-md-block">
                     <Link href="/">
                       <a>
@@ -83,7 +83,7 @@ const MyApp = ({ Component, pageProps }) => {
                       </a>
                     </Link>
                   </header>
-                  <div className="sidebar-status d-md-none d-flex align-items-center justify-content-around">
+                  <div className="sideba-status d-md-none d-flex align-items-center justify-content-around">
                     <span>Hey User</span>
                     <span className="thumb-sm avatar float-right d-none">
                       <img
@@ -94,8 +94,8 @@ const MyApp = ({ Component, pageProps }) => {
                       />
                     </span>
                   </div>
-                  {/* <h5 className="sidebar-nav-title">User : 277015</h5> */}
-                  <ul className="sidebar-nav">
+                 
+                  <ul className="sideba-nav">
                     <li className="active">
                     <Link href="/">
                       <a >
@@ -106,114 +106,12 @@ const MyApp = ({ Component, pageProps }) => {
                       </a>
                       </Link>
                     </li>
-                    {/* <li>
-                      <a
-                        className="collapsed"
-                        href="#one"
-                        data-toggle="collapse"
-                      >
-                        <span className="icon">
-                          <i className="fi flaticon-users" />
-                        </span>
-                        Team Details
-                        <i className="toggle fa fa-angle-down" />
-                      </a>
-                      <ul id="one" className="collapse">
-                        <li>
-                          <a href="memberdirect">Direct Referrals</a>
-                        </li>
-                        <li>
-                          <a href="memberdownline1">Team</a>
-                        </li>
-                        <li>
-                          <a href="Genealogy">Genealogy/Tree</a>
-                        </li>
-                      </ul>
-                    </li> */}
-                    {/* <li>
-                      <a
-                        className="collapsed"
-                        href="#three"
-                        data-toggle="collapse"
-                      >
-                        <span className="icon">
-                          <i className="la la-lightbulb" />
-                        </span>
-                        Topup
-                        <i className="toggle fa fa-angle-down" />
-                      </a>
-                      <ul id="three" className="collapse">
-                        <li id="ctl00_divTopup">
-                          <a href="Recharge">Topup</a>
-                        </li>
-                        <li>
-                          <a href="TopupHistory">Topup History</a>
-                        </li>
-                      </ul>
-                    </li>
+                   
                     <li>
                       <a
-                        className="collapsed"
-                        href="#four"
-                        data-toggle="collapse"
-                      >
-                        <span className="icon">
-                          <i className="la la-wallet" />
-                        </span>
-                        Income
-                        <i className="toggle fa fa-angle-down" />
-                      </a>
-                      <ul id="four" className="collapse">
-                        <li>
-                          <a href="RoiIncome?booster=0">
-                            Lyka Staking Bonus (LSB)
-                          </a>
-                        </li>
-                        <li>
-                          <a href="DirectIncome">Lyka Direct Bonus (LDB)</a>
-                        </li>
-                        <li>
-                          <a href="RoiIncome?booster=1">
-                            Lyka Fast Bonus (LFB)
-                          </a>
-                        </li>
-                        <li>
-                          <a href="binaryIncome">Lyka Matching Bonus (LMB)</a>
-                        </li>
-                        <li>
-                          <a href="levelIncome">Lyka Renewal Reward (LRR)</a>
-                        </li>
-                        <li>
-                          <a href="MemberReward">Lyka Pay Royalty (LPR)</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a
-                        className="collapsed"
-                        href="#nine"
-                        data-toggle="collapse"
-                      >
-                        <span className="icon">
-                          <i className="la la-trash-alt" />
-                        </span>
-                        LMB Flushed/Carry
-                        <i className="toggle fa fa-angle-down" />
-                      </a>
-                      <ul id="nine" className="collapse">
-                        <li>
-                          <a href="BusinessFlushed">LMB Flushed Out</a>
-                        </li>
-                        <li>
-                          <a href="BusinessCarry">LMB Carry Forward</a>
-                        </li>
-                      </ul>
-                    </li> */}
-                    <li>
-                      <a
-                        className="collapsed"
+                        className="collapsd"
                         href="#five"
-                        data-toggle="collapse"
+                        data-toggle="collaps"
                       >
                         <span className="icon">
                           <i className="la la-bank" />
@@ -221,7 +119,7 @@ const MyApp = ({ Component, pageProps }) => {
                         Withdrawal
                         <i className="toggle fa fa-angle-down" />
                       </a>
-                      <ul id="five" className="collapse">
+                      <ul id="five" className="collaps">
                         <li>
                           <Link href="/Withdrawal/Withdrawal">
                             <a>Withdrawal</a>
@@ -237,9 +135,9 @@ const MyApp = ({ Component, pageProps }) => {
 
                     <li>
                       <a
-                        className="collapsed"
+                        className="collapsd"
                         href="#seven"
-                        data-toggle="collapse"
+                        data-toggle="collaps"
                       >
                         <span className="icon">
                           <i className="la la-user-alt" />
@@ -247,14 +145,14 @@ const MyApp = ({ Component, pageProps }) => {
                         Profile
                         <i className="toggle fa fa-angle-down" />
                       </a>
-                      <ul id="seven" className="collapse">
+                      <ul id="seven" className="collaps">
                         <li>
-                          <a className="collapse-item" href="memberEdit">
+                          <a className="collaps-item" href="memberEdit">
                             User Profile
                           </a>
                         </li>
                         <li>
-                          <a className="collapse-item" href="ChangePassword">
+                          <a className="collaps-item" href="ChangePassword">
                             Change Password
                           </a>
                         </li>
@@ -263,9 +161,9 @@ const MyApp = ({ Component, pageProps }) => {
 
                     <li>
                       <a
-                        className="collapsed"
+                        className="collapsd"
                         href="#ueyui"
-                        data-toggle="collapse"
+                        data-toggle="collaps"
                       >
                         <span className="icon">
                           <svg
@@ -282,10 +180,10 @@ const MyApp = ({ Component, pageProps }) => {
                         Packages
                         <i className="toggle fa fa-angle-down" />
                       </a>
-                      <ul id="ueyui" className="collapse">
+                      <ul id="ueyui" className="collaps">
                         <li>
                           <Link href="/Packages">
-                            <a className="collapse-item">All Packages</a>
+                            <a className="collaps-item">All Packages</a>
                           </Link>
                         </li>
                       </ul>
@@ -293,9 +191,9 @@ const MyApp = ({ Component, pageProps }) => {
 
                     <li>
                       <a
-                        className="collapsed"
+                        className="collapsd"
                         href="#rgergr"
-                        data-toggle="collapse"
+                        data-toggle="collaps"
                       >
                         <span className="icon">
                           <svg
@@ -313,7 +211,7 @@ const MyApp = ({ Component, pageProps }) => {
                         Referal
                         <i className="toggle fa fa-angle-down" />
                       </a>
-                      <ul id="rgergr" className="collapse">
+                      <ul id="rgergr" className="collaps">
                         <li>
                           <Link href="/Reward/RewardHistory">
                             <a>Referal System</a>
@@ -324,9 +222,9 @@ const MyApp = ({ Component, pageProps }) => {
 
                     <li>
                       <a
-                        className="collapsed"
+                        className="collapsd"
                         href="#eight"
-                        data-toggle="collapse"
+                        data-toggle="collaps"
                       >
                         <span className="icon">
                           <i className="la la-headphones-alt" />
@@ -334,19 +232,19 @@ const MyApp = ({ Component, pageProps }) => {
                         Support
                         <i className="toggle fa fa-angle-down" />
                       </a>
-                      <ul id="eight" className="collapse">
+                      <ul id="eight" className="collaps">
                         <li>
-                          <a className="collapse-item" href="SupportRequest">
+                          <a className="collaps-item" href="SupportRequest">
                             New Message
                           </a>
                         </li>
                         <li>
-                          <a className="collapse-item" href="Inbox">
+                          <a className="collaps-item" href="Inbox">
                             Inbox
                           </a>
                         </li>
                         <li>
-                          <a className="collapse-item" href="OutBox">
+                          <a className="collaps-item" href="OutBox">
                             Outbox
                           </a>
                         </li>
@@ -362,14 +260,296 @@ const MyApp = ({ Component, pageProps }) => {
                     </li>
                   </ul>
                 </div>
-              </nav>
-              <HeaderRight />
-              <SideBar />
+              </nav> */}
+              {/* <HeaderRight /> */}
+              {/* <sideba />
               <ToastContainer />
-              <Component {...pageProps} />
+              <Component {...pageProps} /> */}
 
-              <div className="loader-wrap hiding hide">
+              {/* <div className="loader-wrap hiding hide">
                 <i className="fa fa-circle-o-notch fa-spin-fast" />
+              </div> */}
+
+              <div>
+                <div
+                  style={{ backgroundColor: "#2E2E42" }}
+                  className="container-fluid fixed-top  py-3"
+                >
+                  <div className="row">
+                    <div className="col-xl-2 col-sm-3 col-0 collaps sho sideba">
+                      {/* spacer */}
+                    </div>
+                    <div className="col px-3 pb-5">
+                    <div>
+
+                      {/* toggler */}
+                      <a
+                        data-toggle="collaps"
+                        href="#"
+                        data-target=".collaps"
+                        role="button"
+                      >
+                        {/* <i className="fa fa-bars fa-lg" /> */}
+                        <img
+                          className="img-fluid d-xl-none d-xxl-block"
+                          style={{ width: 150, marginLeft: 60 }}
+                          src="https://lykacoin.net/images/logo.png"
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                    <div>
+
+
+
+
+
+
+
+
+
+
+                    <div className="navbar-header mobile-hidden float-right">
+          <ul className="nav navbar-nav">
+            <li className="dropdown nav-item mr-2">
+              <span className="thumb-sm avatar d-none">
+                <img className="rounded-circle" src alt="..." />
+              </span>
+              <span>
+                {typeof window !== "undefined"
+                  ? window.localStorage.getItem("username")
+                  : ""}
+              </span>
+            </li>
+            <li className="dropdown nav-item">
+              <a
+                href="#"
+                className="dropdown-toggle no-caret nav-link"
+                data-toggle="dropdown"
+              >
+                <i className="la la-cog" />
+              </a>
+              <ul className="dropdown-menu dropdown-menu-right">
+                <li>
+                  <Link href="/Profile">
+                    <a className="dropdown-item">
+                      <i className="glyphicon glyphicon-user" />
+                      &nbsp; Profile
+                    </a>
+                  </Link>
+                </li>
+                <li className="dropdown-divider" />
+                <li>
+                  <Link href="/DipositHistory">
+                    <a className="dropdown-item">Deposit History</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/Withdrawal/WithdrawalHistory">
+                    <a className="dropdown-item">Withdrawal History</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/Reward/RewardHistory">
+                    <a className="dropdown-item">Reward History</a>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/TransactionHistory">
+                    <a className="dropdown-item">Transaction History</a>
+                  </Link>
+                </li>
+
+                {
+                  typeof window !== "undefined" ? 
+                  window.localStorage.userType == "AdminUser" ? 
+
+                <li>
+                  <Link href="/AdminUser">
+                    <a className="dropdown-item">Admin</a>
+                  </Link>
+                </li>
+
+                  :
+
+
+                  <></>
+
+
+                  :
+
+
+                  <></>
+                }
+                {
+                  typeof window !== "undefined" ? 
+                  window.localStorage.userType == "AdminUser" ? 
+
+                  <li>
+                  <Link href="/Settings">
+                    <a className="dropdown-item">Settings</a>
+                  </Link>
+                </li>
+
+                  :
+
+
+                  <></>
+
+
+                  :
+
+
+                  <></>
+                }
+
+
+
+
+               
+                
+                <li className="dropdown-divider" />
+                <li>
+                  <a onClick={handleLogout} className="dropdown-item">
+                    <i className="la la-sign-out" />
+                    Log Out
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      
+
+
+
+
+
+
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="container-fluid">
+                  <div className="row  flex-nowrap" style={{ marginTop: 10 }}>
+                    <div
+                      style={{
+                        
+                        borderRightColor: "white",
+                        borderRightWidth: 2,
+                      }}
+                      className="col-xl-2 col-sm-3 col-auto collaps sho sideba  text-white px-0"
+                    >
+                      <ul
+                        style={{ backgroundColor: "#2E2E42" }}
+                        className="nav flex-column flex-nowrap  navbar-primary   position-fixed pt-2 vh-100"
+                        id="sideba"
+                      >
+                        <img
+                          className="img-fluid d-none d-sm-block"
+                          style={{
+                            width: 150,
+                            marginLeft: 30,
+                            marginBottom: 30,
+                          }}
+                          src="https://lykacoin.net/images/logo.png"
+                          alt=""
+                        />
+                        <li
+                          className="nav-item "
+                          style={{  }}
+                        >
+                        <Link href="/">
+
+                          <a className="nav-link ">
+                            <i className="fa fa-home" />
+                            <span className="ml-1 d-none d-sm-inline   ml-3">
+                              Dashboard
+                            </span>
+                          </a>
+                        </Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link href="/Withdrawal/Withdrawal">
+
+                          <a className="nav-link">
+                            <i className="fa fa-university" />
+                            <span className="ml-1 d-none d-sm-inline  ml-3">
+                              Withdrawal
+                            </span>
+                          </a>
+                        </Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link href="/Profile">
+                        
+                          <a className="nav-link" >
+                            <i className="fa fa-user" />
+                            <span className="ml-1 d-none d-sm-inline  ml-3">
+                              Profile
+                            </span>
+                          </a>
+                          </Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link href="/Packages">
+
+                          <a className="nav-link" >
+                            <i className="fa fa-archive" />
+                            <span className="ml-1 d-none d-sm-inline  ml-3">
+                              Packages
+                            </span>
+                          </a>
+                          </Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link href="/Reward/RewardHistory">
+
+                          <a className="nav-link" >
+                            <i className="fa fa-link" />
+                            <span className="ml-1 d-none d-sm-inline  ml-3">
+                              Referal
+                            </span>
+                          </a>
+                        </Link>
+                        </li>
+                        <li className="nav-item">
+                          <a className="nav-link" >
+                            <i className="fa fa-question-circle" />
+                            <span className="ml-1 d-none d-sm-inline  ml-3">
+                              Support
+                            </span>
+                          </a>
+                        </li>
+                        <li className="nav-item">
+                          <a className="nav-link" href="#">
+                            <i className="fa fa-sign-out" />
+                            <span className="ml-1 d-none d-sm-inline ml-3">
+                              Logout
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="col py-3 ">
+                      <Component {...pageProps} />
+                    </div>
+                  </div>
+                </div>
               </div>
             </>
           )}
@@ -378,47 +558,69 @@ const MyApp = ({ Component, pageProps }) => {
         <div></div>
       )}
 
-      <Script src="js/jquery.min.js" />
-      <Script src="js/jquery.slimscroll.js" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js" integrity="sha512-37SbZHAnGzLuZV850k61DfQdZ5cnahfloYHizjpEwDgZGw49+D6oswdI8EX3ogzKelDLjckhvlK0QZsY/7oxYg==" crossOrigin="anonymous" referrerPolicy="no-referrer"/>
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js" />
-      <Script src="js/jquery.flot.animator.min.js" />
-      <Script src="js/jquery.flot.selection.js" />
-      <Script src="js/jquery.countdown.min.js" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.3/jquery.flot.js" />
-      <Script src="./node_module/js/jquery.flot.orderBars.js" />
-      <Script src="js/jquery.flot.time.js" />
-      <Script src="js/app.js" />
-
-      <Script src="js/popper.js" />
-      <Script src="js/util.js" />
-      <Script src="js/widgster.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.min.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.slimscroll.js" />
       <Script
+        strategy="beforeInteractive"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"
+        integrity="sha512-37SbZHAnGzLuZV850k61DfQdZ5cnahfloYHizjpEwDgZGw49+D6oswdI8EX3ogzKelDLjckhvlK0QZsY/7oxYg=="
+        crossOrigin="anonymous"
+        referrerPolicy="no-referrer"
+      />
+      <Script
+        strategy="beforeInteractive"
+        src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"
+      />
+      <Script
+        strategy="beforeInteractive"
+        src="js/jquery.flot.animator.min.js"
+      />
+      <Script strategy="beforeInteractive" src="js/jquery.flot.selection.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.countdown.min.js" />
+      <Script
+        strategy="beforeInteractive"
+        src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.3/jquery.flot.js"
+      />
+      <Script
+        strategy="beforeInteractive"
+        src="./node_module/js/jquery.flot.orderBars.js"
+      />
+      <Script strategy="beforeInteractive" src="js/jquery.flot.time.js" />
+      <Script strategy="beforeInteractive" src="js/app.js" />
+
+      <Script strategy="beforeInteractive" src="js/popper.js" />
+      <Script strategy="beforeInteractive" src="js/util.js" />
+      <Script strategy="beforeInteractive" src="js/widgster.js" />
+      <Script
+        strategy="beforeInteractive"
         src="js/pace.js"
         data-pace-options='{ "target": ".page-controls", "ghostTime": 1000 }'
       />
-      <Script src="js/hammer.js" />
+      <Script strategy="beforeInteractive" src="js/hammer.js" />
 
-      <Script src="js/settings.js" />
+      <Script strategy="beforeInteractive" src="js/settings.js" />
 
-      <Script src="js/jquery.flot.pie.js" />
-      <Script src="js/jquery.flot.stack.js" />
-      <Script src="js/jquery.flot.crosshair.js" />
-      <Script src="js/jquery.flot.symbol.js" />
-      <Script src="js/jquery.flot.dashes.js" />
-      <Script src="js/jquery.sparkline.js" />
-      <Script src="js/bignumber.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.flot.pie.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.flot.stack.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.flot.crosshair.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.flot.symbol.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.flot.dashes.js" />
+      <Script strategy="beforeInteractive" src="js/jquery.sparkline.js" />
+      <Script strategy="beforeInteractive" src="js/bignumber.js" />
 
-      <Script src="js/index.js" />
-      <Script src="js/cute-alert.js" />
+      {/* <Script strategy="beforeInteractive"  src="js/index.js" /> */}
+      <Script strategy="beforeInteractive" src="js/cute-alert.js" />
 
-      <Script src="js/moment.min.js" />
-      <Script src="js/moment-timezone.min.js" />
-      <Script src="js/moment-timezone-with-data.min.js" />
-      <Script src="js/mine.js" />
-      <Script src="js/bootstrap_calendar.min.js" />
-      <Script src="js/bootstrap-select.min.js" />
-      <Script src="js/bootstrap.js" />
+      <Script strategy="beforeInteractive" src="js/moment.min.js" />
+      <Script strategy="beforeInteractive" src="js/moment-timezone.min.js" />
+      <Script
+        strategy="beforeInteractive"
+        src="js/moment-timezone-with-data.min.js"
+      />
+      <Script strategy="beforeInteractive" src="js/mine.js" />
+      <Script strategy="beforeInteractive" src="js/bootstrap_calendar.min.js" />
+      <Script strategy="beforeInteractive" src="js/bootstrap-select.min.js" />
+      <Script strategy="beforeInteractive" src="js/bootstrap.js" />
     </div>
   );
 };

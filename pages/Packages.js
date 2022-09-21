@@ -2,8 +2,8 @@ import React from 'react'
 import Packages from "../Components/Home/Packages"
 const Packag = () => {
   return (
-    <div className="content-wrap">
-    <main id="content" className="content" role="main">
+    <div style={{marginTop:100,marginLeft:40}}>
+    <main >
 
 
     <Packages/>

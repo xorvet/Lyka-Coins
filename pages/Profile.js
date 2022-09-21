@@ -91,9 +91,9 @@ const Profile = () => {
   };
 
   return (
-    <div className="content-wrap">
+    <div style={{marginTop:100,marginLeft:40}}>
       {data ? (
-        <main id="content" className="content" role="main">
+        <main >
           <h4 className="mb-3">Profile</h4>
 
           <p>

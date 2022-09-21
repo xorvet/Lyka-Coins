@@ -149,8 +149,8 @@ const Withdrawal = () => {
   };
 
   return (
-    <div className="content-wrap">
-      <main id="content" className="content" role="main">
+    <div style={{marginTop:100,marginLeft:40}}>
+      <main >
         <h4 className="mb-3 ">Withdraw Your Coins</h4>
 
         <p>

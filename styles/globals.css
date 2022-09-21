@@ -84,7 +84,7 @@
 }
 
 /*@media (max-width: 991px) {
-      .sidebar {
+      .sideba {
           width: auto;
           height: 100vh;
           overflow-y: auto;
@@ -147,3 +147,22 @@
 
 
 
+
+
+
+
+
+.sideba.collaps.sho,
+.sideba.collaps.sho + .col {
+    transition: .18s linear;
+    left: 0;
+}
+
+.sideba.collaps ,
+.sideba.collapsing,
+.sideba.collapsing + .col {
+    transition: .18s linear;
+    z-index: 1050;
+    left: -25%;
+    height: auto !important;
+}

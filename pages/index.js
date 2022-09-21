@@ -36,8 +36,8 @@ const Index = () => {
   };
 
   return (
-    <div className="content-wrap">
-      <main id="content" className="content" role="main">
+    <div className="p-3 pl-5 " style={{marginTop:80}}>
+      <main >
         <div className="analytics">
           <div className="analytics-side">
             <Intro />
