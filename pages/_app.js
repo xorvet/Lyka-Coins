@@ -279,7 +279,7 @@ const MyApp = ({ Component, pageProps }) => {
                     <div className="col-xl-2 col-sm-3 col-0 collaps sho sideba">
                       {/* spacer */}
                     </div>
-                    <div className="col px-3 pb-5">
+                    <div className="col px-3 ">
                     <div>
 
                       {/* toggler */}
@@ -290,9 +290,16 @@ const MyApp = ({ Component, pageProps }) => {
                         role="button"
                       >
                         {/* <i className="fa fa-bars fa-lg" /> */}
-                        <img
+                        {/* <img
                           className="img-fluid d-xl-none d-xxl-block"
-                          style={{ width: 150, marginLeft: 60 }}
+                          style={{ width: 50, marginLeft: 60 }}
+                          src="https://lykacoin.net/images/logo.png"
+                          alt=""
+                        /> */}
+
+                            <img
+                          className="d-xl-none d-xxl-block"
+                          style={{ width: 120, marginLeft: 60 ,position:"absolute"}}
                           src="https://lykacoin.net/images/logo.png"
                           alt=""
                         />
