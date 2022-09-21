@@ -36,7 +36,7 @@ const Index = () => {
   };
 
   return (
-    <div className="p-3 pl-5 " style={{marginTop:80}}>
+    <div className="p-3 pl-5" style={{marginTop:50}}>
       <main >
         <div className="analytics">
           <div className="analytics-side">
