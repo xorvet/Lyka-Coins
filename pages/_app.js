@@ -280,174 +280,151 @@ const MyApp = ({ Component, pageProps }) => {
                       {/* spacer */}
                     </div>
                     <div className="col px-3 ">
-                    <div>
-
-                      {/* toggler */}
-                      <a
-                        data-toggle="collaps"
-                        href="#"
-                        data-target=".collaps"
-                        role="button"
-                      >
-                        {/* <i className="fa fa-bars fa-lg" /> */}
-                        {/* <img
+                      <div>
+                        {/* toggler */}
+                        <a
+                          data-toggle="collaps"
+                          href="#"
+                          data-target=".collaps"
+                          role="button"
+                        >
+                          {/* <i className="fa fa-bars fa-lg" /> */}
+                          {/* <img
                           className="img-fluid d-xl-none d-xxl-block"
                           style={{ width: 50, marginLeft: 60 }}
                           src="https://lykacoin.net/images/logo.png"
                           alt=""
                         /> */}
+                          <i
+                            style={{
+                              position: "absolute",
+                              marginTop: 10,
+                              fontSize: 20,
+                            }}
+                            data-toggle="modal"
+                            data-target="#exampleModal"
+                            className="fa fa-bars d-xl-none d-xxl-block"
+                          />
 
-                            <img
-                          className="d-xl-none d-xxl-block"
-                          style={{ width: 120, marginLeft: 60 ,position:"absolute"}}
-                          src="https://lykacoin.net/images/logo.png"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div>
+                          <img
+                            className="d-xl-none d-xxl-block"
+                            style={{
+                              width: 120,
+                              marginLeft: 30,
+                              position: "absolute",
+                            }}
+                            src="https://lykacoin.net/images/logo.png"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                      <div>
+                        <div className="navbar-header mobile-hidden float-right">
+                          <ul className="nav navbar-nav">
+                            <li className="dropdown nav-item mr-2">
+                              <span className="thumb-sm avatar d-none">
+                                <img className="rounded-circle" src alt="..." />
+                              </span>
+                              <span>
+                                {typeof window !== "undefined"
+                                  ? window.localStorage.getItem("username")
+                                  : ""}
+                              </span>
+                            </li>
+                            <li className="dropdown nav-item">
+                              <a
+                                href="#"
+                                className="dropdown-toggle no-caret nav-link"
+                                data-toggle="dropdown"
+                              >
+                                <i className="la la-cog" />
+                              </a>
+                              <ul className="dropdown-menu dropdown-menu-right">
+                                <li>
+                                  <Link href="/Profile">
+                                    <a className="dropdown-item">
+                                      <i className="glyphicon glyphicon-user" />
+                                      &nbsp; Profile
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li className="dropdown-divider" />
+                                <li>
+                                  <Link href="/DipositHistory">
+                                    <a className="dropdown-item">
+                                      Deposit History
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/Withdrawal/WithdrawalHistory">
+                                    <a className="dropdown-item">
+                                      Withdrawal History
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/Reward/RewardHistory">
+                                    <a className="dropdown-item">
+                                      Reward History
+                                    </a>
+                                  </Link>
+                                </li>
 
+                                <li>
+                                  <Link href="/TransactionHistory">
+                                    <a className="dropdown-item">
+                                      Transaction History
+                                    </a>
+                                  </Link>
+                                </li>
 
+                                {typeof window !== "undefined" ? (
+                                  window.localStorage.userType ==
+                                  "AdminUser" ? (
+                                    <li>
+                                      <Link href="/AdminUser">
+                                        <a className="dropdown-item">Admin</a>
+                                      </Link>
+                                    </li>
+                                  ) : (
+                                    <></>
+                                  )
+                                ) : (
+                                  <></>
+                                )}
+                                {typeof window !== "undefined" ? (
+                                  window.localStorage.userType ==
+                                  "AdminUser" ? (
+                                    <li>
+                                      <Link href="/Settings">
+                                        <a className="dropdown-item">
+                                          Settings
+                                        </a>
+                                      </Link>
+                                    </li>
+                                  ) : (
+                                    <></>
+                                  )
+                                ) : (
+                                  <></>
+                                )}
 
-
-
-
-
-
-
-
-                    <div className="navbar-header mobile-hidden float-right">
-          <ul className="nav navbar-nav">
-            <li className="dropdown nav-item mr-2">
-              <span className="thumb-sm avatar d-none">
-                <img className="rounded-circle" src alt="..." />
-              </span>
-              <span>
-                {typeof window !== "undefined"
-                  ? window.localStorage.getItem("username")
-                  : ""}
-              </span>
-            </li>
-            <li className="dropdown nav-item">
-              <a
-                href="#"
-                className="dropdown-toggle no-caret nav-link"
-                data-toggle="dropdown"
-              >
-                <i className="la la-cog" />
-              </a>
-              <ul className="dropdown-menu dropdown-menu-right">
-                <li>
-                  <Link href="/Profile">
-                    <a className="dropdown-item">
-                      <i className="glyphicon glyphicon-user" />
-                      &nbsp; Profile
-                    </a>
-                  </Link>
-                </li>
-                <li className="dropdown-divider" />
-                <li>
-                  <Link href="/DipositHistory">
-                    <a className="dropdown-item">Deposit History</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/Withdrawal/WithdrawalHistory">
-                    <a className="dropdown-item">Withdrawal History</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/Reward/RewardHistory">
-                    <a className="dropdown-item">Reward History</a>
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/TransactionHistory">
-                    <a className="dropdown-item">Transaction History</a>
-                  </Link>
-                </li>
-
-                {
-                  typeof window !== "undefined" ? 
-                  window.localStorage.userType == "AdminUser" ? 
-
-                <li>
-                  <Link href="/AdminUser">
-                    <a className="dropdown-item">Admin</a>
-                  </Link>
-                </li>
-
-                  :
-
-
-                  <></>
-
-
-                  :
-
-
-                  <></>
-                }
-                {
-                  typeof window !== "undefined" ? 
-                  window.localStorage.userType == "AdminUser" ? 
-
-                  <li>
-                  <Link href="/Settings">
-                    <a className="dropdown-item">Settings</a>
-                  </Link>
-                </li>
-
-                  :
-
-
-                  <></>
-
-
-                  :
-
-
-                  <></>
-                }
-
-
-
-
-               
-                
-                <li className="dropdown-divider" />
-                <li>
-                  <a onClick={handleLogout} className="dropdown-item">
-                    <i className="la la-sign-out" />
-                    Log Out
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      
-
-
-
-
-
-
-                    </div>
+                                <li className="dropdown-divider" />
+                                <li>
+                                  <a
+                                    onClick={handleLogout}
+                                    className="dropdown-item"
+                                  >
+                                    <i className="la la-sign-out" />
+                                    Log Out
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -455,7 +432,6 @@ const MyApp = ({ Component, pageProps }) => {
                   <div className="row  flex-nowrap" style={{ marginTop: 10 }}>
                     <div
                       style={{
-                        
                         borderRightColor: "white",
                         borderRightWidth: 2,
                       }}
@@ -476,73 +452,65 @@ const MyApp = ({ Component, pageProps }) => {
                           src="https://lykacoin.net/images/logo.png"
                           alt=""
                         />
-                        <li
-                          className="nav-item "
-                          style={{  }}
-                        >
-                        <Link href="/">
-
-                          <a className="nav-link ">
-                            <i className="fa fa-home" />
-                            <span className="ml-1 d-none d-sm-inline   ml-3">
-                              Dashboard
-                            </span>
-                          </a>
-                        </Link>
+                        <li className="nav-item d-none d-sm-block" style={{}}>
+                          <Link href="/">
+                            <a className="nav-link ">
+                              <i className="fa fa-home" />
+                              <span className="ml-1 d-none d-sm-inline   ml-3">
+                                Dashboard
+                              </span>
+                            </a>
+                          </Link>
                         </li>
-                        <li className="nav-item">
-                        <Link href="/Withdrawal/Withdrawal">
-
+                        <li className="nav-item d-none d-sm-block">
+                          <Link href="/Withdrawal/Withdrawal">
+                            <a className="nav-link">
+                              <i className="fa fa-university" />
+                              <span className="ml-1 d-none d-sm-inline  ml-3">
+                                Withdrawal
+                              </span>
+                            </a>
+                          </Link>
+                        </li>
+                        <li className="nav-item d-none d-sm-block">
+                          <Link href="/Profile">
+                            <a className="nav-link">
+                              <i className="fa fa-user" />
+                              <span className="ml-1 d-none d-sm-inline  ml-3">
+                                Profile
+                              </span>
+                            </a>
+                          </Link>
+                        </li>
+                        <li className="nav-item d-none d-sm-block">
+                          <Link href="/Packages">
+                            <a className="nav-link">
+                              <i className="fa fa-archive" />
+                              <span className="ml-1 d-none d-sm-inline  ml-3">
+                                Packages
+                              </span>
+                            </a>
+                          </Link>
+                        </li>
+                        <li className="nav-item d-none d-sm-block">
+                          <Link href="/Reward/RewardHistory">
+                            <a className="nav-link">
+                              <i className="fa fa-link" />
+                              <span className="ml-1 d-none d-sm-inline  ml-3">
+                                Referal
+                              </span>
+                            </a>
+                          </Link>
+                        </li>
+                        <li className="nav-item d-none d-sm-block">
                           <a className="nav-link">
-                            <i className="fa fa-university" />
-                            <span className="ml-1 d-none d-sm-inline  ml-3">
-                              Withdrawal
-                            </span>
-                          </a>
-                        </Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link href="/Profile">
-                        
-                          <a className="nav-link" >
-                            <i className="fa fa-user" />
-                            <span className="ml-1 d-none d-sm-inline  ml-3">
-                              Profile
-                            </span>
-                          </a>
-                          </Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link href="/Packages">
-
-                          <a className="nav-link" >
-                            <i className="fa fa-archive" />
-                            <span className="ml-1 d-none d-sm-inline  ml-3">
-                              Packages
-                            </span>
-                          </a>
-                          </Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link href="/Reward/RewardHistory">
-
-                          <a className="nav-link" >
-                            <i className="fa fa-link" />
-                            <span className="ml-1 d-none d-sm-inline  ml-3">
-                              Referal
-                            </span>
-                          </a>
-                        </Link>
-                        </li>
-                        <li className="nav-item">
-                          <a className="nav-link" >
                             <i className="fa fa-question-circle" />
                             <span className="ml-1 d-none d-sm-inline  ml-3">
                               Support
                             </span>
                           </a>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item d-none d-sm-block">
                           <a className="nav-link" href="#">
                             <i className="fa fa-sign-out" />
                             <span className="ml-1 d-none d-sm-inline ml-3">
@@ -553,6 +521,235 @@ const MyApp = ({ Component, pageProps }) => {
                       </ul>
                     </div>
                     <div className="col py-3 ">
+                      <div
+                        className="modal fade"
+                        id="exampleModal"
+                        tabIndex={-1}
+                        role="dialog"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div
+                          className="modal-dialog  modal-dialog-centered"
+                          role="document"
+                        >
+                          <div className="modal-content">
+                            <div className="modal-body ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              <ul className="list-group mt-3 mb-3">
+                                <li className="p-1">
+                                  {" "}
+                                  <button
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      backgroundColor: "#3073AE",
+                                    }}
+                                    className="btn btn-success"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    <i
+                                      style={{
+                                        fontSize: 20,
+                                        cursor: "pointer",
+                                      }}
+                                      className="shopicon bi bi-house-fill "
+                                    />
+                                    HOME
+                                  </button>
+                                </li>
+                                <li className="p-1">
+                                  {" "}
+                                  <button
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      backgroundColor: "#3073AE",
+                                    }}
+                                    className="btn btn-success"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    <i
+                                      style={{
+                                        fontSize: 20,
+                                        cursor: "pointer",
+                                      }}
+                                      className="shopicon bi bi-file-person "
+                                    />
+                                    ABOUT
+                                  </button>
+                                </li>
+                                <li className="p-1">
+                                  {" "}
+                                  <button
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      backgroundColor: "#3073AE",
+                                    }}
+                                    className="btn btn-success"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    <i
+                                      style={{
+                                        fontSize: 20,
+                                        cursor: "pointer",
+                                      }}
+                                      className="shopicon bi bi-gear-fill "
+                                    />
+                                    SERVICES
+                                  </button>
+                                </li>
+                                <li className="p-1">
+                                  {" "}
+                                  <button
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      backgroundColor: "#3073AE",
+                                    }}
+                                    className="btn btn-success"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    <i
+                                      style={{
+                                        fontSize: 20,
+                                        cursor: "pointer",
+                                      }}
+                                      className="shopicon bi bi-filter-square-fill "
+                                    />
+                                    PLANS
+                                  </button>
+                                </li>
+                                <li className="p-1">
+                                  {" "}
+                                  <button
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      backgroundColor: "#3073AE",
+                                    }}
+                                    className="btn btn-success"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    <i
+                                      style={{
+                                        fontSize: 20,
+                                        cursor: "pointer",
+                                      }}
+                                      className="shopicon bi bi-person-lines-fill"
+                                    />
+                                    CONTACT
+                                  </button>
+                                </li>
+                                <li className="p-1">
+                                  {" "}
+                                  <button
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      backgroundColor: "#3073AE",
+                                    }}
+                                    className="btn btn-success"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    <i
+                                      style={{
+                                        fontSize: 20,
+                                        cursor: "pointer",
+                                      }}
+                                      className="shopicon bi bi-cart-plus-fill "
+                                    />{" "}
+                                    {/* */}CART
+                                  </button>
+                                </li>
+                                <li className="p-1">
+                                  {" "}
+                                  <button
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      backgroundColor: "#3073AE",
+                                    }}
+                                    className="btn btn-success"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    <i
+                                      style={{
+                                        fontSize: 20,
+                                        cursor: "pointer",
+                                      }}
+                                      className="shopicon bi bi-calendar2-week-fill "
+                                    />
+                                    Book Appointment
+                                  </button>
+                                </li>
+                                <li className="p-1">
+                                  {" "}
+                                  <button
+                                    type="button"
+                                    className="btn btn-success"
+                                    data-bs-dismiss="modal"
+                                    style={{
+                                      width: "100%",
+                                      backgroundColor: "rgb(48, 115, 174)",
+                                    }}
+                                  >
+                                    <i
+                                      className="shopicon bi bi-box-arrow-left "
+                                      style={{
+                                        fontSize: 20,
+                                        cursor: "pointer",
+                                      }}
+                                    />{" "}
+                                    Log Out
+                                  </button>
+                                </li>
+                              </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <Component {...pageProps} />
                     </div>
                   </div>
