@@ -196,7 +196,7 @@ const Menu = () => {
                       ) : (
                         <></>
                       )}
-                      <span id="lblDirectBusinessRight">{num} LYKA</span>
+                      <span id="lblDirectBusinessRight">{num.toFixed(4)} LYKA</span>
                     </span>
                   </h4>
                 </div>
