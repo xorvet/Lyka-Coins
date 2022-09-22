@@ -99,8 +99,8 @@ const Settings = () => {
   };
 
   return (
-    <div className="content-wrap">
-      <main id="content" className="content" role="main">
+    <div style={{marginTop:100,marginLeft:40}}>
+      <main >
         <h2>Settings</h2>
 
         <div className="row mt-5">

@@ -4,6 +4,7 @@ import Packages from "../../../Modal/Packages";
 import PurchasedPackages from "../../../Modal/PurchasedPackages";
 import PackageHistory from "../../../Modal/History/PackageHistory";
 import ReferalPercantage from "../../../Modal/DynamicValue/ReferalPercantage";
+import ReferalHistory from "../../../Modal/History/ReferalHistory";
 initDB();
 export default async (req, res) => {
   if (req.method == "POST") {
@@ -85,6 +86,29 @@ const ActivatePackage = async (req, res) => {
       { _id: checkReferal.ReferedFrom },
       { Wallete: referalUserWallete + Number(NowReward) }
     );
+
+
+  const finUse =  await User.findById(userID)
+
+
+    await ReferalHistory({
+      Owner:findreferedUser._id,
+      ReferalName:finUse.Email,
+      PackageName:PackageName,
+      Coins:NowReward
+    }).save()
+
+
+
+
+
+
+
+
+
+
+
+
   }
 
   await new PackageHistory({

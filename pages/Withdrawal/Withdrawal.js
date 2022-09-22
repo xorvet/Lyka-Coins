@@ -171,7 +171,7 @@ const Withdrawal = () => {
           >
             <h2>
               You Have{" "}
-              <span style={{ color: "#CDBD6E" }}>{datas.Wallete} Coins</span> In
+              <span style={{ color: "#CDBD6E" }}>{datas.Wallete.toFixed(4)} USDT</span> In
               Your Wallate
             </h2>
             <h5 className="mt-3">withdraw them now</h5>

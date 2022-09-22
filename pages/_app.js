@@ -272,7 +272,7 @@ const MyApp = ({ Component, pageProps }) => {
                           </Link>
                         </li>
                         <li className="nav-item d-none d-sm-block">
-                          <Link href="/Reward/RewardHistory">
+                          <Link href="/ReferalSystem">
                             <a className="nav-link">
                               <i className="fa fa-link  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
@@ -467,6 +467,7 @@ const MyApp = ({ Component, pageProps }) => {
                           </div>
                         </div>
                       </div>
+                      <ToastContainer />
                       <Component {...pageProps} />
                     </div>
                   </div>

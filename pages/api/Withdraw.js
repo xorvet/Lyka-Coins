@@ -1,6 +1,7 @@
 import initDB from "../../helper/initDB";
 import User from "../../Modal/User";
 import WithdrawalHistory from "../../Modal/History/WithdrawalHistory";
+import LykaValue from "../../Modal/DynamicValue/LykaValue";
 
 initDB();
 export default async (req, res) => {
@@ -16,8 +17,11 @@ export default async (req, res) => {
       .status(504)
       .json({ error: "Your Have Not Entered Your Wallate Address Yet" });
   }
+  const newval = await LykaValue.findOne()
 
-  const removedValue = Number(userWallate) - Number(coins);
+  var letvalue = Number(coins) * Number(newval.value)
+
+  const removedValue = Number(userWallate) - Number(letvalue);
 
   const AdminUserCoins = (Number(removedValue) * 10) / 100;
 
