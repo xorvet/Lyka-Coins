@@ -53,7 +53,7 @@ for (let i = 0; i < list.length; i++) {
     RewardOwner: packagedetailes.PackageQwner,
     PackageName: packagedetailes.PackageName,
     DepositedAmount: investedAmount,
-    RewardCoin: totalReward,
+    RewardCoin: fin,
     RewardTime: time,
     RewardPercentage: percentageOfReward,
   }).save();
