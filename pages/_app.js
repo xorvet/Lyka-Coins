@@ -281,14 +281,14 @@ const MyApp = ({ Component, pageProps }) => {
                             </a>
                           </Link>
                         </li>
-                        <li className="nav-item d-none d-sm-block">
+                        {/* <li className="nav-item d-none d-sm-block">
                           <a className="nav-link">
                             <i className="fa fa-question-circle  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
                             <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
                               Support
                             </span>
                           </a>
-                        </li>
+                        </li> */}
                         <li className="nav-item d-none d-sm-block">
                           <a className="nav-link" href="#">
                             <i className="fa fa-sign-out  text-dark  p-3 " style={{borderRadius:50,backgroundColor:"#0CDCE5"}} />
