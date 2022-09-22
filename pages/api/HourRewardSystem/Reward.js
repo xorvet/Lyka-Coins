@@ -55,7 +55,7 @@ for (let i = 0; i < list.length; i++) {
     DepositedAmount: investedAmount,
     RewardCoin: totalReward,
     RewardTime: time,
-    RewardPercentage: packagedetailes.PackageReward,
+    RewardPercentage: percentageOfReward,
   }).save();
 }
 res.json("done")
