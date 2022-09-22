@@ -130,7 +130,7 @@ const Menu = () => {
                     <span>
                       {datass ? (
                         <span id="lblBinaryQualified" className="text-success">
-                          {datass.Wallete}$
+                          {datass.Wallete.toFixed(4)}$
                         </span>
                       ) : (
                         <></>
