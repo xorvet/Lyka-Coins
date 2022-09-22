@@ -20,6 +20,12 @@ const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     setshoWindow(true);
   }, []);
+  useEffect(() => {
+
+    console.log("route changed")
+    
+    
+  }, [router.asPath]);
 
   const handleLogout = () => {
     if (typeof window !== "undefined") {
@@ -340,14 +346,17 @@ const MyApp = ({ Component, pageProps }) => {
                               <ul className="list-group mt-3 mb-3">
                                 <li className="p-1">
                                   {" "}
+                                  <Link href="/">
+
                                   <button
+                                 
                                     type="button"
                                     style={{
                                       width: "100%",
                                       backgroundColor: "#3073AE",
                                     }}
                                     className="btn btn-success"
-                                    data-bs-dismiss="modal"
+                                   
                                   >
                                     <i
                                       style={{
@@ -358,38 +367,41 @@ const MyApp = ({ Component, pageProps }) => {
                                     />
                                     Dashboard
                                   </button>
+                                  </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
+                                  <Link href="/DipositHistory">
                                   <button
+                                 
                                     type="button"
                                     style={{
                                       width: "100%",
                                       backgroundColor: "#3073AE",
                                     }}
                                     className="btn btn-success"
-                                    data-bs-dismiss="modal"
+                                    
+                                   
                                   >
-                                    <i
-                                      style={{
-                                        fontSize: 20,
-                                        cursor: "pointer",
-                                      }}
-                                      className="shopicon bi bi-file-person "
-                                    />
-                                    Withdrwawal
+                                  
+                                    Deposit
                                   </button>
+                                  </Link>
+
                                 </li>
                                 <li className="p-1">
                                   {" "}
+                                  <Link href="/Packages">
+
                                   <button
+                                 
                                     type="button"
                                     style={{
                                       width: "100%",
                                       backgroundColor: "#3073AE",
                                     }}
                                     className="btn btn-success"
-                                    data-bs-dismiss="modal"
+                                    
                                   >
                                     <i
                                       style={{
@@ -398,19 +410,24 @@ const MyApp = ({ Component, pageProps }) => {
                                       }}
                                       className="shopicon bi bi-gear-fill "
                                     />
-                                    Profile
+                                    Packages
                                   </button>
+                                  </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
+                                  <Link href="/ReferalSystem">
+
+
                                   <button
+                                  
                                     type="button"
                                     style={{
                                       width: "100%",
                                       backgroundColor: "#3073AE",
                                     }}
                                     className="btn btn-success"
-                                    data-bs-dismiss="modal"
+                                    
                                   >
                                     <i
                                       style={{
@@ -419,19 +436,23 @@ const MyApp = ({ Component, pageProps }) => {
                                       }}
                                       className="shopicon bi bi-filter-square-fill "
                                     />
-                                    Packages
+                                    Referal System
                                   </button>
+                                  </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
+                                  <Link href="/Reward/RewardHistory">
+
                                   <button
+                                  
                                     type="button"
                                     style={{
                                       width: "100%",
                                       backgroundColor: "#3073AE",
                                     }}
                                     className="btn btn-success"
-                                    data-bs-dismiss="modal"
+                                    
                                   >
                                     <i
                                       style={{
@@ -440,19 +461,23 @@ const MyApp = ({ Component, pageProps }) => {
                                       }}
                                       className="shopicon bi bi-person-lines-fill"
                                     />
-                                    Referal
+                                    Reward Info
                                   </button>
+                                  </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
+                                  <Link href="/Withdrawal/Withdrawal">
+
                                   <button
+                                  
                                     type="button"
                                     style={{
                                       width: "100%",
                                       backgroundColor: "#3073AE",
                                     }}
                                     className="btn btn-success"
-                                    data-bs-dismiss="modal"
+                                    
                                   >
                                     <i
                                       style={{
@@ -461,19 +486,23 @@ const MyApp = ({ Component, pageProps }) => {
                                       }}
                                       className="shopicon bi bi-cart-plus-fill "
                                     />{" "}
-                                    {/* */}Support
+                                    {/* */}Withdrawal
                                   </button>
+                                  </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
+
                                   <button
+                                  
+                                  onClick={handleLogout}
                                     type="button"
                                     style={{
                                       width: "100%",
                                       backgroundColor: "#3073AE",
                                     }}
                                     className="btn btn-success"
-                                    data-bs-dismiss="modal"
+                                    
                                   >
                                     <i
                                       style={{
