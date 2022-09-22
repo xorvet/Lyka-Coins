@@ -53,8 +53,8 @@ const AllFundAccounts = ({ setFundManager }) => {
         !editFund && 
 
 
-    <div className="content-wrap">
-      <main id="content" className="content" role="main">
+    <div className="p-3 pl-5" style={{marginTop:50}}>
+      <main >
         <svg
           style={{ cursor: "pointer" }}
           onClick={() => setFundManager(false)}

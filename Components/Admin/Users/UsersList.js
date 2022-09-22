@@ -59,8 +59,8 @@ const UsersList = ({ setUsers }) => {
         <EditUsers getDatas={getData} setOpenEdit={setOpenEdit} id={id} />
       )}
       {!openEdit && (
-        <div className="content-wrap">
-          <main id="content" className="content" role="main">
+        <div className="p-3 pl-5" style={{marginTop:50}}>
+          <main >
             <svg
               style={{ cursor: "pointer" }}
               onClick={() => setUsers(false)}
