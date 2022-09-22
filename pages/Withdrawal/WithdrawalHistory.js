@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
 
-const WithdrawalHistory = () => {
+const WithdrawalHistory = ({dontShow}) => {
   const [datas, setDatas] = useState("");
 
 
@@ -40,14 +40,30 @@ const WithdrawalHistory = () => {
 
 
   return (
-    <div style={{marginTop:100,marginLeft:40}}>
+    <div style={{marginTop:dontShow?0:100,marginLeft:40}}>
       <main >
+      {
+        dontShow ?
+
+        <>
+
+        </>
+
+        :
+
+
+        <>
         <h4 className="mb-3">Withdrawal History</h4>
 
-        <p>
-          <span style={{ color: "#E7D478", cursor: "pointer" }}>Dashboard</span>{" "}
-          {" > "} <span style={{ color: "#E7D478" }}>Withdrawal History</span>{" "}
-        </p>
+<p>
+  <span style={{ color: "#E7D478", cursor: "pointer" }}>Dashboard</span>{" "}
+  {" > "} <span style={{ color: "#E7D478" }}>Withdrawal History</span>{" "}
+</p>
+
+
+        </>
+      }
+       
 
         <div className="mt-5">
           <table

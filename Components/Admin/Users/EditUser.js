@@ -100,8 +100,8 @@ const EditUser = ({ id, setOpenEdit, getDatas }) => {
   };
 
   return (
-    <div className="content-wrap">
-      <main id="content" className="content" role="main">
+    <div >
+      <main >
         <svg
           style={{ cursor: "pointer" }}
           onClick={() => setOpenEdit(false)}

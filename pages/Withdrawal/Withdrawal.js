@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import ABI from "../../Web3Resources/ABI.js";
 import "react-toastify/dist/ReactToastify.css";
 import Web3 from "web3";
+import WithdrawalHistory from "./WithdrawalHistory";
 
 const Withdrawal = () => {
   const [identifier, setIdentifier] = useState("");
@@ -61,8 +62,8 @@ const Withdrawal = () => {
           let amount = web3.utils.toHex(web3.utils.toWei(identifier));
           let data = contract.methods
             .transfer(datas.WalleteAddress, amount)
-            .encodeABI()
-			
+            .encodeABI();
+
           function sendErcToken() {
             let txObj = {
               gas: web3.utils.toHex(100000),
@@ -86,22 +87,18 @@ const Withdrawal = () => {
                         console.log(err);
                       } else {
                         console.log(res);
-                     
-
-
-
 
                         try {
                           axios
                             .post("/api/Withdraw", {
                               userId: id,
                               coins: identifier,
-                              Hash:res
+                              Hash: res,
                             })
                             .then((acc) => {
                               console.log(acc.data);
                               getData();
-              
+
                               toast.success("Withdrawal Done", {
                                 position: "top-right",
                                 autoClose: 3000,
@@ -114,7 +111,7 @@ const Withdrawal = () => {
                             })
                             .catch((err) => {
                               console.log(err);
-              
+
                               if (
                                 err.response.data.error ==
                                 "Your Have Not Entered Your Wallate Address Yet"
@@ -125,12 +122,6 @@ const Withdrawal = () => {
                         } catch (error) {
                           console.log(error);
                         }
-
-
-
-
-
-
                       }
                     }
                   );
@@ -141,7 +132,6 @@ const Withdrawal = () => {
 
           sendErcToken();
           setMessage("");
-         
         });
     } else {
       alert("install metamask extension!!");
@@ -149,79 +139,87 @@ const Withdrawal = () => {
   };
 
   return (
-    <div style={{marginTop:100,marginLeft:40}}>
-      <main >
-        <h4 className="mb-3 ">Withdraw Your Coins</h4>
+    <>
+      <div style={{ marginTop: 100, marginLeft: 40 }}>
+        <main>
+          <h4 className="mb-3 ">Withdraw Your Coins</h4>
 
-        <p>
-          <span style={{ color: "#E7D478", cursor: "pointer" }}>Dashboard</span>{" "}
-          {" > "} <span style={{ color: "#E7D478" }}>Withdraw</span>{" "}
-        </p>
+          <p>
+            <span style={{ color: "#E7D478", cursor: "pointer" }}>
+              Dashboard
+            </span>{" "}
+            {" > "} <span style={{ color: "#E7D478" }}>Withdraw</span>{" "}
+          </p>
 
-        {datas ? (
-          <div
-            className="container mt-5"
-            style={{
-              borderColor: "#0CDCE5",
-              borderWidth: 2,
-              borderStyle: "solid",
-              padding: 20,
-              borderRadius: 10,
-            }}
-          >
-            <h2>
-              You Have{" "}
-              <span style={{ color: "#CDBD6E" }}>{datas.Wallete.toFixed(4)} USDT</span> In
-              Your Wallate
-            </h2>
-            <h5 className="mt-3">withdraw them now</h5>
+          {datas ? (
+            <div
+              className="container mt-5"
+              style={{
+                borderColor: "#0CDCE5",
+                borderWidth: 2,
+                borderStyle: "solid",
+                padding: 20,
+                borderRadius: 10,
+              }}
+            >
+              <h2>
+                You Have{" "}
+                <span style={{ color: "#CDBD6E" }}>
+                  {datas.Wallete.toFixed(4)} USDT
+                </span>{" "}
+                In Your Wallate
+              </h2>
+              <h5 className="mt-3">withdraw them now</h5>
 
-            {/* <h5 className="mt-3" style={{ color: "#CDBD6E" }}>
+              {/* <h5 className="mt-3" style={{ color: "#CDBD6E" }}>
               {datas.Wallete} X 2 = {Number(datas.Wallete) * 2} Lyka Coins
             </h5> */}
 
-            <div className="input-group mt-5 mb-5 container">
-              <input
-                onChange={(e) => {
-                  setIdentifier(e.target.value);
-                }}
-                type="number"
-                className="form-control"
-                min={1}
-              />
-              {identifier < 1 || identifier > Number(datas.Wallete) ? (
-                <button
-                  className="btn btn-outline-secondary disabled"
-                  type="button"
-                >
-                  Withdraw
-                </button>
+              <div className="input-group mt-5 mb-5 container">
+                <input
+                  onChange={(e) => {
+                    setIdentifier(e.target.value);
+                  }}
+                  type="number"
+                  className="form-control"
+                  min={1}
+                />
+                {identifier < 1 || identifier > Number(datas.Wallete) ? (
+                  <button
+                    className="btn btn-outline-secondary disabled"
+                    type="button"
+                  >
+                    Withdraw
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleWithdraw()}
+                    className="btn btn-outline-secondary"
+                    type="button"
+                  >
+                    Withdraw
+                  </button>
+                )}
+              </div>
+              <p className="text-center text-danger">{message}</p>
+              {message ? (
+                <div className="text-center">
+                  <Link href="/Profile">
+                    <button className="btn btn-primary">Update Now</button>
+                  </Link>
+                </div>
               ) : (
-                <button
-                  onClick={() => handleWithdraw()}
-                  className="btn btn-outline-secondary"
-                  type="button"
-                >
-                  Withdraw
-                </button>
+                <></>
               )}
             </div>
-            <p className="text-center text-danger">{message}</p>
-            {message ? (
-              <div className="text-center">
-                <Link href="/Profile">
-                  <button className="btn btn-primary">Update Now</button>
-                </Link>
-              </div>
-            ) : (
-              <></>
-            )}
-          </div>
-        ) : (
-          <></>
-        )}
-      </main>
-    </div>
+          ) : (
+            <></>
+          )}
+        </main>
+      </div>
+      <h4 className="mb-3 ml-5 mt-5">Withdraw History</h4>
+      <WithdrawalHistory dontShow={true} />
+    </>
   );
 };
 

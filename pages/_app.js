@@ -234,7 +234,7 @@ const MyApp = ({ Component, pageProps }) => {
                         <li className="nav-item d-none d-sm-block" style={{color:"white"}}>
                           <Link href="/">
                             <a className="nav-link ">
-                              <i  className="fa fa-home text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
+                              <i  className="fa fa-home text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
                               <span  className="ml-1 d-none d-sm-inline   ml-3 text-white">
                                 Dashboard
                               </span>
@@ -242,21 +242,11 @@ const MyApp = ({ Component, pageProps }) => {
                           </Link>
                         </li>
                         <li className="nav-item d-none d-sm-block">
-                          <Link href="/Withdrawal/Withdrawal">
+                          <Link href="/DipositHistory">
                             <a className="nav-link">
-                              <i className="fa fa-university  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
+                              <i className="fa fa-university  text-dark" style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
-                                Withdrawal
-                              </span>
-                            </a>
-                          </Link>
-                        </li>
-                        <li className="nav-item d-none d-sm-block">
-                          <Link href="/Profile">
-                            <a className="nav-link">
-                              <i className="fa fa-user  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
-                              <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
-                                Profile
+                              Deposit
                               </span>
                             </a>
                           </Link>
@@ -264,7 +254,7 @@ const MyApp = ({ Component, pageProps }) => {
                         <li className="nav-item d-none d-sm-block">
                           <Link href="/Packages">
                             <a className="nav-link">
-                              <i className="fa fa-archive  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
+                              <i className="fa fa-archive  text-dark" style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
                                 Packages
                               </span>
@@ -274,13 +264,46 @@ const MyApp = ({ Component, pageProps }) => {
                         <li className="nav-item d-none d-sm-block">
                           <Link href="/ReferalSystem">
                             <a className="nav-link">
-                              <i className="fa fa-link  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
+                              <i className="fa fa-link  text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
-                                Referal
+                                Referal System
                               </span>
                             </a>
                           </Link>
                         </li>
+                        <li className="nav-item d-none d-sm-block">
+                          <Link href="/Reward/RewardHistory">
+                            <a className="nav-link">
+                              <i className="fa fa-user  text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
+                              <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
+                                Reward Info
+                              </span>
+                            </a>
+                          </Link>
+                        </li>
+                       
+                        <li className="nav-item d-none d-sm-block">
+                          <Link href="/Withdrawal/Withdrawal">
+                            <a className="nav-link">
+                              <i className="fa fa-university  text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
+                              <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
+                                Withdrawal
+                              </span>
+                            </a>
+                          </Link>
+                        </li>
+                        {/* <li className="nav-item d-none d-sm-block">
+                          <Link href="/Profile">
+                            <a className="nav-link">
+                              <i className="fa fa-user  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
+                              <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
+                                Profile
+                              </span>
+                            </a>
+                          </Link>
+                        </li> */}
+                       
+                       
                         {/* <li className="nav-item d-none d-sm-block">
                           <a className="nav-link">
                             <i className="fa fa-question-circle  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
@@ -290,8 +313,8 @@ const MyApp = ({ Component, pageProps }) => {
                           </a>
                         </li> */}
                         <li className="nav-item d-none d-sm-block">
-                          <a className="nav-link" href="#">
-                            <i className="fa fa-sign-out  text-dark  p-3 " style={{borderRadius:50,backgroundColor:"#0CDCE5"}} />
+                          <a className="nav-link" onClick={handleLogout}>
+                            <i className="fa fa-sign-out  text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
                             <span className="ml-1 d-none d-sm-inline ml-3  text-white">
                               Logout
                             </span>
