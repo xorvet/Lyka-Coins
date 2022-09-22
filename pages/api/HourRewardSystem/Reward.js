@@ -38,9 +38,11 @@ for (let i = 0; i < list.length; i++) {
 
   var totalReward = (Number(investedAmount) * Number(percentageOfReward)) / 100; // This is the final reward
 
+  var fin = totalReward / 8766
+
   await User.findByIdAndUpdate(
     { _id: list[i].user },
-    { Wallete: wallete + Number(totalReward) }
+    { Wallete: wallete + Number(fin) }
   );
   await PurchasedPackages.findByIdAndUpdate(
     { _id: list[i].package },
