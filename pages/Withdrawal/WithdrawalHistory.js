@@ -77,7 +77,7 @@ const WithdrawalHistory = ({dontShow}) => {
             <thead>
               <tr>
                 <th scope="col">S.No</th>
-                <th scope="col">Coins</th>
+                <th scope="col">Lyka</th>
                 <th scope="col">Wallete</th>
                 <th scope="col">Deducted Value</th>
                 <th scope="col">Date</th>
@@ -92,9 +92,9 @@ const WithdrawalHistory = ({dontShow}) => {
               datas.map((hit,index)=>{
                 return  <tr key={hit._id}>
                 <td>{index+1}</td>
-                <td>{Number(hit.DeductedCoins)} Coins</td>
+                <td>{Number(hit.DeductedCoins)} Lyka</td>
                 <td>{hit.Wallete}</td>
-                <td>{Number(hit.DeductedValue).toFixed(1)} Coins</td>
+                <td>{Number(hit.DeductedValue).toFixed(1)} Lyka</td>
                 <td>{hit.createdAt}</td>
                 <td>{hit.Hash}</td>
               </tr>

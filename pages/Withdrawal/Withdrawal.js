@@ -41,38 +41,21 @@ const Withdrawal = () => {
         console.log(error);
       }
 
-
-
       try {
-
-
-
-
-        axios.get("/api/Limits")
-        .then((acc)=>{
-          console.log(acc.data[0].Maximum)
-          console.log(acc.data[0].Minimum)
-          setMin(acc.data[0].Minimum)
-          setMax(acc.data[0].Maximum)
-        })
-        .catch((err)=>{
-          console.log(err)
-        })
-
-
-
-
-
-        
+        axios
+          .get("/api/Limits")
+          .then((acc) => {
+            console.log(acc.data[0].Maximum);
+            console.log(acc.data[0].Minimum);
+            setMin(acc.data[0].Minimum);
+            setMax(acc.data[0].Maximum);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-
-
-
-
-
-
     }
   };
 
@@ -81,15 +64,9 @@ const Withdrawal = () => {
       return setMessage("Your Have Not Entered Your Wallate Address Yet");
     }
 
-
     if (Number(min) > Number(identifier)) {
       return setMessage(`Minimum Withdrawal Limit Is ${min}`);
     }
-
-
-
-
-
 
     if (window.ethereum) {
       window.ethereum

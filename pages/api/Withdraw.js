@@ -23,13 +23,13 @@ export default async (req, res) => {
 
   var letvalue = Number(coins) * Number(newval.value)
 
-  const removedValue = Number(userWallate) - Number(letvalue);
+  const removedValue = Number(userWallate) - Number(coins);
 
 
   const val = await WithdrawalPercantage.findOne();
 
 
-  const AdminUserCoins = (Number(letvalue) * Number(val.WithdrawalPercantage)) / 100;
+  const AdminUserCoins = (Number(coins) * Number(val.WithdrawalPercantage)) / 100;
 
 
 
