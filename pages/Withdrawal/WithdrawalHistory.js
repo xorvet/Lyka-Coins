@@ -96,7 +96,7 @@ const WithdrawalHistory = ({dontShow}) => {
                 <td>{hit.Wallete}</td>
                 <td>{Number(hit.DeductedValue).toFixed(1)} Lyka</td>
                 <td>{hit.createdAt}</td>
-                <td>{hit.Hash}</td>
+                <td> <a target="__blank" href={`https://testnet.bscscan.com/tx/${hit.Hash}`}> <button className="btn btn-primary">GO</button> </a></td>
               </tr>
               }) 
 
