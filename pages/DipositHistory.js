@@ -35,6 +35,7 @@ const DipositHistory = () => {
           <span style={{ color: "#E7D478", cursor: "pointer" }}>Dashboard</span>{" "}
           {" > "} <span style={{ color: "#E7D478" }}>Deposit History</span>{" "}
         </p>
+        <div className="table-responsive">
 
         <div className="mt-5">
           <table
@@ -78,6 +79,7 @@ const DipositHistory = () => {
               )}
             </tbody>
           </table>
+        </div>
         </div>
       </main>
     </div>
