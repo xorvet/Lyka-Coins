@@ -29,11 +29,11 @@ const DipositHistory = () => {
   return (
     <div className="p-3 pl-5" style={{marginTop:50}}>
       <main >
-        <h4 className="mb-3">Diposit History</h4>
+        <h4 className="mb-3">Deposit History</h4>
 
         <p>
           <span style={{ color: "#E7D478", cursor: "pointer" }}>Dashboard</span>{" "}
-          {" > "} <span style={{ color: "#E7D478" }}>Diposit History</span>{" "}
+          {" > "} <span style={{ color: "#E7D478" }}>Deposit History</span>{" "}
         </p>
 
         <div className="mt-5">
@@ -69,7 +69,7 @@ const DipositHistory = () => {
                       <td>{hit.createdAt}</td>
                       <td>{hit.PackageReward} APY</td>
                       <td>{hit.ExpiryDate}</td>
-                      <td>{hit.Hash}</td>
+                      <td><a target="__blank" href={`https://testnet.bscscan.com/tx/${hit.Hash}`}> <button className="btn btn-primary">GO</button> </a></td>
                     </tr>
                   );
                 })

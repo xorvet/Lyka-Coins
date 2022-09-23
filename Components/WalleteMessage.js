@@ -17,7 +17,7 @@ const WalleteMessage = ({ setShowMessage }) => {
     >
       <div className="row">
         <div className="col">
-          <h5>You Have Not Entered You Wallet Address Yet</h5>
+          <h5>You Have Not Entered Your Wallet Address Yet</h5>
         </div>
         <div className="col">
           <p className="text-right">

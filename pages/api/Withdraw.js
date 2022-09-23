@@ -85,7 +85,7 @@ export default async (req, res) => {
     UserId:userId,
     DeductedCoins:letvalue,
     Wallete:userWallateAddress,
-    DeductedValue:AdminUserCoins,
+    DeductedValue:coins,
     Hash:Hash
   }).save();
 

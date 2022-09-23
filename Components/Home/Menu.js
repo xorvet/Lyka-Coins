@@ -6,9 +6,11 @@ const Menu = () => {
   const [datass, setDatass] = useState("");
   const [datasss, setDatasss] = useState("");
   const [lyka, setLyka] = useState("");
+  const [referPrice, setReferPrice] = useState("");
 
   let val = 0;
   let num = 0;
+  let numo = 0;
   useEffect(() => {
     if (typeof window !== "undefined") {
       const ids = window.localStorage.getItem("user");
@@ -72,6 +74,67 @@ const Menu = () => {
       } catch (error) {
         console.log(error);
       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      try {
+        axios
+          .get("/api/History/ReferalHistory")
+          .then((acc) => {
+            setReferPrice(acc.data.Coins);
+            console.log(acc.data.Coins)
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
   }, []);
 
@@ -146,7 +209,7 @@ const Menu = () => {
           </section>
         </div>
       </div>
-      <div className="col-sm-12 col-lg-3 mb-lg order-0 order-md-2">
+      {/* <div className="col-sm-12 col-lg-3 mb-lg order-0 order-md-2">
         <div className="pb-xlg h-100">
           <section className="widget mb-0 h-100">
             <header className="d-flex justify-content-between flex-wrap pb-2">
@@ -164,6 +227,41 @@ const Menu = () => {
                     <span>
                       <span id="lblDirectBusinessLeft">
                         1 USDT = {lyka ? lyka : "..."} LYKA
+                      </span>
+                    </span>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div> */}
+
+      <div className="col-sm-12 col-lg-3 mb-lg order-0 order-md-2">
+        <div className="pb-xlg h-100">
+          <section className="widget mb-0 h-100">
+            <header className="d-flex justify-content-between flex-wrap pb-2">
+              <h4
+                className="d-flex align-items-center pb-1"
+                style={{ fontSize: 16 }}
+              >
+                Total Referal Earning
+              </h4>
+            </header>
+            <div className="widget-body p-0">
+              <div className="d-flex">
+                <div className="w-100">
+                  <h4 className="fw-semi-bold ml-lg mb-lg">
+                    <span>
+                      {referPrice ? (
+                        referPrice.map((hit) => {
+                          numo = num + Number(hit.Coins);
+                        })
+                      ) : (
+                        <></>
+                      )}
+                      <span id="lblDirectBusinessRight">
+                        {numo.toFixed(4)} LYKA
                       </span>
                     </span>
                   </h4>
@@ -196,7 +294,9 @@ const Menu = () => {
                       ) : (
                         <></>
                       )}
-                      <span id="lblDirectBusinessRight">{num.toFixed(4)} LYKA</span>
+                      <span id="lblDirectBusinessRight">
+                        {num.toFixed(4)} LYKA
+                      </span>
                     </span>
                   </h4>
                 </div>

@@ -156,13 +156,13 @@ const MyApp = ({ Component, pageProps }) => {
                                   </Link>
                                 </li>
 
-                                <li>
+                                {/* <li>
                                   <Link href="/TransactionHistory">
                                     <a className="dropdown-item">
                                       Transaction History
                                     </a>
                                   </Link>
-                                </li>
+                                </li> */}
 
                                 {typeof window !== "undefined" ? (
                                   window.localStorage.userType ==

@@ -173,7 +173,7 @@ const Profile = () => {
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label>User Name</label>
+                      <label>User Id</label>
                       <input
                         defaultValue={data.UserName}
                         type="text"

@@ -99,7 +99,7 @@ const ReferalSystem = () => {
               <th scope="col">S.No</th>
               <th scope="col">Referal User</th>
               <th scope="col">Package Name</th>
-              <th scope="col">Lyka Coins</th>
+              <th scope="col">USD</th>
               <th scope="col">Date</th>
             
             </tr>

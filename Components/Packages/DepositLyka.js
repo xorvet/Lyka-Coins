@@ -151,9 +151,9 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
       <></>
       }
 
-        <h6 style={{ color: "#21AE8C", fontWeight: "bold" }}>
+        {/* <h6 style={{ color: "#21AE8C", fontWeight: "bold" }}>
           0x531B05284aAb36fB15A57edeC2670404D025714a
-        </h6>
+        </h6> */}
 
         <div className="mt-4">
           <button onClick={openMetaMask} className="btn btn-primary">

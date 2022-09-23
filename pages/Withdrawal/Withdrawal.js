@@ -190,9 +190,9 @@ const Withdrawal = () => {
                 <span style={{ color: "#CDBD6E" }}>
                   {datas.Wallete.toFixed(4)} USDT
                 </span>{" "}
-                In Your Wallate
+                In Your Wallet 
               </h2>
-              <h5 className="mt-3">withdraw them now</h5>
+              {/* <h5 className="mt-3">withdraw them now</h5> */}
 
               {/* <h5 className="mt-3" style={{ color: "#CDBD6E" }}>
               {datas.Wallete} X 2 = {Number(datas.Wallete) * 2} Lyka Coins
