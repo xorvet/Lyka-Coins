@@ -27,7 +27,7 @@ export default async (req, res) => {
       return res.status(401).json({ error: "email or password don't match" });
     }
   } else {
-    const number = await User.findOne({ Mobile_Number: identifier });
+    const number = await User.findOne({ UserName: identifier });
     if (!number) {
       return res.status(404).json({ error: "User Don't Exists" });
     }
