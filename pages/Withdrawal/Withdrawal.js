@@ -13,6 +13,8 @@ const Withdrawal = () => {
   const [message, setMessage] = useState("");
   const [id, setId] = useState("");
   const [HashCode, setHashCode] = useState("");
+  const [min, setMin] = useState("");
+  const [max, setMax] = useState("");
 
   useEffect(() => {
     getData();
@@ -38,6 +40,39 @@ const Withdrawal = () => {
       } catch (error) {
         console.log(error);
       }
+
+
+
+      try {
+
+
+
+
+        axios.get("/api/Limits")
+        .then((acc)=>{
+          console.log(acc.data[0].Maximum)
+          console.log(acc.data[0].Minimum)
+          setMin(acc.data[0].Minimum)
+          setMax(acc.data[0].Maximum)
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+
+
+
+
+
+        
+      } catch (error) {
+        console.log(error)
+      }
+
+
+
+
+
+
     }
   };
 
@@ -45,6 +80,16 @@ const Withdrawal = () => {
     if (datas.WalleteAddress == "null") {
       return setMessage("Your Have Not Entered Your Wallate Address Yet");
     }
+
+
+    if (Number(min) > Number(identifier)) {
+      return setMessage(`Minimum Withdrawal Limit Is ${min}`);
+    }
+
+
+
+
+
 
     if (window.ethereum) {
       window.ethereum
