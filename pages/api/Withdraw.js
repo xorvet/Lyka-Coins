@@ -65,16 +65,6 @@ export default async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
   const userTotalCoins = Number(removedValue) - Number(AdminUserCoins);
 
   await User.findByIdAndUpdate({ _id: userId }, { Wallete: userTotalCoins });

@@ -104,10 +104,12 @@ const Menu = () => {
 
       try {
         axios
-          .get("/api/History/ReferalHistory")
+          .post("/api/History/ReferalHistory",{
+            id:parsedId
+          })
           .then((acc) => {
-            setReferPrice(acc.data.Coins);
-            console.log(acc.data.Coins)
+            setReferPrice(acc.data);
+            console.log(acc.data)
           })
           .catch((err) => {
             console.log(err);
@@ -261,7 +263,7 @@ const Menu = () => {
                         <></>
                       )}
                       <span id="lblDirectBusinessRight">
-                        {numo.toFixed(4)} LYKA
+                        {numo.toFixed(4)} USD
                       </span>
                     </span>
                   </h4>
@@ -295,7 +297,7 @@ const Menu = () => {
                         <></>
                       )}
                       <span id="lblDirectBusinessRight">
-                        {num.toFixed(4)} LYKA
+                        {num.toFixed(4)} USD
                       </span>
                     </span>
                   </h4>
