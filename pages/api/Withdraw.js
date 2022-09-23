@@ -2,11 +2,13 @@ import initDB from "../../helper/initDB";
 import User from "../../Modal/User";
 import WithdrawalHistory from "../../Modal/History/WithdrawalHistory";
 import LykaValue from "../../Modal/DynamicValue/LykaValue";
+import PLWallete from "../../Modal/Admin/PLWallete";
+import WithdrawalPercantage from "../../Modal/DynamicValue/WithdrawalPercantage";
 
 initDB();
 export default async (req, res) => {
   const { coins, userId ,Hash} = req.body;
-  console.log(Hash)
+  // console.log(Hash)
 
   const findUserData = await User.findById(userId); // user details
   const userWallate = findUserData.Wallete; // user wallate
@@ -23,16 +25,55 @@ export default async (req, res) => {
 
   const removedValue = Number(userWallate) - Number(letvalue);
 
-  const AdminUserCoins = (Number(removedValue) * 10) / 100;
 
-  const findAdminUser = await User.findOne({ UserType: "AdminUser" });
+  const val = await WithdrawalPercantage.findOne();
 
-  const adminUserWallete = findAdminUser.Wallete;
 
-  await User.findByIdAndUpdate(
-    { _id: findAdminUser._id },
-    { Wallete: Number(adminUserWallete) + Number(AdminUserCoins) }
-  );
+  const AdminUserCoins = (Number(letvalue) * Number(val.WithdrawalPercantage)) / 100;
+
+
+
+
+
+
+
+
+
+
+  // const findAdminUser = await User.findOne({ UserType: "AdminUser" });
+
+  // const adminUserWallete = findAdminUser.Wallete;
+
+  // await User.findByIdAndUpdate(
+  //   { _id: findAdminUser._id },
+  //   { Wallete: Number(adminUserWallete) + Number(AdminUserCoins) }
+  // );
+
+
+
+
+  await PLWallete({
+
+    User:findUserData._id,
+    WithdrawAmount:letvalue,
+    PercantageGot:`${val.WithdrawalPercantage}%`,
+    AmountGot:AdminUserCoins,
+
+  }).save()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const userTotalCoins = Number(removedValue) - Number(AdminUserCoins);
 
@@ -42,7 +83,7 @@ export default async (req, res) => {
 
   const WithdrawHistory = await new WithdrawalHistory({
     UserId:userId,
-    DeductedCoins:coins,
+    DeductedCoins:letvalue,
     Wallete:userWallateAddress,
     DeductedValue:AdminUserCoins,
     Hash:Hash
