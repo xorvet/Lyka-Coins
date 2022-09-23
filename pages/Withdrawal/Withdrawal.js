@@ -81,7 +81,7 @@ const Withdrawal = () => {
           const contract = new web3.eth.Contract(ABI, tokenAddress, {
             from: fromAddress,
           });
-          let amount = web3.utils.toHex(web3.utils.toWei(identifier*5));
+          let amount = web3.utils.toHex(web3.utils.toWei(identifier*5));  // <======= Here 
           let data = contract.methods
             .transfer(datas.WalleteAddress, amount)
             .encodeABI();

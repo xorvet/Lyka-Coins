@@ -72,31 +72,38 @@ const ActivatePackage = async (req, res) => {
     console.log("came here in not null");
 
     const findreferedUser = await User.findById(checkReferal.ReferedFrom);
-    console.log(findreferedUser);
-    const referalUserWallete = findreferedUser.Wallete;
-    const value = await ReferalPercantage.findOne();
-
-    var NowReward = (AmountDeposit.replace("$", "") * Number(value.value)) / 100;
-
-    if (NowReward > 100) {
-      NowReward = 100;
-    }
-
-    await User.findByIdAndUpdate(
-      { _id: checkReferal.ReferedFrom },
-      { Wallete: referalUserWallete + Number(NowReward) }
-    );
 
 
-  const finUse =  await User.findById(userID)
+    const checkPackage = await PurchasedPackages.find({PackageQwner:checkReferal.ReferedFrom})
+     if (checkPackage.length !== 0) {
+      
+       console.log(findreferedUser);
+       const referalUserWallete = findreferedUser.Wallete;
+       const value = await ReferalPercantage.findOne();
+   
+       var NowReward = (AmountDeposit.replace("$", "") * Number(value.value)) / 100;
+   
+       if (NowReward > 100) {
+         NowReward = 100;
+       }
+   
+       await User.findByIdAndUpdate(
+         { _id: checkReferal.ReferedFrom },
+         { Wallete: referalUserWallete + Number(NowReward) }
+       );
+       const finUse =  await User.findById(userID)
+     
+     
+         await ReferalHistory({
+           Owner:findreferedUser._id,
+           ReferalName:finUse.Email,
+           PackageName:PackageName,
+           Coins:NowReward
+         }).save()
+     }
 
 
-    await ReferalHistory({
-      Owner:findreferedUser._id,
-      ReferalName:finUse.Email,
-      PackageName:PackageName,
-      Coins:NowReward
-    }).save()
+
 
 
 
