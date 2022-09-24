@@ -37,6 +37,8 @@ const RewardHistory = () => {
         </p>
 
         <div className="mt-5">
+        <div className="table-responsive">
+
           <table
             className="table table-bordered mb-0"
             cellSpacing={0}
@@ -50,7 +52,7 @@ const RewardHistory = () => {
                 <th scope="col">S.No</th>
                 <th scope="col">Reward Package Name</th>
                 <th scope="col">Deposited Amount</th>
-                <th scope="col">Reward Coin</th>
+                <th scope="col">Reward USDT</th>
                 <th scope="col">Reward Percentage</th>
                 <th scope="col">RewardTime</th>
               </tr>
@@ -78,6 +80,7 @@ const RewardHistory = () => {
              }
             </tbody>
           </table>
+        </div>
         </div>
       </main>
     </div>

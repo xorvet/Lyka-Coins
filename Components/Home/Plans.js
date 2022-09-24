@@ -29,7 +29,7 @@ const Plans = () => {
     <>
       {datas ? (
         <div className="mb-4">
-          <h5>My Active Staked Plans</h5>
+          <h5>My Active Yield Plans</h5>
           <div className="table-responsive">
             <div>
               <table
@@ -46,7 +46,7 @@ const Plans = () => {
                     <th scope="col">Package Name</th>
                     <th scope="col">Amount Deposit</th>
                     <th scope="col">Lyka Price</th>
-                    <th scope="col">Invested Date</th>
+                    <th scope="col">Yield Date</th>
                     <th scope="col">Percentage</th>
                     <th scope="col">Valid upto</th>
                   </tr>

@@ -21,10 +21,7 @@ const MyApp = ({ Component, pageProps }) => {
     setshoWindow(true);
   }, []);
   useEffect(() => {
-
-    console.log("route changed")
-    
-    
+    console.log("route changed");
   }, [router.asPath]);
 
   const handleLogout = () => {
@@ -79,7 +76,6 @@ const MyApp = ({ Component, pageProps }) => {
                           data-target=".collaps"
                           role="button"
                         >
-                         
                           <i
                             style={{
                               position: "absolute",
@@ -125,7 +121,7 @@ const MyApp = ({ Component, pageProps }) => {
                                 <i className="la la-cog" />
                               </a>
                               <ul className="dropdown-menu dropdown-menu-right">
-                                <li >
+                                <li>
                                   <Link href="/Profile">
                                     <a className="dropdown-item ">
                                       <i className="glyphicon glyphicon-user" />
@@ -237,11 +233,22 @@ const MyApp = ({ Component, pageProps }) => {
                           src="https://lykacoin.net/images/logo.png"
                           alt=""
                         />
-                        <li className="nav-item d-none d-sm-block" style={{color:"white"}}>
+                        <li
+                          className="nav-item d-none d-sm-block"
+                          style={{ color: "white" }}
+                        >
                           <Link href="/">
                             <a className="nav-link ">
-                              <i  className="fa fa-home text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
-                              <span  className="ml-1 d-none d-sm-inline   ml-3 text-white">
+                              <i
+                                className="fa fa-home text-dark "
+                                style={{
+                                  borderRadius: 50,
+                                  backgroundColor: "#0CDCE5",
+                                  fontSize: 20,
+                                  padding: 10,
+                                }}
+                              />
+                              <span className="ml-1 d-none d-sm-inline   ml-3 text-white">
                                 Dashboard
                               </span>
                             </a>
@@ -250,9 +257,17 @@ const MyApp = ({ Component, pageProps }) => {
                         <li className="nav-item d-none d-sm-block">
                           <Link href="/DipositHistory">
                             <a className="nav-link">
-                              <i className="fa fa-university  text-dark" style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
+                              <i
+                                className="fa fa-university  text-dark"
+                                style={{
+                                  borderRadius: 50,
+                                  backgroundColor: "#0CDCE5",
+                                  fontSize: 20,
+                                  padding: 10,
+                                }}
+                              />
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
-                              Deposit
+                                Deposit
                               </span>
                             </a>
                           </Link>
@@ -260,7 +275,15 @@ const MyApp = ({ Component, pageProps }) => {
                         <li className="nav-item d-none d-sm-block">
                           <Link href="/Packages">
                             <a className="nav-link">
-                              <i className="fa fa-archive  text-dark" style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
+                              <i
+                                className="fa fa-archive  text-dark"
+                                style={{
+                                  borderRadius: 50,
+                                  backgroundColor: "#0CDCE5",
+                                  fontSize: 20,
+                                  padding: 10,
+                                }}
+                              />
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
                                 Packages
                               </span>
@@ -270,7 +293,15 @@ const MyApp = ({ Component, pageProps }) => {
                         <li className="nav-item d-none d-sm-block">
                           <Link href="/ReferalSystem">
                             <a className="nav-link">
-                              <i className="fa fa-link  text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
+                              <i
+                                className="fa fa-link  text-dark "
+                                style={{
+                                  borderRadius: 50,
+                                  backgroundColor: "#0CDCE5",
+                                  fontSize: 20,
+                                  padding: 10,
+                                }}
+                              />
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
                                 Referal System
                               </span>
@@ -280,18 +311,34 @@ const MyApp = ({ Component, pageProps }) => {
                         <li className="nav-item d-none d-sm-block">
                           <Link href="/Reward/RewardHistory">
                             <a className="nav-link">
-                              <i className="fa fa-user  text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
+                              <i
+                                className="fa fa-user  text-dark "
+                                style={{
+                                  borderRadius: 50,
+                                  backgroundColor: "#0CDCE5",
+                                  fontSize: 20,
+                                  padding: 10,
+                                }}
+                              />
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
                                 Reward Info
                               </span>
                             </a>
                           </Link>
                         </li>
-                       
+
                         <li className="nav-item d-none d-sm-block">
                           <Link href="/Withdrawal/Withdrawal">
                             <a className="nav-link">
-                              <i className="fa fa-university  text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
+                              <i
+                                className="fa fa-university  text-dark "
+                                style={{
+                                  borderRadius: 50,
+                                  backgroundColor: "#0CDCE5",
+                                  fontSize: 20,
+                                  padding: 10,
+                                }}
+                              />
                               <span className="ml-1 d-none d-sm-inline  ml-3  text-white">
                                 Withdrawal
                               </span>
@@ -308,8 +355,7 @@ const MyApp = ({ Component, pageProps }) => {
                             </a>
                           </Link>
                         </li> */}
-                       
-                       
+
                         {/* <li className="nav-item d-none d-sm-block">
                           <a className="nav-link">
                             <i className="fa fa-question-circle  text-dark p-3" style={{borderRadius:50,backgroundColor:"#0CDCE5"}}/>
@@ -320,7 +366,15 @@ const MyApp = ({ Component, pageProps }) => {
                         </li> */}
                         <li className="nav-item d-none d-sm-block">
                           <a className="nav-link" onClick={handleLogout}>
-                            <i className="fa fa-sign-out  text-dark " style={{borderRadius:50,backgroundColor:"#0CDCE5",fontSize:20,padding:10}} />
+                            <i
+                              className="fa fa-sign-out  text-dark "
+                              style={{
+                                borderRadius: 50,
+                                backgroundColor: "#0CDCE5",
+                                fontSize: 20,
+                                padding: 10,
+                              }}
+                            />
                             <span className="ml-1 d-none d-sm-inline ml-3  text-white">
                               Logout
                             </span>
@@ -345,164 +399,136 @@ const MyApp = ({ Component, pageProps }) => {
                             <div className="modal-body ">
                               <ul className="list-group mt-3 mb-3">
                                 <li className="p-1">
-                                  {" "}
                                   <Link href="/">
-
-                                  <button
-                                 
-                                    type="button"
-                                    style={{
-                                      width: "100%",
-                                      backgroundColor: "#3073AE",
-                                    }}
-                                    className="btn btn-success"
-                                   
-                                  >
-                                    <i
+                                
+                                    <button
+                                      type="button"
                                       style={{
-                                        fontSize: 20,
-                                        cursor: "pointer",
+                                        width: "100%",
+                                        backgroundColor: "#3073AE",
                                       }}
-                                      className="shopicon bi bi-house-fill "
-                                    />
-                                    Dashboard
-                                  </button>
+                                      className="btn btn-success"
+                                      data-dismiss="modal"
+                                     
+                                    >
+                                     
+                                      Dashboard
+                                    </button>
                                   </Link>
                                 </li>
                                 <li className="p-1">
-                                  {" "}
+                               
                                   <Link href="/DipositHistory">
-                                  <button
-                                 
-                                    type="button"
-                                    style={{
-                                      width: "100%",
-                                      backgroundColor: "#3073AE",
-                                    }}
-                                    className="btn btn-success"
-                                    
-                                   
-                                  >
-                                  
-                                    Deposit
-                                  </button>
+                                    <button
+                                      type="button"
+                                      style={{
+                                        width: "100%",
+                                        backgroundColor: "#3073AE",
+                                      }}
+                                      className="btn btn-success"
+                                    >
+                                      Deposit
+                                    </button>
                                   </Link>
-
                                 </li>
                                 <li className="p-1">
                                   {" "}
                                   <Link href="/Packages">
-
-                                  <button
-                                 
-                                    type="button"
-                                    style={{
-                                      width: "100%",
-                                      backgroundColor: "#3073AE",
-                                    }}
-                                    className="btn btn-success"
-                                    
-                                  >
-                                    <i
+                                    <button
+                                      type="button"
                                       style={{
-                                        fontSize: 20,
-                                        cursor: "pointer",
+                                        width: "100%",
+                                        backgroundColor: "#3073AE",
                                       }}
-                                      className="shopicon bi bi-gear-fill "
-                                    />
-                                    Packages
-                                  </button>
+                                      className="btn btn-success"
+                                    >
+                                      <i
+                                        style={{
+                                          fontSize: 20,
+                                          cursor: "pointer",
+                                        }}
+                                        className="shopicon bi bi-gear-fill "
+                                      />
+                                      Packages
+                                    </button>
                                   </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
                                   <Link href="/ReferalSystem">
-
-
-                                  <button
-                                  
-                                    type="button"
-                                    style={{
-                                      width: "100%",
-                                      backgroundColor: "#3073AE",
-                                    }}
-                                    className="btn btn-success"
-                                    
-                                  >
-                                    <i
+                                    <button
+                                      type="button"
                                       style={{
-                                        fontSize: 20,
-                                        cursor: "pointer",
+                                        width: "100%",
+                                        backgroundColor: "#3073AE",
                                       }}
-                                      className="shopicon bi bi-filter-square-fill "
-                                    />
-                                    Referal System
-                                  </button>
+                                      className="btn btn-success"
+                                    >
+                                      <i
+                                        style={{
+                                          fontSize: 20,
+                                          cursor: "pointer",
+                                        }}
+                                        className="shopicon bi bi-filter-square-fill "
+                                      />
+                                      Referal System
+                                    </button>
                                   </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
                                   <Link href="/Reward/RewardHistory">
-
-                                  <button
-                                  
-                                    type="button"
-                                    style={{
-                                      width: "100%",
-                                      backgroundColor: "#3073AE",
-                                    }}
-                                    className="btn btn-success"
-                                    
-                                  >
-                                    <i
+                                    <button
+                                      type="button"
                                       style={{
-                                        fontSize: 20,
-                                        cursor: "pointer",
+                                        width: "100%",
+                                        backgroundColor: "#3073AE",
                                       }}
-                                      className="shopicon bi bi-person-lines-fill"
-                                    />
-                                    Reward Info
-                                  </button>
+                                      className="btn btn-success"
+                                    >
+                                      <i
+                                        style={{
+                                          fontSize: 20,
+                                          cursor: "pointer",
+                                        }}
+                                        className="shopicon bi bi-person-lines-fill"
+                                      />
+                                      Reward Info
+                                    </button>
                                   </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
                                   <Link href="/Withdrawal/Withdrawal">
-
-                                  <button
-                                  
-                                    type="button"
-                                    style={{
-                                      width: "100%",
-                                      backgroundColor: "#3073AE",
-                                    }}
-                                    className="btn btn-success"
-                                    
-                                  >
-                                    <i
+                                    <button
+                                      type="button"
                                       style={{
-                                        fontSize: 20,
-                                        cursor: "pointer",
+                                        width: "100%",
+                                        backgroundColor: "#3073AE",
                                       }}
-                                      className="shopicon bi bi-cart-plus-fill "
-                                    />{" "}
-                                    {/* */}Withdrawal
-                                  </button>
+                                      className="btn btn-success"
+                                    >
+                                      <i
+                                        style={{
+                                          fontSize: 20,
+                                          cursor: "pointer",
+                                        }}
+                                        className="shopicon bi bi-cart-plus-fill "
+                                      />{" "}
+                                      {/* */}Withdrawal
+                                    </button>
                                   </Link>
                                 </li>
                                 <li className="p-1">
                                   {" "}
-
                                   <button
-                                  
-                                  onClick={handleLogout}
+                                    onClick={handleLogout}
                                     type="button"
                                     style={{
                                       width: "100%",
                                       backgroundColor: "#3073AE",
                                     }}
                                     className="btn btn-success"
-                                    
                                   >
                                     <i
                                       style={{

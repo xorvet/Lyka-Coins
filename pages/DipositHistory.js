@@ -52,7 +52,7 @@ const DipositHistory = () => {
                 <th scope="col">Package Name</th>
                 <th scope="col">Amount Deposit</th>
                 <th scope="col">Lyka Price</th>
-                <th scope="col">Invested Date</th>
+                <th scope="col">Y Date</th>
                 <th scope="col">Percentage</th>
                 <th scope="col">Valid upto</th>
                 <th scope="col">Hash</th>

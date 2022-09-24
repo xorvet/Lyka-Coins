@@ -185,7 +185,7 @@ const Menu = () => {
                 className="d-flex align-items-center pb-1"
                 style={{ fontSize: 16 }}
               >
-                Available Lyka Withdrawal
+                Available Withdrawal
               </h4>
             </header>
             <div className="widget-body p-0">
@@ -247,7 +247,7 @@ const Menu = () => {
                 className="d-flex align-items-center pb-1"
                 style={{ fontSize: 16 }}
               >
-                Total Referal Earning
+                Total Referral Earning
               </h4>
             </header>
             <div className="widget-body p-0">

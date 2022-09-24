@@ -66,6 +66,9 @@ const WithdrawalHistory = ({dontShow}) => {
        
 
         <div className="mt-5">
+
+        <div className="table-responsive">
+
           <table
             className="table table-bordered mb-0"
             cellSpacing={0}
@@ -79,7 +82,7 @@ const WithdrawalHistory = ({dontShow}) => {
                 <th scope="col">S.No</th>
                 <th scope="col">USDT</th>
                 <th scope="col">LYKA</th>
-                <th scope="col">Wallete</th>
+                <th scope="col">Wallet</th>
             
                 <th scope="col">Date</th>
                 <th scope="col">Hash</th>
@@ -121,6 +124,7 @@ const WithdrawalHistory = ({dontShow}) => {
             
             </tbody>
           </table>
+        </div>
         </div>
       </main>
     </div>

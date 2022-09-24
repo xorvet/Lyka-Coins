@@ -113,7 +113,7 @@ const Register = ({ReferCode}) => {
                   alt=""
                 />
               </div>
-              <h3 className="mb-4">Sign up to Lyka Coin</h3>
+              <h3 className="mb-4">Sign up to Lyka Yield</h3>
 
               <form>
                 <div className="form-group">

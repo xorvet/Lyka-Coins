@@ -39,7 +39,7 @@ const WalleteMessage = ({ setShowMessage }) => {
 
       <p>please update it by clicking below.</p>
       <Link href="/Profile">
-      <button className="btn btn-primary">Add Wallete Address</button>
+      <button className="btn btn-primary">Add Wallet Address</button>
       </Link>
     </div>
   );

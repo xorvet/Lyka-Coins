@@ -84,7 +84,8 @@ const ReferalSystem = () => {
           https://lyka-coins.vercel.app?spoID={data ? data.UserName : "00000"}
         </h3>
 
-        <h4 className="mb-3 mt-5">Your Referals</h4>
+        <h4 className="mb-3 mt-5">Your Referrals</h4>
+        <div className="table-responsive">
 
         <table
           className="table table-bordered mb-0"
@@ -97,7 +98,7 @@ const ReferalSystem = () => {
           <thead>
             <tr>
               <th scope="col">S.No</th>
-              <th scope="col">Referal User</th>
+              <th scope="col">Referrals User</th>
               <th scope="col">Package Name</th>
               <th scope="col">USD</th>
               <th scope="col">Date</th>
@@ -125,6 +126,7 @@ const ReferalSystem = () => {
           }
           </tbody>
         </table>
+        </div>
       </main>
     </div>
   );

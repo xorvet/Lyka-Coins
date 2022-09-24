@@ -82,7 +82,7 @@ const Login = () => {
                   alt=""
                 />
               </div>
-              <h3>Login To Your Lyka Coin</h3>
+              <h3>Login To Your Lyka Yield</h3>
               <p className="mt-3 mb-1 " style={{ color: "#888888" }}>
                 Use your userid as username to sign in.
               </p>
