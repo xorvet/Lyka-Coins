@@ -10,6 +10,7 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
   const [userId, setUserId] = useState("");
   const [isLoading, setIsLoading] = useState("");
   const [referal, setReferal] = useState("");
+  const [lykaVal, setLykaVal] = useState("");
   console.log(inputValue)
 
   const router = useRouter()
@@ -30,6 +31,23 @@ const DepositLyka = ({ id, inputValue, setGoForDeposit, getData ,packageName, pa
         .then((acc) => {
           console.log( "the value is => "+ acc.data.value)
           setReferal(acc.data.value);
+          // setLykaVal(acc.data.current);
+          if (acc.data.current == "Automated") {
+
+            axios.get("https://api.pancakeswap.info/api/v2/tokens/0x26844ffd91648e8274598e6e18921a3e5dc14ade")
+            .then((acc)=>{
+              console.log(acc.data.data.price)
+              setReferal(acc.data.data.price)
+            })
+            .catch((err)=>{
+              console.log(err)
+            })
+
+
+
+
+            
+          }
         })
         .catch((err) => {
           console.log(err);

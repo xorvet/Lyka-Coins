@@ -5,6 +5,9 @@ const LykaValue =  mongoose.Schema({
     type: String,
     default: "null",
   },
+  current:{
+    type: String,
+    default: "null",
+  }
 });
-export default mongoose.models.LykaValue ||
-  mongoose.model("LykaValue", LykaValue);
+export default mongoose.models.LykaVal || mongoose.model("LykaVal", LykaValue);

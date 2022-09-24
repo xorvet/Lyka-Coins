@@ -7,6 +7,8 @@ const Settings = () => {
   const [lykaData, setLykaData] = useState("");
   const [referal, setReferal] = useState("");
   const [referalData, setReferalData] = useState("");
+  const [realLykaValue, setRealLykaValue] = useState("");
+  const [apiValue, setApiValue] = useState("");
 
   useEffect(() => {
     getData();
@@ -42,14 +44,31 @@ const Settings = () => {
     } catch (error) {
       console.log(error);
     }
+
+    try {
+      axios
+        .get(
+          "https://api.pancakeswap.info/api/v2/tokens/0x26844ffd91648e8274598e6e18921a3e5dc14ade"
+        )
+        .then((acc) => {
+          console.log(acc.data.data.price);
+          setApiValue(acc.data.data.price);
+          
+          
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {}
   };
 
   const handleUpdateLyka = () => {
     try {
       axios
         .put("/api/LykaValue", {
-          id: "6328b8fb9213fd000da2fc14",
+          id: "632f30a2c7c572c7d78645d6",
           value: lyka,
+          current:realLykaValue
         })
         .then((acc) => {
           getData();
@@ -98,9 +117,18 @@ const Settings = () => {
     }
   };
 
+
+
+  const changinState = (e) =>{
+    setRealLykaValue(e.target.value)
+    console.log(e.target.value)
+
+   
+  }
+
   return (
-    <div style={{marginTop:100,marginLeft:40}}>
-      <main >
+    <div style={{ marginTop: 100, marginLeft: 40 }}>
+      <main>
         <h2>Settings</h2>
 
         <div className="row mt-5">
@@ -115,11 +143,44 @@ const Settings = () => {
                 onChange={(e) => {
                   setLyka(e.target.value);
                 }}
+                disabled={realLykaValue == "Manual" ?false:true}
               ></input>
               <button onClick={handleUpdateLyka} className="btn btn-primary">
                 Update
               </button>
             </div>
+
+            <div style={{ marginTop: 15 }}>
+              <div className="form-check">
+                <input
+                  onChange={(e) => changinState(e) }
+                  value="Automated"
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                  
+                />
+                <label className="form-check-label" htmlFor="flexRadioDefault1">
+                  Automated
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  onChange={(e) => changinState(e) }
+                  value="Manual"
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  // defaultChecked
+                />
+                <label className="form-check-label" htmlFor="flexRadioDefault2">
+                  Manual
+                </label>
+              </div>
+            </div>
+
             <label className="mt-4">Referal Commission %</label>
             <div style={{ display: "flex", gap: 5 }}>
               <input

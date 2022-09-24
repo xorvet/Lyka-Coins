@@ -103,8 +103,9 @@ const Packages = ({getDatas}) => {
                             </button>
                           ) : (
                             <button
+                            style={{backgroundColor:"#0CDCE5",color:"black",fontWeight:600}}
                               onClick={() => handleButttonClicked(hit._id,hit.PackageName,hit.PackagePeriod,hit.PackageReward,hit.PackageMin,hit.PackageMax,inputValue)}
-                              className="btn btn-outline-secondary"
+                              className="btn"
                               type="button"
                               id="button-addon2"
                             >
