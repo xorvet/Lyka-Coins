@@ -144,6 +144,8 @@ const Settings = () => {
                   setLyka(e.target.value);
                 }}
                 disabled={realLykaValue == "Manual" ?false:true}
+                checked={realLykaValue == "Manual" ? true : false}
+                
               ></input>
               <button onClick={handleUpdateLyka} className="btn btn-primary">
                 Update
@@ -159,6 +161,8 @@ const Settings = () => {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+
+                  checked={realLykaValue == "Automated" ? true : false}
                   
                 />
                 <label className="form-check-label" htmlFor="flexRadioDefault1">

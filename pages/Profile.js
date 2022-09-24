@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "axios";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Profile = () => {
@@ -47,6 +48,19 @@ const Profile = () => {
       }
     }
   };
+  const  handleCopy = () =>{
+    toast.success("Copied", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+
+
+  }
 
   const UpdateData = () => {
     try {
@@ -208,7 +222,19 @@ const Profile = () => {
 
 
           <div className="container">
+          <div style={{display:"flex",gap:10,justifyContent:"center"}}>
+
             <a target="__blank" href={`https://lyka-coins.vercel.app?spoID=${data.UserName}`}><p className="text-center mt-4" style={{color:"#0CDCE5"}}>https://lyka-coins.vercel.app?spoID={data.UserName}</p></a>
+
+
+
+            <div>
+<CopyToClipboard onCopy={handleCopy} text={`https://lyka-coins.vercel.app?spoID=${data ? data.UserName : "00000"}`} >
+
+        <button className="btn btn-primary mt-3">Copy</button>
+</CopyToClipboard>
+        </div>
+          </div>
           </div>
 
 

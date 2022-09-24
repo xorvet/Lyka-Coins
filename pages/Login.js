@@ -39,6 +39,7 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(acc.data._id));
         localStorage.setItem("username", String(acc.data.Name));
         localStorage.setItem("userType", String(acc.data.UserType));
+        localStorage.setItem("UserName", String(acc.data.UserName));
       })
       .catch((err) => {
         console.log(err.response.data.error);

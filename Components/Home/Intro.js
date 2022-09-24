@@ -56,6 +56,11 @@ const Intro = () => {
             {typeof window !== "undefined"
               ? window.localStorage.getItem("username")
               : "User"}
+          </small>,
+          <small>
+            ({typeof window !== "undefined"
+              ? window.localStorage.getItem("UserName")
+              : "User"})
           </small>
           {/* <small className="d-block fs-larger text-danger">Inactive</small> */}
         </h3>

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ReferalSystem = () => {
   const [data, setData] = useState("");
   const [datas, setDatas] = useState("");
@@ -70,6 +73,20 @@ const ReferalSystem = () => {
     }
   };
 
+  const  handleCopy = () =>{
+    toast.success("Copied", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+
+
+  }
+
   return (
     <div style={{ marginTop: 100, marginLeft: 40 }}>
       <main>
@@ -79,10 +96,18 @@ const ReferalSystem = () => {
           <span style={{ color: "#E7D478", cursor: "pointer" }}>Dashboard</span>{" "}
           {" > "} <span style={{ color: "#E7D478" }}>Refer&Earn</span>{" "}
         </p>
+<div style={{display:"flex",justifyContent:"center",gap:20}}>
 
         <h3 className="text-center mt-3">
           https://lyka-coins.vercel.app?spoID={data ? data.UserName : "00000"}
         </h3>
+        <div>
+<CopyToClipboard onCopy={handleCopy} text={`https://lyka-coins.vercel.app?spoID=${data ? data.UserName : "00000"}`} >
+
+        <button className="btn btn-primary mt-3">Copy</button>
+</CopyToClipboard>
+        </div>
+</div>
 
         <h4 className="mb-3 mt-5">Your Referrals</h4>
         <div className="table-responsive">
