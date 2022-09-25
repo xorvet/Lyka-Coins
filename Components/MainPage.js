@@ -40,16 +40,16 @@ const MainPage = ({setShowLogin}) => {
                     <div className="menu-area">
                       <ul className="menu">
                         <li>
-                          <a href="/">Home</a>
+                          <a>Home</a>
                         </li>
                         <li>
                           <a href="javascript:void(0);">Yield Plans</a>
                           <ul className="submenu">
                             <li>
-                              <a href="/login">Yield Pro</a>
+                              <a onClick={()=>setShowLogin(true)}>Yield Pro</a>
                             </li>
                             <li>
-                              <a href="/login">Yield Pro Max</a>
+                              <a onClick={()=>setShowLogin(true)}>Yield Pro Max</a>
                             </li>
                           </ul>
                         </li>
