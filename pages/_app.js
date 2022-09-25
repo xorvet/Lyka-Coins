@@ -10,12 +10,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MainPage from "../Components/MainPage";
 // import app from "../public/js/app"
 // const MyApp = () =>
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const [shoWindow, setshoWindow] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
     setshoWindow(true);
@@ -53,9 +55,28 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
 
       {shoWindow ? (
+
+
         <>
+
+        {
+         
+
+
+          <>
           {!window.localStorage.getItem("user") ? (
+            showLogin ? 
+
             <Login />
+
+
+            :
+
+            <MainPage setShowLogin={setShowLogin}/>
+
+
+
+
           ) : (
             <>
               <div>
@@ -554,6 +575,34 @@ const MyApp = ({ Component, pageProps }) => {
             </>
           )}
         </>
+
+
+
+        
+
+          
+
+
+
+
+        }
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+        </>
+       
       ) : (
         <div></div>
       )}
