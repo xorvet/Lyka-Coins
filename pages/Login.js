@@ -116,15 +116,15 @@ const Login = () => {
                   />
                 </div>
 
-                {/* <div className="float-right mt-3">
+                <div className="float-right mt-3">
                   <div style={{ display: "flex", gap: 5 }}>
-                    <button
+                    {/* <button
                       onClick={() => setShowRegister(true)}
                       type="submit"
                       className="btn btn-light"
                     >
                       Create An Account
-                    </button>
+                    </button> */}
                     <button
                       onClick={handleSubmit}
                       type="submit"
@@ -133,18 +133,18 @@ const Login = () => {
                       Login
                     </button>
                   </div>
-                </div> */}
+                </div>
               </form>
-              <h6
+              {/* <h6
                 style={{ color: "#F8A12D", marginTop: 80, cursor: "pointer" }}
               >
                 Forgot Password?
-              </h6>
+              </h6> */}
             </div>
           </div>
 
 
-          
+
         </div>
       )}
     </>
