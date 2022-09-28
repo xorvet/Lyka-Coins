@@ -5,6 +5,7 @@ import Packages from "../Components/Home/Packages";
 import Plans from "../Components/Home/Plans";
 import ProfileData from "../Components/Home/ProfileData";
 import axios from "axios";
+import AdminUser from "./AdminUser";
 const Index = () => {
   const [status, setStatus] = useState("");
   useEffect(() => {
@@ -37,19 +38,20 @@ const Index = () => {
 
   return (
     <div className="p-3 pl-5" style={{marginTop:50}}>
-      <main >
+      {/* <main >
         <div className="analytics">
           <div className="analytics-side">
             <Intro />
             <Menu />
             {status == "Active" ? <Plans /> : <Packages getDatas={getData}  />}
-            {/* <ProfileData /> */}
+   
           </div>
         </div>
         <footer className="page-footer text-center d-none">
           2022 © All rights reserved. <a href="/Member">Lyka Coin</a>
         </footer>
-      </main>
+      </main> */}
+      <AdminUser/>
     </div>
   );
 };

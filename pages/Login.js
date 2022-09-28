@@ -34,12 +34,16 @@ const Login = () => {
         password,
       })
       .then((acc) => {
-        console.log(acc.data);
-        router.reload();
-        localStorage.setItem("user", JSON.stringify(acc.data._id));
-        localStorage.setItem("username", String(acc.data.Name));
-        localStorage.setItem("userType", String(acc.data.UserType));
-        localStorage.setItem("UserName", String(acc.data.UserName));
+      
+        if (acc.data.UserType == "AdminUser") {
+          console.log(acc.data);
+          router.reload();
+          localStorage.setItem("user", JSON.stringify(acc.data._id));
+          localStorage.setItem("username", String(acc.data.Name));
+          localStorage.setItem("userType", String(acc.data.UserType));
+          localStorage.setItem("UserName", String(acc.data.UserName));
+        }
+   
       })
       .catch((err) => {
         console.log(err.response.data.error);
@@ -112,7 +116,7 @@ const Login = () => {
                   />
                 </div>
 
-                <div className="float-right mt-3">
+                {/* <div className="float-right mt-3">
                   <div style={{ display: "flex", gap: 5 }}>
                     <button
                       onClick={() => setShowRegister(true)}
@@ -129,7 +133,7 @@ const Login = () => {
                       Login
                     </button>
                   </div>
-                </div>
+                </div> */}
               </form>
               <h6
                 style={{ color: "#F8A12D", marginTop: 80, cursor: "pointer" }}

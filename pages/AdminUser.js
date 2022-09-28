@@ -13,7 +13,7 @@ const AdminUser = () => {
       {Packages && <PackageList setPackages={setPackages} />}
       {fundManager && <AllFundAccounts  setFundManager={setFundManager}  />}
       {!Users && !Packages  && !fundManager && (
-        <div className="p-3 pl-5" style={{marginTop:50}}>
+        <div className=" pl-5" style={{marginTop:10}}>
           <main >
             <div className="analytics">
               <div className="analytics-side">

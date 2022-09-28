@@ -75,7 +75,7 @@ const PackageList = ({ setPackages }) => {
       {packageEdit && <EditPackages id={id} getDatas={getData} setPackageEdit={setPackageEdit} />}
 
       {!createPackage && !packageEdit && (
-        <div className="p-3 pl-5" style={{marginTop:50}}>
+        <div className="p-3 pl-5" style={{marginTop:10}}>
           <main >
             <svg
               style={{ cursor: "pointer" }}

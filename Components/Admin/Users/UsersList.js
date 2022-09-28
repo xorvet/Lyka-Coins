@@ -59,7 +59,7 @@ const UsersList = ({ setUsers }) => {
         <EditUsers getDatas={getData} setOpenEdit={setOpenEdit} id={id} />
       )}
       {!openEdit && (
-        <div className="p-3 pl-5" style={{marginTop:50}}>
+        <div className="p-3 pl-5" style={{marginTop:10}}>
           <main >
             <svg
               style={{ cursor: "pointer" }}
