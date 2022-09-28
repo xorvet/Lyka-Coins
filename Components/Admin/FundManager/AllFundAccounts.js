@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ManageFund from "./ManageFund";
 
+
 const AllFundAccounts = ({ setFundManager }) => {
   const [datas, setDatas] = useState("");
   const [editFund, setEditFund] = useState(false);
