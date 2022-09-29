@@ -118,7 +118,7 @@ const PackageList = ({ setPackages }) => {
               </div>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-5 table-responsive">
               <table
                 className="table table-bordered mb-0"
                 cellSpacing={0}

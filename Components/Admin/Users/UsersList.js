@@ -86,7 +86,7 @@ const UsersList = ({ setUsers }) => {
               {" > "} <span style={{ color: "#E7D478" }}>User's</span>{" "}
             </p>
 
-            <div className="mt-5">
+            <div className="table-responsive  mt-5">
               <table
                 className="table table-bordered mb-0"
                 cellSpacing={0}
