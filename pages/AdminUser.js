@@ -2,32 +2,55 @@ import React, { useState } from "react";
 import UsersList from "../Components/Admin/Users/UsersList";
 import PackageList from "../Components/Admin/Packages/PackageList";
 import AllFundAccounts from "../Components/Admin/FundManager/AllFundAccounts";
-import Settings from "../pages/Settings"
+import Settings from "../pages/Settings";
+import { useRouter } from "next/router";
+
 const AdminUser = () => {
+  const router = useRouter();
+
   const [Users, setUsers] = useState(false);
   const [Packages, setPackages] = useState(false);
   const [fundManager, setFundManager] = useState(false);
   const [openSetting, setOpenSetting] = useState(false);
-  
+
+
+  const handleLogout = () => {
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("user");
+      router.reload();
+    }
+  };
+
   return (
     <>
       {Users && <UsersList setUsers={setUsers} />}
       {Packages && <PackageList setPackages={setPackages} />}
-      {fundManager && <AllFundAccounts  setFundManager={setFundManager}  />}
-      {openSetting && <Settings  setOpenSetting={setOpenSetting}  />}
-      {!Users && !Packages  && !fundManager && !openSetting && (
-        <div className=" pl-1" style={{marginTop:10}}>
-          <main >
+      {fundManager && <AllFundAccounts setFundManager={setFundManager} />}
+      {openSetting && <Settings setOpenSetting={setOpenSetting} />}
+      {!Users && !Packages && !fundManager && !openSetting && (
+        <div className=" pl-1" style={{ marginTop: 10 }}>
+          <main>
             <div className="analytics">
               <div className="analytics-side">
                 <div
                   id="ctl00_divMsgMaster"
                   className="text-center text-danger mb-2"
                 />
-                <h3 className="page-title">
-                  Hey, <small>Admin</small>
-                </h3>
-                <small>Todays Analylics</small>
+
+                <div className="row">
+                  <div className="col">
+                    <h3 className="page-title">
+                      Hey, <small>Admin</small>
+                    </h3>
+                    <small>Todays Analylics</small>
+                  </div>
+                  <div className="col">
+                  <div style={{textAlign:"right",marginRight:30}}>
+                    <button onClick={handleLogout} className="btn btn-primary">Log Out</button>
+                  </div>
+                  </div>
+                </div>
+
                 <div className="row" style={{ marginTop: 20 }}>
                   <div
                     onClick={() => setUsers(true)}
@@ -41,7 +64,7 @@ const AdminUser = () => {
                             className="d-flex align-items-center pb-1"
                             style={{ fontSize: 16 }}
                           >
-                           Users
+                            Users
                           </h4>
                         </header>
                         <div className="widget-body p-0">
@@ -123,7 +146,7 @@ const AdminUser = () => {
                   </div> */}
 
                   <div
-                   onClick={()=>setOpenSetting(true)}
+                    onClick={() => setOpenSetting(true)}
                     style={{ cursor: "pointer" }}
                     className="col-sm-12 col-lg-3 mb-lg order-0 order-md-2"
                   >

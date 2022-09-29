@@ -9,6 +9,7 @@ const Settings = ({setOpenSetting}) => {
   const [referalData, setReferalData] = useState("");
   const [realLykaValue, setRealLykaValue] = useState("");
   const [apiValue, setApiValue] = useState("");
+  const [lykaDynamicValue, setLykaDynamicValue] = useState("");
 
   useEffect(() => {
     getData();
@@ -22,6 +23,7 @@ const Settings = ({setOpenSetting}) => {
           console.log(acc.data);
           setLykaData(acc.data);
           setLyka(acc.data.value);
+         
         })
         .catch((err) => {
           console.log(err);
@@ -53,6 +55,7 @@ const Settings = ({setOpenSetting}) => {
         .then((acc) => {
           console.log(acc.data.data.price);
           setApiValue(acc.data.data.price);
+          setLykaDynamicValue(acc.data.data.price)
           
           
         })
@@ -148,7 +151,7 @@ const Settings = ({setOpenSetting}) => {
 
         <div className="row mt-5">
           <div className="col-sm-6">
-            <label>1 USD = {lykaData.value ? lykaData.value : "?"} Lyka</label>
+            <label>1 USD = {realLykaValue == "Automated" ?  lykaDynamicValue  :   lykaData.value ? lykaData.value : "?"} Lyka</label>
             <div style={{ display: "flex", gap: 5 }}>
               <input
                 defaultValue={lykaData.value}
