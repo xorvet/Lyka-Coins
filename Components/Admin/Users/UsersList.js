@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditUsers from "./EditUser";
 
-
 const UsersList = ({ setUsers }) => {
   const [datas, setDatas] = useState("");
   const [openEdit, setOpenEdit] = useState(false);
@@ -17,7 +16,7 @@ const UsersList = ({ setUsers }) => {
       axios
         .get("/api/Admin/UserData")
         .then((acc) => {
-          // console.log(acc.data);
+          console.log(acc.data);
           setDatas(acc.data);
         })
         .catch((err) => {
@@ -53,14 +52,50 @@ const UsersList = ({ setUsers }) => {
       });
   };
 
+  const handleUnblock = (id) => {
+    try {
+      axios
+        .post("/api/BlockUnblock/Unblock", {
+          id: id,
+        })
+        .then((acc) => {
+          console.log(acc.data);
+          getData();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const Block = (id) => {
+    try {
+      axios
+        .post("/api/BlockUnblock/Block", {
+          id: id,
+        })
+        .then((acc) => {
+          console.log(acc.data);
+          getData();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       {openEdit && (
         <EditUsers getDatas={getData} setOpenEdit={setOpenEdit} id={id} />
       )}
       {!openEdit && (
-        <div className="p-3 pl-5" style={{marginTop:10}}>
-          <main >
+        <div className="p-3 pl-5" style={{ marginTop: 10 }}>
+          <main>
             <svg
               style={{ cursor: "pointer" }}
               onClick={() => setUsers(false)}
@@ -115,15 +150,26 @@ const UsersList = ({ setUsers }) => {
                           <td>{hit.Name}</td>
                           <td>{hit.Email}</td>
                           <td>{hit.Mobile_Number}</td>
-                          <td>Active</td>
-                          <td className="text-center">
-                            <button
-                              onClick={() => handleEdit(hit._id)}
-                              className="btn btn-primary"
-                            >
-                              EDIT
-                            </button>
-                          </td>
+                          <td>{hit.Status}</td>
+                          {hit.Status == "blocked" ? (
+                            <td className="text-center">
+                              <button
+                                onClick={() => handleUnblock(hit._id)}
+                                className="btn btn-success"
+                              >
+                                Unblock
+                              </button>
+                            </td>
+                          ) : (
+                            <td className="text-center">
+                              <button
+                                onClick={() => Block(hit._id)}
+                                className="btn btn-danger"
+                              >
+                                Block
+                              </button>
+                            </td>
+                          )}
                           <td className="text-center">
                             <svg
                               style={{ cursor: "pointer" }}
