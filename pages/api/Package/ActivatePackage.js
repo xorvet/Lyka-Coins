@@ -96,8 +96,13 @@ const ActivatePackage = async (req, res) => {
         Owner: findreferedUser._id,
         ReferalName: finUse.Email,
         PackageName: PackageName,
-        Coins: NowReward,
-        Date: todayw,
+        Coins: NowReward, 
+        Date: today,
+        ReferalFromUserId:userdw.UserName,
+        ReferalToUserId:findreferedUser.UserName,
+        ReferalFromUserName:userdw.Name,
+        ReferalToUserName:findreferedUser.Name,
+        DepositedInPackage:AmountDeposit
       }).save();
     }
   }

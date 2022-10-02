@@ -17,10 +17,32 @@ const ReferalHistory = mongoose.Schema({
     Coins:{
         type:String,
         required:true
-    }
+    },
+    ReferalFromUserId:{
+        type:String,
+        required:true
+    },
+    ReferalToUserId:{
+        type:String,
+        required:true
+    },
+    ReferalFromUserName:{
+        type:String,
+        required:true
+    },
+    
+    ReferalToUserName:{
+        type:String,
+        required:true
+    },
+    DepositedInPackage:{
+        type:String,
+        required:true
+    },
+
 
 },
 {
   timestamps: true,
 })
-export default mongoose.models.ReferalHistory ||  mongoose.model("ReferalHistory", ReferalHistory);
+export default mongoose.models.ReferalHis ||  mongoose.model("ReferalHis", ReferalHistory);
