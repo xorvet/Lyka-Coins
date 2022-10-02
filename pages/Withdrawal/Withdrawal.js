@@ -6,7 +6,6 @@ import ABI from "../../Web3Resources/ABI.js";
 import "react-toastify/dist/ReactToastify.css";
 import Web3 from "web3";
 import WithdrawalHistory from "./WithdrawalHistory";
-
 const Withdrawal = () => {
   const [identifier, setIdentifier] = useState("");
   const [datas, setDatas] = useState("");
@@ -15,9 +14,61 @@ const Withdrawal = () => {
   const [HashCode, setHashCode] = useState("");
   const [min, setMin] = useState("");
   const [max, setMax] = useState("");
+  const [lkvalue, setLkvalue] = useState("");
+  const [chargesPercantage, setChargesPercantage] = useState("");
 
   useEffect(() => {
+
+
+
     getData();
+
+
+
+    try {
+      axios
+        .get("/api/DynamicValue/WithdrwawalPercantage")
+        .then((acc) => {
+          console.log(acc.data);
+          setChargesPercantage(acc.data.WithdrawalPercantage);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+
+    try {
+      axios
+        .get("/api/LykaValue")
+        .then((acc) => {
+          console.log(acc.data);
+
+          if (acc.data.current == "Manual") {
+            setLkvalue(acc.data.value);
+          } else if (acc.data.current == "Automated") {
+            axios
+              .get(
+                "https://api.pancakeswap.info/api/v2/tokens/0x26844ffd91648e8274598e6e18921a3e5dc14ade"
+              )
+              .then((acc) => {
+                console.log(acc.data.data.price);
+                setLkvalue(acc.data.data.price);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+
+    
   }, []);
 
   const getData = () => {
@@ -81,8 +132,24 @@ const Withdrawal = () => {
           const contract = new web3.eth.Contract(ABI, tokenAddress, {
             from: fromAddress,
           });
-          let finalMOve = identifier*5
-          let amount = web3.utils.toHex(web3.utils.toWei(String(finalMOve)));  // <======= Here 
+
+          var letsCal = Number(identifier) * Number(chargesPercantage) / 100
+
+          var afterCal =  Number(identifier) -  letsCal
+
+
+          var lykaCurrent = afterCal * Number(lkvalue)
+
+
+
+
+
+
+
+
+
+          // let finalMOve = identifier * Number(lkvalue); // <======< problem fixed
+          let amount = web3.utils.toHex(web3.utils.toWei(String(lykaCurrent))); // <======= Here
           let data = contract.methods
             .transfer(datas.WalleteAddress, amount)
             .encodeABI();
@@ -163,7 +230,7 @@ const Withdrawal = () => {
 
   return (
     <>
-      <div style={{ marginTop: 100,paddingLeft:80 }}>
+      <div style={{ marginTop: 100, paddingLeft: 80 }}>
         <main>
           <h4 className="mb-3 ">Withdraw Your Coins</h4>
 
@@ -190,7 +257,7 @@ const Withdrawal = () => {
                 <span style={{ color: "#CDBD6E" }}>
                   {datas.Wallete.toFixed(4)} USDT
                 </span>{" "}
-                In Your Wallet 
+                In Your Wallet
               </h2>
               {/* <h5 className="mt-3">withdraw them now</h5> */}
 
