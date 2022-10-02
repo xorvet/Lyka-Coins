@@ -27,7 +27,7 @@ const RewardHistory = () => {
   }, []);
 
   return (
-    <div style={{marginTop:100,marginLeft:40}}>
+    <div style={{marginTop:100,paddingLeft:80 }}>
       <main >
         <h4 className="mb-3 ">Your Reward History</h4>
 

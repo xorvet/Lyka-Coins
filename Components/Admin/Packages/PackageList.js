@@ -75,7 +75,7 @@ const PackageList = ({ setPackages }) => {
       {packageEdit && <EditPackages id={id} getDatas={getData} setPackageEdit={setPackageEdit} />}
 
       {!createPackage && !packageEdit && (
-        <div className="p-3 pl-5" style={{marginTop:10}}>
+        <div className="p-3 pl-5" style={{marginTop:50}}>
           <main >
             <svg
               style={{ cursor: "pointer" }}
@@ -118,7 +118,7 @@ const PackageList = ({ setPackages }) => {
               </div>
             </div>
 
-            <div className="mt-5 table-responsive">
+            <div className="mt-5">
               <table
                 className="table table-bordered mb-0"
                 cellSpacing={0}

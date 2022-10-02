@@ -56,6 +56,9 @@ for (let i = 0; i < list.length; i++) {
     RewardCoin: fin,
     RewardTime: time,
     RewardPercentage: percentageOfReward,
+    UserId:userData.UserName,
+    UserName:userData.Name,
+    UserEmail:userData.Email
   }).save();
 }
 res.json("done")

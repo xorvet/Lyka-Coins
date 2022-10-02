@@ -58,6 +58,10 @@ const User = mongoose.Schema(
       type: "String",
       default: "null",
     },
+    Date: {
+      type: "String",
+      default: "null",
+    },
   },
   {
     timestamps: true,

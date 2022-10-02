@@ -105,7 +105,7 @@ const Profile = () => {
   };
 
   return (
-    <div style={{marginTop:100,marginLeft:40}}>
+    <div className="minecss" style={{marginTop:100 }}>
       {data ? (
         <main >
           <h4 className="mb-3">Profile</h4>
@@ -224,12 +224,12 @@ const Profile = () => {
           <div className="container">
           <div style={{display:"flex",gap:10,justifyContent:"center"}}>
 
-            <a target="__blank" href={`https://lyka-coins.vercel.app?spoID=${data.UserName}`}><p className="text-center mt-4" style={{color:"#0CDCE5"}}>https://lyka-coins.vercel.app?spoID={data.UserName}</p></a>
+            <a target="__blank" href={`https://www.lykayield.com?spoID=${data.UserName}`}><p className="text-center mt-4" style={{color:"#0CDCE5"}}>https://lyka-coins.vercel.app?spoID={data.UserName}</p></a>
 
 
 
             <div>
-<CopyToClipboard onCopy={handleCopy} text={`https://lyka-coins.vercel.app?spoID=${data ? data.UserName : "00000"}`} >
+<CopyToClipboard onCopy={handleCopy} text={`https://www.lykayield.com?spoID=${data ? data.UserName : "00000"}`} >
 
         <button className="btn btn-primary mt-3">Copy</button>
 </CopyToClipboard>

@@ -46,6 +46,22 @@ const PackageHistory = mongoose.Schema(
       type: "String",
       default: "null",
     },
+    Date: {
+      type: "String",
+      default: "null",
+    },
+    UserId: {
+      type: "String",
+      default: "null",
+    },
+    UserName: {
+      type: "String",
+      default: "null",
+    },
+    Email: {
+      type: "String",
+      default: "null",
+    },
   },
   {
     timestamps: true,

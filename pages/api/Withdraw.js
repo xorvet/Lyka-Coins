@@ -6,8 +6,15 @@ import PLWallete from "../../Modal/Admin/PLWallete";
 import WithdrawalPercantage from "../../Modal/DynamicValue/WithdrawalPercantage";
 
 initDB();
+
 export default async (req, res) => {
-  const { coins, userId ,Hash} = req.body;
+  const { coins, userId, Hash } = req.body;
+
+  var todayw = new Date();
+  var dd = String(todayw.getDate()).padStart(2, "0");
+  var mm = String(todayw.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = todayw.getFullYear();
+  todayw = yyyy + "-" + mm + "-" + dd;
   // console.log(Hash)
 
   const findUserData = await User.findById(userId); // user details
@@ -19,26 +26,16 @@ export default async (req, res) => {
       .status(504)
       .json({ error: "Your Have Not Entered Your Wallate Address Yet" });
   }
-  const newval = await LykaValue.findOne()
+  const newval = await LykaValue.findOne();
 
-  var letvalue = Number(coins) * Number(newval.value)
+  var letvalue = Number(coins) * Number(newval.value);
 
   const removedValue = Number(userWallate) - Number(coins);
 
-
   const val = await WithdrawalPercantage.findOne();
 
-
-  const AdminUserCoins = (Number(coins) * Number(val.WithdrawalPercantage)) / 100;
-
-
-
-
-
-
-
-
-
+  const AdminUserCoins =
+    (Number(coins) * Number(val.WithdrawalPercantage)) / 100;
 
   // const findAdminUser = await User.findOne({ UserType: "AdminUser" });
 
@@ -49,21 +46,12 @@ export default async (req, res) => {
   //   { Wallete: Number(adminUserWallete) + Number(AdminUserCoins) }
   // );
 
-
-
-
   await PLWallete({
-
-    User:findUserData._id,
-    WithdrawAmount:letvalue,
-    PercantageGot:`${val.WithdrawalPercantage}%`,
-    AmountGot:AdminUserCoins,
-
-  }).save()
-
-
-
-
+    User: findUserData._id,
+    WithdrawAmount: letvalue,
+    PercantageGot: `${val.WithdrawalPercantage}%`,
+    AmountGot: AdminUserCoins,
+  }).save();
 
   const userTotalCoins = Number(removedValue) - Number(AdminUserCoins);
 
@@ -72,11 +60,18 @@ export default async (req, res) => {
   // create history
 
   const WithdrawHistory = await new WithdrawalHistory({
-    UserId:userId,
-    DeductedCoins:letvalue,
-    Wallete:userWallateAddress,
-    DeductedValue:coins,
-    Hash:Hash
+    UserId: userId,
+    DeductedCoins: letvalue,
+    Wallete: userWallateAddress,
+    DeductedValue: coins,
+    Hash: Hash,
+    Date: todayw,
+    MemberId: findUserData.UserName,
+    MemberName: findUserData.Name,
+    AmountUSDT: letvalue,
+    Charges: `${val.WithdrawalPercantage}%`,
+    PayableUSDT: coins,
+    PayableLyka: userTotalCoins,
   }).save();
 
   res.status(200).json({ success: "wallate updated" });

@@ -31,7 +31,7 @@ const TransactionHistory = () => {
   };
 
   return (
-    <div style={{marginTop:100,marginLeft:40}}>
+    <div className="minecss" style={{marginTop:100}}>
       <main >
         <h4 className="mb-3 mt-3">Transaction History</h4>
 

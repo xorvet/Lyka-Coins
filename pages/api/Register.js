@@ -60,7 +60,11 @@ export default async (req, res) => {
   const generatedUserName = randValue;
 
 
-
+  var today = new Date()
+  var dd = String(today.getDate()).padStart(2, '0')
+  var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+  var yyyy = today.getFullYear()
+  today = yyyy + '-' + mm + '-' + dd
 
 
 
@@ -90,7 +94,8 @@ if (referalCode) {
     Country,
     Mobile_Number,
     Password: hashedPassowd,
-    ReferedFrom:checkReferalUser._id
+    ReferedFrom:checkReferalUser._id,
+    Date:today
   }).save();
 }
 else{
@@ -102,7 +107,8 @@ else{
     Email,
     Country,
     Mobile_Number,
-    Password: hashedPassowd
+    Password: hashedPassowd,
+    Date:today
   }).save();
   
 }

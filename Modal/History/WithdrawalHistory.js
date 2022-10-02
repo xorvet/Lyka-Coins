@@ -22,6 +22,34 @@ const WithdrawalHistory = mongoose.Schema(
       type: "String",
       default: "null",
     },
+    Date: {
+      type: "String",
+      default: "null",
+    },
+    MemberId: {
+      type: "String",
+      default: "null",
+    },
+    MemberName: {
+      type: "String",
+      default: "null",
+    },
+    AmountUSDT: {
+      type: "String",
+      default: "null",
+    },
+    Charges: {
+      type: "String",
+      default: "null",
+    },
+    PayableUSDT: {
+      type: "String",
+      default: "null",
+    },
+    PayableLyka: {
+      type: "String",
+      default: "null",
+    }
   },
   {
     timestamps: true,
@@ -30,4 +58,4 @@ const WithdrawalHistory = mongoose.Schema(
 
 
 
-export default mongoose.models.WithdrawalH || mongoose.model("WithdrawalH", WithdrawalHistory);
+export default mongoose.models.Withd || mongoose.model("Withd", WithdrawalHistory);

@@ -88,7 +88,7 @@ const ReferalSystem = () => {
   }
 
   return (
-    <div style={{ marginTop: 100, marginLeft: 40 }}>
+    <div className="minecss" style={{ marginTop: 100 }}>
       <main>
         <h4 className="mb-3 ">Refer & Earn</h4>
 
@@ -99,10 +99,10 @@ const ReferalSystem = () => {
 <div style={{display:"flex",justifyContent:"center",gap:20}}>
 
         <h3 className="text-center mt-3">
-          https://lyka-coins.vercel.app?spoID={data ? data.UserName : "00000"}
+          https://www.lykayield.com?spoID={data ? data.UserName : "00000"}
         </h3>
         <div>
-<CopyToClipboard onCopy={handleCopy} text={`https://lyka-coins.vercel.app?spoID=${data ? data.UserName : "00000"}`} >
+<CopyToClipboard onCopy={handleCopy} text={`https://www.lykayield.com?spoID=${data ? data.UserName : "00000"}`} >
 
         <button className="btn btn-primary mt-3">Copy</button>
 </CopyToClipboard>

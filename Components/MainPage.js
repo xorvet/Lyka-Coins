@@ -59,7 +59,7 @@ const MainPage = ({setShowLogin}) => {
                           </a>
                         </li>
                       </ul>
-                      <a onClick={()=>setShowLogin(true)} className="wallet-btn" >
+                      <a href="https://wallpaperaccess.com/full/2588754.jpg" className="wallet-btn" >
                         <span>Login / Register</span>{" "}
                         <i className="fa-solid fa-wallet" />
                       </a>
@@ -217,7 +217,7 @@ const MainPage = ({setShowLogin}) => {
                                         Maximum Yield
                                       </p>
                                       <p className="project__infolist-data">
-                                        6000$
+                                        60000$
                                       </p>
                                     </li>
                                   </ul>
@@ -292,7 +292,7 @@ const MainPage = ({setShowLogin}) => {
                                         Maximum Yield
                                       </p>
                                       <p className="project__infolist-data">
-                                        6000$
+                                        60000$
                                       </p>
                                     </li>
                                   </ul>
@@ -472,7 +472,7 @@ const MainPage = ({setShowLogin}) => {
             <div className="footer__copyright">
               <div className="container">
                 <div className="text-center py-4">
-                  <p className=" mb-0">
+                  <p onClick={()=>setShowLogin(true)} className=" mb-0">
                     Lyka Yield © 2022 | All Rights Reserved{" "}
                   </p>
                 </div>

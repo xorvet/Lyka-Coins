@@ -40,7 +40,7 @@ const WithdrawalHistory = ({dontShow}) => {
 
 
   return (
-    <div style={{marginTop:dontShow?0:100,marginLeft:40}}>
+    <div style={{marginTop:dontShow?0:100,paddingLeft:80 }}>
       <main >
       {
         dontShow ?

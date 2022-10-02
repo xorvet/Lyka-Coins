@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ManageFund from "./ManageFund";
 
-
 const AllFundAccounts = ({ setFundManager }) => {
   const [datas, setDatas] = useState("");
   const [editFund, setEditFund] = useState(false);
@@ -54,7 +53,7 @@ const AllFundAccounts = ({ setFundManager }) => {
         !editFund && 
 
 
-    <div className="p-3 pl-5" style={{marginTop:10}}>
+    <div className="p-3 pl-5" style={{marginTop:50}}>
       <main >
         <svg
           style={{ cursor: "pointer" }}

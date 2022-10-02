@@ -23,10 +23,25 @@
 
 
 
+@media only screen and (min-width: 480px) {
+ 
+  .minecss{
+    padding-left: 80px;
+  }
+  
+  
+  
+  
+  
+  }
+
+
 
 @media only screen and (max-width: 600px) {
  
-
+.minecss{
+ 
+}
 
 
 

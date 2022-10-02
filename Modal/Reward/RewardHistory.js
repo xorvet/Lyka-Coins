@@ -26,6 +26,18 @@ const RewardHistory = mongoose.Schema(
       required: true,
       type: "String",
     },
+    UserId: {
+      required: true,
+      type: "String",
+    },
+    UserName: {
+      required: true,
+      type: "String",
+    },
+    UserEmail: {
+      required: true,
+      type: "String",
+    }
   },
   {
     timestamps: true,

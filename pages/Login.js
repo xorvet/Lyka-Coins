@@ -34,16 +34,12 @@ const Login = () => {
         password,
       })
       .then((acc) => {
-      
-        if (acc.data.UserType == "AdminUser") {
-          console.log(acc.data);
-          router.reload();
-          localStorage.setItem("user", JSON.stringify(acc.data._id));
-          localStorage.setItem("username", String(acc.data.Name));
-          localStorage.setItem("userType", String(acc.data.UserType));
-          localStorage.setItem("UserName", String(acc.data.UserName));
-        }
-   
+        console.log(acc.data);
+        router.reload();
+        localStorage.setItem("user", JSON.stringify(acc.data._id));
+        localStorage.setItem("username", String(acc.data.Name));
+        localStorage.setItem("userType", String(acc.data.UserType));
+        localStorage.setItem("UserName", String(acc.data.UserName));
       })
       .catch((err) => {
         console.log(err.response.data.error);
@@ -118,13 +114,13 @@ const Login = () => {
 
                 <div className="float-right mt-3">
                   <div style={{ display: "flex", gap: 5 }}>
-                    {/* <button
+                    <button
                       onClick={() => setShowRegister(true)}
                       type="submit"
                       className="btn btn-light"
                     >
                       Create An Account
-                    </button> */}
+                    </button>
                     <button
                       onClick={handleSubmit}
                       type="submit"
@@ -135,16 +131,13 @@ const Login = () => {
                   </div>
                 </div>
               </form>
-              {/* <h6
+              <h6
                 style={{ color: "#F8A12D", marginTop: 80, cursor: "pointer" }}
               >
                 Forgot Password?
-              </h6> */}
+              </h6>
             </div>
           </div>
-
-
-
         </div>
       )}
     </>

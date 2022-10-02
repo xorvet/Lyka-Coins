@@ -27,7 +27,7 @@ const DipositHistory = () => {
   }, []);
 
   return (
-    <div className="p-3 pl-5" style={{marginTop:50}}>
+    <div className="minecss"  style={{marginTop:50 }}>
       <main >
         <h4 className="mb-3">Deposit History</h4>
 
