@@ -1,5 +1,5 @@
-import initDB from '../../../helper/initDb'
-import Mail from '../../../helper/Modal/MailSupport/Mail'
+import initDB from '../../../helper/initDB'
+import Mail from '../../../Modal/MailSupport/Mail'
 
 initDB()
 

@@ -1,4 +1,4 @@
-import initDB from '../../../helper/initDb'
+import initDB from '../../../helper/initDB'
 import Mail from '../../../Modal/MailSupport/Mail'
 import { v4 } from "uuid";
 
