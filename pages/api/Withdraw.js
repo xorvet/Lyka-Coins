@@ -34,17 +34,18 @@ export default async (req, res) => {
 
   const val = await WithdrawalPercantage.findOne();
 
-  const AdminUserCoins =
-    (Number(coins) * Number(val.WithdrawalPercantage)) / 100;
+  const AdminUserCoins = (Number(coins) * Number(val.WithdrawalPercantage)) / 100;
 
-  // const findAdminUser = await User.findOne({ UserType: "AdminUser" });
+  const payable = Number(coins) - Number(AdminUserCoins)
 
-  // const adminUserWallete = findAdminUser.Wallete;
+  const payableLykas =    Number(payable) * Number(newval.value)
 
-  // await User.findByIdAndUpdate(
-  //   { _id: findAdminUser._id },
-  //   { Wallete: Number(adminUserWallete) + Number(AdminUserCoins) }
-  // );
+
+
+
+
+
+
 
   await PLWallete({
     User: findUserData._id,
@@ -57,7 +58,7 @@ export default async (req, res) => {
 
   await User.findByIdAndUpdate({ _id: userId }, { Wallete: userTotalCoins });
 
-  // create history
+
 
   const WithdrawHistory = await new WithdrawalHistory({
     UserId: userId,
@@ -68,10 +69,10 @@ export default async (req, res) => {
     Date: todayw,
     MemberId: findUserData.UserName,
     MemberName: findUserData.Name,
-    AmountUSDT: letvalue,
+    AmountUSDT: coins,
     Charges: `${val.WithdrawalPercantage}%`,
-    PayableUSDT: coins,
-    PayableLyka: userTotalCoins,
+    PayableUSDT: payable,
+    PayableLyka: payableLykas,
   }).save();
 
   res.status(200).json({ success: "wallate updated" });
