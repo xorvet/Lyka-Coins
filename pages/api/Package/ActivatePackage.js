@@ -1,5 +1,6 @@
 import initDB from "../../../helper/initDB";
 import User from "../../../Modal/User";
+import PackageIncomeReport from "../../../Modal/RapidData/PackageIncomeReport";
 import Packages from "../../../Modal/Packages";
 import PurchasedPackages from "../../../Modal/PurchasedPackages";
 import PackageHistory from "../../../Modal/History/PackageHistory";
@@ -28,7 +29,7 @@ const ActivatePackage = async (req, res) => {
     Hash,
   } = req.body;
 
-  const userdw = await User.findById(userID)
+  const userdw = await User.findById(userID);
 
   var tod = new Date();
   var dd = String(tod.getDate()).padStart(2, "0");
@@ -96,13 +97,13 @@ const ActivatePackage = async (req, res) => {
         Owner: findreferedUser._id,
         ReferalName: finUse.Email,
         PackageName: PackageName,
-        Coins: NowReward, 
+        Coins: NowReward,
         Date: today,
-        ReferalFromUserId:userdw.UserName,
-        ReferalToUserId:findreferedUser.UserName,
-        ReferalFromUserName:userdw.Name,
-        ReferalToUserName:findreferedUser.Name,
-        DepositedInPackage:AmountDeposit
+        ReferalFromUserId: userdw.UserName,
+        ReferalToUserId: findreferedUser.UserName,
+        ReferalFromUserName: userdw.Name,
+        ReferalToUserName: findreferedUser.Name,
+        DepositedInPackage: AmountDeposit,
       }).save();
     }
   }
@@ -119,10 +120,31 @@ const ActivatePackage = async (req, res) => {
     ExpiryDate: date,
     NextDailyRewardOn: time,
     Hash: Hash,
-    UserId:userdw.UserName,
-    UserName:userdw.Name,
-    Email:userdw.Email
+    UserId: userdw.UserName,
+    UserName: userdw.Name,
+    Email: userdw.Email,
   }).save();
+
+  const PackageReport = await PackageIncomeReport.find({
+    PackageName: PackageName,
+  });
+
+  if (PackageReport.length !== 0) {
+    var packageOldPrice = PackageReport[0].PackageAmount;
+
+    var addnew =
+      Number(AmountDeposit.replace("$", "")) + Number(packageOldPrice);
+
+    await PackageIncomeReport.findByIdAndUpdate(
+      { _id: PackageReport[0]._id },
+      { PackageAmount: addnew }
+    );
+  } else {
+    var createnew = await PackageIncomeReport({
+      PackageName: PackageName,
+      PackageAmount: AmountDeposit.replace("$", ""),
+    }).save();
+  }
 
   res.json(CreateNewPurchaseOrder);
 };
