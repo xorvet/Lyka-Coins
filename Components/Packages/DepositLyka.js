@@ -68,10 +68,7 @@ const DepositLyka = ({
         .request({ method: "eth_requestAccounts" })
         .then(async (accounts) => {
           const web3 = new Web3(window.ethereum);
-          const contract = new web3.eth.Contract(
-            ABI,
-            "0xB1E019D89b46c782232048c6CCe5ba0396F1bA67"
-          );
+          const contract = new web3.eth.Contract(ABI,"0x26844ffd91648e8274598e6e18921a3e5dc14ade");
           let amount = web3.utils.toWei(
             (inputValue * Number(referal)).toString()
           );

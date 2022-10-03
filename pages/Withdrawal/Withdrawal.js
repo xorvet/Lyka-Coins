@@ -18,13 +18,7 @@ const Withdrawal = () => {
   const [chargesPercantage, setChargesPercantage] = useState("");
 
   useEffect(() => {
-
-
-
     getData();
-
-
-
     try {
       axios
         .get("/api/DynamicValue/WithdrwawalPercantage")
@@ -124,29 +118,17 @@ const Withdrawal = () => {
         .request({ method: "eth_requestAccounts" })
         .then(async (accounts) => {
           setMessage("");
-          const privateKey =
-            "a0eb7c28c883375a9f4e41f74d74fb98cbd2d0a5e6d520f566522dce39f72319";
+          const privateKey = "a0eb7c28c883375a9f4e41f74d74fb98cbd2d0a5e6d520f566522dce39f72319";
           const web3 = new Web3(window.ethereum);
-          const tokenAddress = "0xB1E019D89b46c782232048c6CCe5ba0396F1bA67";
+          const tokenAddress = "0x26844ffd91648e8274598e6e18921a3e5dc14ade";
           const fromAddress = "0x746816E08e1E3F66dc014Efc02815C9A3B36b511";
           const contract = new web3.eth.Contract(ABI, tokenAddress, {
             from: fromAddress,
           });
 
           var letsCal = Number(identifier) * Number(chargesPercantage) / 100
-
           var afterCal =  Number(identifier) -  letsCal
-
-
           var lykaCurrent = afterCal * Number(lkvalue)
-
-
-
-
-
-
-
-
 
           // let finalMOve = identifier * Number(lkvalue); // <======< problem fixed
           let amount = web3.utils.toHex(web3.utils.toWei(String(lykaCurrent))); // <======= Here
